@@ -97,6 +97,7 @@
       formatter = forAllSystems (system: nixpkgs.legacyPackages.${system}.nixfmt-tree);
       nixosConfigurations = {
         Default = mkHost "Default";
+        nixwork = mkHost "nixwork";
       };
     };
 }
