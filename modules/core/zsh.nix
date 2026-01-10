@@ -25,10 +25,10 @@
   
 
           initContent = ''
-            # Starship Prompt
-            if command -v starship &>/dev/null; then
-              eval "$(starship init zsh)"
-            fi
+            # # Starship Prompt
+            # if command -v starship &>/dev/null; then
+            #   eval "$(starship init zsh)"
+            # fi
 
             # Direnv Hook
             if command -v direnv &>/dev/null; then

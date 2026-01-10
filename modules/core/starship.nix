@@ -3,7 +3,7 @@
   home-manager.sharedModules = [
     (_: {
       programs.starship = {
-        enable = false;
+        enable = true;
         settings = {
           add_newline = false;
           scan_timeout = 10;
