@@ -1,8 +1,12 @@
 { ... }:
 {
   imports = [
+    ./bash.nix
     ./boot.nix
+    ./dns.nix
+    # ./flatpak.nix
     ./fonts.nix
+    # ./games.nix
     ./hardware.nix
     ./network.nix
     ./nh.nix
@@ -10,13 +14,13 @@
     ./printing.nix
     ./sddm.nix
     ./security.nix
-    ./dns.nix
     ./services.nix
     ./ssh.nix
-    # ./syncthing.nix
+    ./starship.nix
+    ./syncthing.nix
     ./system.nix
     ./users.nix
-    # ./flatpak.nix
     # ./virtualisation.nix
+    ./zsh.nix
   ];
 }
