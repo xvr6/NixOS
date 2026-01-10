@@ -1,8 +1,5 @@
-{
-  inputs,
-  pkgs,
-  ...
-}:
+{ inputs, pkgs, ... }:
+
 {
   home-manager.sharedModules = [
     (_: {

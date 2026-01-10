@@ -10,20 +10,8 @@
           url = "https://www.youtube.com";
         }
         {
-          name = "Twitch";
-          url = "https://www.twitch.tv";
-        }
-        {
-          name = "Netflix";
-          url = "https://www.netflix.com";
-        }
-        {
           name = "Github";
           url = "https://github.com/";
-        }
-        {
-          name = "ChatGPT";
-          url = "https://chatgpt.com/";
         }
         {
           name = "Physics";

@@ -1,11 +1,5 @@
-{
-  self,
-  inputs,
-  host,
-  pkgs,
-  overlays,
-  ...
-}:
+{ self, inputs, host, pkgs, overlays, ... }:
+
 let
   inherit (import ../../hosts/${host}/variables.nix)
     consoleKeymap
@@ -56,17 +50,21 @@ in
         # "nixpkgs-wayland.cachix.org-1:3lwxaILxMRkVhehr5StQprHdEo4IrE8sRho9R9HOLYA="
         # "devenv.cachix.org-1:w1cLUi8dv3hnoSPGAuibQv+f9TZLr6cv/Hm9XgU50cw="
       ];
+
       experimental-features = [
         "nix-command"
         "flakes"
       ];
+
       use-xdg-base-directories = false;
       warn-dirty = false;
       keep-outputs = true;
       keep-derivations = true;
     };
+
     optimise.automatic = true;
   };
+
   time.timeZone = "${timezone}";
   i18n.defaultLocale = "${locale}";
   i18n.extraLocaleSettings = {
@@ -101,5 +99,5 @@ in
       # allowUnfreePredicate = _: true;
     };
   };
-  system.stateVersion = "23.11"; # Do not change!
+  system.stateVersion = "25.11"; # Do not change!
 }

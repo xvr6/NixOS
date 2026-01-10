@@ -12,9 +12,8 @@
     ./security.nix
     ./dns.nix
     ./services.nix
-    # ./games.nix
-    # ./dlna.nix
-    ./syncthing.nix
+    ./ssh.nix
+    # ./syncthing.nix
     ./system.nix
     ./users.nix
     # ./flatpak.nix

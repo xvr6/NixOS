@@ -6,7 +6,7 @@
 
   # Theme & Appearance
   waybarTheme = "minimal"; # stylish, minimal
-  sddmTheme = "astronaut"; # astronaut, black_hole, purple_leaves, jake_the_dog, hyprland_kath
+  sddmTheme = "black_hole"; # astronaut, black_hole, purple_leaves, jake_the_dog, hyprland_kath
   defaultWallpaper = "train-sideview.webp"; # Change with SUPER + SHIFT + W
   hyprlockWallpaper = "train-sideview.webp";
 
@@ -23,10 +23,10 @@
   videoDriver = "amdgpu"; # nvidia, amdgpu, intel
 
   # Localization
-  timezone = "Europe/London";
-  locale = "en_GB.UTF-8";
+  timezone = "America/New_York";
+  locale = "en_US.UTF-8";
   clock24h = true;
-  kbdLayout = "gb";
+  kbdLayout = "us";
   kbdVariant = "extd";
-  consoleKeymap = "uk";
+  consoleKeymap = "us";
 }

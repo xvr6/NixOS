@@ -3,6 +3,11 @@ let
   inherit (import ../../hosts/${host}/variables.nix) hostname;
 in
 {
+  environment.systemPackages = with pkgs; [
+    networkmanagerapplet
+    iproute2
+  ];
+  
   networking = {
     hostName = "${hostname}";
     networkmanager.enable = true;
@@ -68,8 +73,5 @@ in
     '';
   };
 
-  environment.systemPackages = with pkgs; [
-    networkmanagerapplet
-    iproute2
-  ];
+
 }

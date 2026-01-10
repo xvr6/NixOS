@@ -1,30 +1,25 @@
-{
-  lib,
-  pkgs,
-  terminal,
-  ...
-}:
-let
-  wallpaperDir = "${../themes/wallpapers}";
-  wallpaperThumbs =
-    pkgs.runCommand "wallpaper-thumbnails"
-      {
-        buildInputs = [ pkgs.imagemagick ];
-      }
-      ''
-        mkdir -p $out
-        for wallpaper in "${wallpaperDir}"/*.{webp,jxl,jpg,jpeg,png,gif}; do
-          if [ -f "$wallpaper" ]; then
-            wallpaper_name=$(basename "$wallpaper")
-            wallpaper_name="''${wallpaper_name%.*}"
-            thumbnail_size="320x180"
-            if [ ! -f "$out/''${wallpaper_name}.jpg" ]; then
-              magick "$wallpaper[0]" -strip -gravity center -thumbnail "''${thumbnail_size}^" -extent "$thumbnail_size" "$out/''${wallpaper_name}.jpg"
+{ lib, pkgs, terminal, ... }:
+  let
+    wallpaperDir = "${../themes/wallpapers}";
+    wallpaperThumbs =
+      pkgs.runCommand "wallpaper-thumbnails"
+        {
+          buildInputs = [ pkgs.imagemagick ];
+        }
+        ''
+          mkdir -p $out
+          for wallpaper in "${wallpaperDir}"/*.{webp,jxl,jpg,jpeg,png,gif}; do
+            if [ -f "$wallpaper" ]; then
+              wallpaper_name=$(basename "$wallpaper")
+              wallpaper_name="''${wallpaper_name%.*}"
+              thumbnail_size="320x180"
+              if [ ! -f "$out/''${wallpaper_name}.jpg" ]; then
+                magick "$wallpaper[0]" -strip -gravity center -thumbnail "''${thumbnail_size}^" -extent "$thumbnail_size" "$out/''${wallpaper_name}.jpg"
+              fi
             fi
-          fi
-        done
-      '';
-in
+          done
+        '';
+  in
 pkgs.writeShellScriptBin "launcher" ''
   # check if rofi is already running
   if pidof rofi >/dev/null; then

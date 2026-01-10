@@ -12,14 +12,18 @@
           history.size = 100000;
           history.path = "\${XDG_DATA_HOME}/zsh/history";
           dotDir = "${config.xdg.configHome}/zsh";
+          
           oh-my-zsh = {
             enable = true;
             plugins = [
               "git"
+              "sudo"
               "gitignore"
               "z"
             ];
           };
+  
+
           initContent = ''
             # Starship Prompt
             if command -v starship &>/dev/null; then
@@ -107,7 +111,6 @@
                   echo "$N" |  figlet -c | lolcat &&  sleep 1
               done
             '';
-            cls = "clear";
             tml = "tmux list-sessions";
             tma = "tmux attach";
             tms = "tmux attach -t $(tmux ls -F '#{session_name}: #{session_path} (#{session_windows} windows)' | fzf | cut -d: -f1)";
@@ -116,8 +119,6 @@
             ll = "${pkgs.eza}/bin/eza -lha --icons=auto --sort=name --group-directories-first"; # long list all
             ld = "${pkgs.eza}/bin/eza -lhD --icons=auto"; # long list dirs
             tree = "${pkgs.eza}/bin/eza --icons=auto --tree"; # dir tree
-            vc = "code --disable-gpu"; # gui code editor
-            nv = "nvim";
             nf = "${pkgs.microfetch}/bin/microfetch";
             ff = "fastfetch";
             cp = "cp -iv";
@@ -135,27 +136,20 @@
             find-store-path = ''function { nix-shell -p $1 --command "nix eval -f \"<nixpkgs>\" --raw $1" }'';
             update-input = "nix flake update $@";
             sysup = "nix flake update --flake ~/NixOS && rebuild";
+            nrs = "sudo nixos-rebuild switch --flake ~/.dotfiles";
+			      nrt = "sudo nixos-rebuild test --flake ~/.dotfiles";
 
             # Directory Shortcuts.
             dots = "cd ~/NixOS/";
-            games = "cd /mnt/games/";
-            work = "cd /mnt/work/";
-            media = "cd /mnt/work/media/";
-            projects = "cd /mnt/work/Projects/";
-            proj = "cd /mnt/work/Projects/";
-            dev = "cd /mnt/work/Projects/";
-            # dev = "cd /mnt/work/dev/";
-            # nixdir = "cd /mnt/work/dev/nix/";
-            # cppdir = "cd /mnt/work/dev/C++/";
-            # zigdir = "cd /mnt/work/dev/Zig/";
-            # csdir = "cd /mnt/work/dev/C#/";
-            # rustdir = "cd /mnt/work/dev/Rust/";
-            # pydir = "cd /mnt/work/dev/Python/";
-            # javadir = "cd /mnt/work/dev/Java/";
-            # luadir = "cd /mnt/work/dev/lua/";
-            # webdir = "cd /mnt/work/dev/Website/";
           };
         };
+        
+        programs.oh-my-posh = {
+          enable = true;
+          enableZshIntegration = true;
+          useTheme = "catppuccin_mocha";
+        };
+
       }
     )
   ];

@@ -1,14 +1,11 @@
 { pkgs, lib, ... }:
 {
-  # Only enable either docker or podman -- Not both
   virtualisation = {
     spiceUSBRedirection.enable = true;
-
-    docker = {
-      enable = true;
-    };
-
-    podman.enable = false;
+    
+    # Only enable either docker or podman -- Not both
+    docker.enable = false;
+    podman.enable = true;
 
     libvirtd = {
       enable = true;
