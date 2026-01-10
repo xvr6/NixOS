@@ -3,10 +3,15 @@
     inherit (import ../../../../hosts/${host}/variables.nix) terminal;
   in {
       home-manager.sharedModules = [
-        (_: {
-          home.packages = with pkgs; [
-            inputs.nixvim.packages.${stdenv.hostPlatform.system}.default
-          ];
+    (_: {
+      imports = [
+        inputs.nixvim.homeModules.nixvim
+      ];
+      programs.nixvim = {
+        enable = true;
+        viAlias = true;
+        vimAlias = true;
+      };
           xdg.desktopEntries = {
             "nvim" = {
               name = "Neovim wrapper";
