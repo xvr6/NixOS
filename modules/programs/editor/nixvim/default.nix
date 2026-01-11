@@ -11,6 +11,32 @@
         enable = true;
         viAlias = true;
         vimAlias = true;
+      	defaultEditor = true;
+	      opts = {
+		#line numbers
+		number = true;
+		relativenumber = true;
+
+		#tab settings
+		tabstop = 4;
+		shiftwidth = 4;
+		softtabstop = 4;
+		expandtab = true;
+		shiftround = true;
+		autoindent = true;
+		smartindent = true;
+	      };
+	      
+	      plugins = {
+		nvim-tree = {
+			enable = true;
+			openOnSetup = true;
+			openOnSetupFile = true;
+		};
+		web-devicons.enable = true;
+
+	      };
+
       };
           xdg.desktopEntries = {
             "nvim" = {
