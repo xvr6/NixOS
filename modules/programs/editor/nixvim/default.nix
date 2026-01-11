@@ -34,7 +34,9 @@
 			openOnSetupFile = true;
 		};
 		web-devicons.enable = true;
-
+        telescope = {
+            enable = true;
+            };
 	      };
 
       };

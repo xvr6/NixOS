@@ -6,7 +6,7 @@
 
   # Theme & Appearance
   waybarTheme = "minimal"; # stylish, minimal
-  sddmTheme = "black_hole"; # astronaut, black_hole, purple_leaves, jake_the_dog, hyprland_kath
+  sddmTheme = "astronaut"; # astronaut, black_hole, purple_leaves, jake_the_dog, hyprland_kath
   defaultWallpaper = "train-sideview.webp"; # Change with SUPER + SHIFT + W
   hyprlockWallpaper = "train-sideview.webp";
 
@@ -27,6 +27,6 @@
   locale = "en_US.UTF-8";
   clock24h = true;
   kbdLayout = "us";
-  kbdVariant = "extd";
+  kbdVariant = "";
   consoleKeymap = "us";
 }
