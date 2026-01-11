@@ -10,11 +10,16 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-
+    hyprland = {
+        url = "github:hyprwm/Hyprland?ref=v0.52.2";
+        inputs.nixpkgs.follows = "nixpkgs";
+    };
+    
     nixvim = {
-			url = "github:nix-community/nixvim";
-			inputs.nixpkgs.follows = "nixpkgs";
-		};   
+    	url = "github:nix-community/nixvim";
+		inputs.nixpkgs.follows = "nixpkgs";
+	};   
+    
     nvchad4nix = {
       url = "github:nix-community/nix4nvchad";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -73,4 +78,4 @@
         nixwork = mkHost "nixwork";
       };
     };
-}
+}:

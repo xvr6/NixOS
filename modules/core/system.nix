@@ -4,7 +4,6 @@ let
   inherit (import ../../hosts/${host}/variables.nix)
     consoleKeymap
     kbdLayout
-    kbdVariant
     locale
     timezone
     ;
@@ -24,7 +23,6 @@ in
     exportConfiguration = true; # Make sure /etc/X11/xkb is populated so localectl works correctly
     xkb = {
       layout = "${kbdLayout}";
-      variant = "${kbdVariant}";
     };
   };
   nix = {

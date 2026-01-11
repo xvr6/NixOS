@@ -1,9 +1,4 @@
-{
-  host,
-  lib,
-  pkgs,
-  ...
-}:
+{ host, lib, pkgs, ... }:
 let
   inherit (import ../../../hosts/${host}/variables.nix)
     waybarTheme
@@ -11,7 +6,6 @@ let
     terminal
     tuiFileManager
     kbdLayout
-    kbdVariant
     defaultWallpaper
     ;
 in
@@ -49,6 +43,7 @@ in
 
   programs.hyprland = {
     enable = true;
+    package = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.hyprland;
     # withUWSM = true;
   };
 
@@ -172,7 +167,6 @@ in
                 ];
               input = {
                 kb_layout = "${kbdLayout},ru";
-                kb_variant = "${kbdVariant},";
                 repeat_delay = 275; # or 212
                 repeat_rate = 35;
                 numlock_by_default = true;
