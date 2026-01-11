@@ -16,7 +16,7 @@
   browser = "zen"; # zen, firefox, floorp
   tuiFileManager = "yazi"; # yazi, lf
   shell = "zsh"; # zsh, bash
-  games = false; # Enable/Disable gaming module
+  games = true; # Enable/Disable gaming module
 
   # Hardware
   hostname = "nixwork";

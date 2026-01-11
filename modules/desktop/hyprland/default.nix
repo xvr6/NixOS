@@ -1,4 +1,4 @@
-{ host, lib, pkgs, ... }:
+{ host, inputs, lib, pkgs, ... }:
 let
   inherit (import ../../../hosts/${host}/variables.nix)
     waybarTheme
@@ -43,7 +43,7 @@ in
 
   programs.hyprland = {
     enable = true;
-    package = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.hyprland;
+   #package = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.hyprland;
     # withUWSM = true;
   };
 
@@ -167,6 +167,7 @@ in
                 ];
               input = {
                 kb_layout = "${kbdLayout},ru";
+                kb_variant = "extd";
                 repeat_delay = 275; # or 212
                 repeat_rate = 35;
                 numlock_by_default = true;
@@ -564,23 +565,23 @@ in
 
               monitor = [
                 # Easily plug in any monitor
-                ",preferred,auto,1"
+                ",preferred,auto,1.3"
 
                 # My Monitors (Fine to leave these since i used the serial numbers)
               ];
 
               workspace = [
                 # Binds workspaces to my monitors (find desc with: hyprctl monitors)
-                "1,monitor:desc:BNQ BenQ EL2870U PCK00489SL0,default:true"
-                "2,monitor:desc:BNQ BenQ EL2870U PCK00489SL0"
-                "3,monitor:desc:BNQ BenQ EL2870U PCK00489SL0"
-                "4,monitor:desc:BNQ BenQ EL2870U PCK00489SL0"
-                "5,monitor:desc:BNQ BenQ EW277HDR 99J01861SL0,default:true"
-                "6,monitor:desc:BNQ BenQ EW277HDR 99J01861SL0"
-                "7,monitor:desc:BNQ BenQ EW277HDR 99J01861SL0"
-                "8,monitor:desc:BNQ BenQ xl2420t 99D06760SL0,default:true"
-                "9,monitor:desc:BNQ BenQ xl2420t 99D06760SL0"
-                "10,monitor:desc:BNQ BenQ EL2870U PCK00489SL0"
+             #  "1,monitor:desc:BNQ BenQ EL2870U PCK00489SL0,default:true"
+             #  "2,monitor:desc:BNQ BenQ EL2870U PCK00489SL0"
+             #  "3,monitor:desc:BNQ BenQ EL2870U PCK00489SL0"
+             #  "4,monitor:desc:BNQ BenQ EL2870U PCK00489SL0"
+             #  "5,monitor:desc:BNQ BenQ EW277HDR 99J01861SL0,default:true"
+             #  "6,monitor:desc:BNQ BenQ EW277HDR 99J01861SL0"
+             #  "7,monitor:desc:BNQ BenQ EW277HDR 99J01861SL0"
+             #  "8,monitor:desc:BNQ BenQ xl2420t 99D06760SL0,default:true"
+             #  "9,monitor:desc:BNQ BenQ xl2420t 99D06760SL0"
+             #  "10,monitor:desc:BNQ BenQ EL2870U PCK00489SL0"
               ];
             };
           };
