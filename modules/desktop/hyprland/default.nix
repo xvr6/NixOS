@@ -6,6 +6,7 @@ let
     terminal
     tuiFileManager
     kbdLayout
+    kbdVariant
     defaultWallpaper
     ;
 in
@@ -167,7 +168,7 @@ in
                 ];
               input = {
                 kb_layout = "${kbdLayout},ru";
-                kb_variant = "extd";
+                kb_variant = "${kbdVariant},";
                 repeat_delay = 275; # or 212
                 repeat_rate = 35;
                 numlock_by_default = true;

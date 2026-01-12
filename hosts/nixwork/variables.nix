@@ -27,5 +27,6 @@
   locale = "en_US.UTF-8";
   clock24h = true;
   kbdLayout = "us";
+  kbdVariant = "extd";
   consoleKeymap = "us";
 }
