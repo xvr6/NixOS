@@ -167,8 +167,8 @@ in
                   "polkit-agent-helper-1"
                 ];
               input = {
-                kb_layout = "${kbdLayout}";
-                kb_variant = "${kbdVariant}";
+             #  kb_layout = "${kbdLayout}";
+             #  kb_variant = "${kbdVariant}";
                 repeat_delay = 275; # or 212
                 repeat_rate = 35;
                 numlock_by_default = true;
@@ -180,7 +180,7 @@ in
                 tablet.output = "current";
 
                 sensitivity = 0; # -1.0 - 1.0, 0 means no modification.
-                force_no_accel = true;
+                force_no_accel = false;
               };
               general = {
                 gaps_in = 4;
