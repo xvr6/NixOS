@@ -198,7 +198,6 @@ in
                 dim_special = 0.3;
                 blur = {
                   enabled = true;
-                  method = "ks";
                   special = true;
                   size = 6; # 6
                   passes = 2; # 3
@@ -214,14 +213,13 @@ in
                 "col.border_locked_inactive" = "rgba(b4befecc) rgba(6c7086cc) 45deg";
               };
               layerrule = [
-                "blur:ks, rofi"
-                "ignorezero, rofi"
+                "blur 1, rofi"
+                "ignorezero 1, rofi"
                 "ignorealpha 0.7, rofi"
-
-                "blur:ks, swaync-control-center"
-                "blur:ks, swaync-notification-window"
-                "ignorezero, swaync-control-center"
-                "ignorezero, swaync-notification-window"
+                "blur 1, swaync-control-center"
+                "blur 1, swaync-notification-window"
+                "ignorezero 1, swaync-control-center"
+                "ignorezero 1, swaync-notification-window"
                 "ignorealpha 0.7, swaync-control-center"
                 # "ignorealpha 0.8, swaync-notification-window"
                 # "dimaround, swaync-control-center"
