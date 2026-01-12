@@ -167,8 +167,8 @@ in
                   "polkit-agent-helper-1"
                 ];
               input = {
-                kb_layout = "${kbdLayout},ru";
-                kb_variant = "${kbdVariant},";
+                kb_layout = "${kbdLayout}";
+                kb_variant = "${kbdVariant}";
                 repeat_delay = 275; # or 212
                 repeat_rate = 35;
                 numlock_by_default = true;
@@ -566,7 +566,7 @@ in
 
               monitor = [
                 # Easily plug in any monitor
-                ",preferred,auto,1.3"
+                ",preferred,auto,1.5"
 
                 # My Monitors (Fine to leave these since i used the serial numbers)
               ];

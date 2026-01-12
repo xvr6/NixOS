@@ -136,8 +136,8 @@
             find-store-path = ''function { nix-shell -p $1 --command "nix eval -f \"<nixpkgs>\" --raw $1" }'';
             update-input = "nix flake update $@";
             sysup = "nix flake update --flake ~/NixOS && rebuild";
-            nrs = "sudo nixos-rebuild switch --flake ~/.dotfiles";
-			      nrt = "sudo nixos-rebuild test --flake ~/.dotfiles";
+            nrs = "sudo nixos-rebuild switch --flake ~/NixOS";
+			nrt = "sudo nixos-rebuild test --flake ~/NixOS";
 
             # Directory Shortcuts.
             dots = "cd ~/NixOS/";
