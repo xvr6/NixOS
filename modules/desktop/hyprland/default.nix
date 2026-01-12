@@ -117,6 +117,7 @@ in
               variables = [ "--all" ];
             };
             settings = {
+                debug.disable_logs = false;
               "$mainMod" = "SUPER";
               "$term" = "${getExe pkgs.${terminal}}";
               "$editor" = "code --disable-gpu";
