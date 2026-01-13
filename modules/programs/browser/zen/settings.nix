@@ -134,8 +134,8 @@ in
 
   # Permissions
   # 0=always ask (default), 1=allow, 2=block
-  "permissions.default.geo" = 2;
-  "permissions.default.camera" = 2;
+  "permissions.default.geo" = 0;
+  "permissions.default.camera" = 0;
   "permissions.default.microphone" = 0;
   "permissions.default.desktop-notification" = 2;
   "permissions.default.xr" = 2; # Virtual Reality
@@ -220,10 +220,8 @@ in
       widget-overflow-fixed-list = [ ];
       unified-extensions-area = [
         "ublock0_raymondhill_net-browser-action"
-        "firemonkey_eros_man-browser-action"
         "addon_darkreader_org-browser-action"
-        "queryamoid_kaply_com-browser-action"
-        # "_aecec67f-0d10-4fa7-b7c7-609a2db280cf_-browser-action"
+        "sponsorblocker_ajay_app-browser-action"
       ];
       nav-bar = [
         "back-button"
@@ -235,13 +233,10 @@ in
         "unified-extensions-button"
 
         # Extensions
-        "_c4b582ec-4343-438c-bda2-2f691c16c262_-browser-action"
-        "firemonkey_eros_man-browser-action"
         "ublock0_raymondhill_net-browser-action"
-        # "addon_darkreader_org-browser-action"
-        # "queryamoid_kaply_com-browser-action"
-        # "_aecec67f-0d10-4fa7-b7c7-609a2db280cf_-browser-action"
-      ];
+        "addon_darkreader_org-browser-action"
+        "sponsorblocker_ajay_app-browser-action"
+    ];
       toolbar-menubar = [ "menubar-items" ];
       TabsToolbar = [
         "firefox-view-button"

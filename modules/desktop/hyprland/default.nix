@@ -324,7 +324,7 @@ in
                 "opacity 0.80 0.70, match:class ^(net.davidotek.pupgui2)$" # ProtonUp-Qt
                 "opacity 0.80 0.70, match:class ^(Signal)$" # Signal-Gtk
                 "opacity 0.80 0.70, match:class ^(io.gitlab.theevilskeleton.Upscaler)$" # Upscaler-Gtk
-
+            
                 "opacity 0.80 0.70, match:class ^(pavucontrol)$"
                 "opacity 0.80 0.70, match:class ^(org.pulseaudio.pavucontrol)$"
                 "opacity 0.80 0.70, match:class ^(blueman-manager)$"
@@ -332,7 +332,8 @@ in
                 "opacity 0.80 0.70, match:class ^(nm-applet)$"
                 "opacity 0.80 0.70, match:class ^(nm-connection-editor)$"
                 "opacity 0.80 0.70, match:class ^(org.kde.polkit-kde-authentication-agent-1)$"
-
+                
+                "opacity 0.80 0.70, match:class ^(materialgram)$"
                 # Block discord and browsers from screenshare/screenshots
                 # "noscreenshare,class:^(firefox|Brave-browser|floorp|zen|zen-beta)$"
                 # "noscreenshare,class:^(discord)$"

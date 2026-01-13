@@ -5,6 +5,7 @@
     ludusavi # For game saves
     github-desktop
     ripgrep
+    materialgram
     # pokego # Overlayed
   ];
 }

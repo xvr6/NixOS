@@ -19,6 +19,13 @@
         ];
         profiles = {
           default = {
+            extensions.packages = with inputs.firefox-addons.packages.${pkgs.stdenv.hostPlatform.system}; [
+                ublock-origin
+                darkreader
+                sponsorblock
+                bitwarden
+            ];
+          
             id = 0; # 0 is the default profile; see also option "isDefault"
             name = "default"; # name as listed in about:profiles
             isDefault = true; # can be omitted; true if profile ID is 0
@@ -44,7 +51,6 @@
               lockPref("privacy.clearOnShutdown.cookies", false);
               lockPref("privacy.clearOnShutdown.offlineApps", false);
               lockPref("browser.sessionstore.privacy_level", 0);
-              lockPref("floorp.browser.sidebar.enable", false);
               lockPref("geo.enabled", false);
               lockPref("media.navigator.enabled", false);
               lockPref("dom.event.clipboardevents.enabled", false);
