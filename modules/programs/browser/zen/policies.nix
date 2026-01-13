@@ -96,6 +96,12 @@
       installation_mode = "force_installed";
       install_url = "https://addons.mozilla.org/firefox/downloads/latest/sponsorblock/latest.xpi";
     };
+    "bitwarden" = {
+      private_browsing = true;
+      default_area = "navbar";
+      installation_mode = "force_installed";
+      install_url = "https://addons.mozilla.org/firefox/downloads/latest/bitwarden_password_manager/latest.xpi";
+    };
   };
   "3rdparty".Extensions = {
     "addon@darkreader.org" = {

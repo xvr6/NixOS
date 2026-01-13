@@ -560,7 +560,8 @@ in
 
               monitor = [
                 # Easily plug in any monitor
-                ",preferred,auto,1.5"
+                "eDP-1,2880x1920@120,0x0, 1.5"
+                ",preferred,auto,1"
 
                 # My Monitors (Fine to leave these since i used the serial numbers)
               ];
