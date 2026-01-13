@@ -333,7 +333,7 @@ in
                 "opacity 0.80 0.70, match:class ^(nm-connection-editor)$"
                 "opacity 0.80 0.70, match:class ^(org.kde.polkit-kde-authentication-agent-1)$"
                 
-                "opacity 0.80 0.70, match:class ^(materialgram)$"
+                "opacity 0.85 0.75, match:title (.*)(materialgram)(.*)$"
                 # Block discord and browsers from screenshare/screenshots
                 # "noscreenshare,class:^(firefox|Brave-browser|floorp|zen|zen-beta)$"
                 # "noscreenshare,class:^(discord)$"
