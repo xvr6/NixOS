@@ -3,7 +3,6 @@
   imports = [
     ./bash.nix
     ./boot.nix
-    ./dns.nix
     # ./flatpak.nix
     ./fonts.nix
     # ./games.nix
