@@ -9,14 +9,14 @@ let
     ;
 in
 {
-  # imports = [ inputs.nix-index-database.nixosModules.nix-index ];
-  # programs = {
-  #   nix-index-database.comma.enable = true;
-  #   gnupg.agent = {
-  #     enable = true;
-  #     enableSSHSupport = true;
-  #   };
-  # };
+  imports = [ inputs.nix-index-database.nixosModules.nix-index ];
+  programs = {
+    nix-index-database.comma.enable = true;
+    gnupg.agent = {
+      enable = true;
+      enableSSHSupport = true;
+    };
+  };
   services.xserver = {
     enable = true;
     excludePackages = with pkgs; [ xterm ];

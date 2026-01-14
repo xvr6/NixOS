@@ -16,7 +16,7 @@
     ./services.nix
     ./ssh.nix
     # ./starship.nix
-    ./syncthing.nix
+    # ./syncthing.nix
     ./system.nix
     ./users.nix
     # ./virtualisation.nix

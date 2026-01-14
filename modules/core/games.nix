@@ -11,12 +11,13 @@
       "steam-unwrapped"
     ];
   hardware.graphics = {
-    enable = true;
+    #enabled = true; #already enabled in hardware/gpu/amde/:
     enable32Bit = true;
   };
   environment.systemPackages = with pkgs; [
     bottles
     prismlauncher
+    mangohud
 
     wineWowPackages.staging
     gamescope

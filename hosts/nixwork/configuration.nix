@@ -15,7 +15,7 @@ in
 
     # Optional
     #../../modules/hardware/drives # Automatically mount extra external/internal drives
-    ../../modules/hardware/video/${vars.videoDriver}.nix # Enable gpu drivers defined in variables.nix
+    # ../../modules/hardware/video/${vars.videoDriver}.nix # Enable gpu drivers defined in variables.nix
     ../../modules/desktop/${vars.desktop} # Set window manager defined in variables.nix
     ../../modules/programs/browser/${vars.browser} # Set browser defined in variables.nix
     ../../modules/programs/terminal/${vars.terminal} # Set terminal defined in variables.nix
@@ -36,7 +36,7 @@ in
     ../../modules/programs/media/mpv
     # ../../modules/programs/misc/tlp
     ../../modules/programs/misc/thunar
-    ../../modules/programs/misc/lact # GPU fan, clock and power configuration
+    # ../../modules/programs/misc/lact # GPU fan, clock and power configuration
   ]
   ++ lib.optional (vars.games == true) ../../modules/core/games.nix;
 }
