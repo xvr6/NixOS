@@ -135,14 +135,16 @@ in
                 "OZONE_PLATFORM,wayland"
                 "EGL_PLATFORM,wayland"
                 "CLUTTER_BACKEND,wayland"
-                "SDL_VIDEODRIVER,wayland"
+                # "SDL_VIDEODRIVER,wayland"
                 "QT_QPA_PLATFORM,wayland;xcb"
                 "QT_WAYLAND_DISABLE_WINDOWDECORATION,1"
                 "QT_QPA_PLATFORMTHEME,qt6ct"
                 "QT_AUTO_SCREEN_SCALE_FACTOR,1"
                 "QT_ENABLE_HIGHDPI_SCALING,1"
-                "WLR_RENDERER_ALLOW_SOFTWARE,1"
+                # "WLR_RENDERER_ALLOW_SOFTWARE,1"
                 "NIXPKGS_ALLOW_UNFREE,1"
+                "GDK_SCALE,2"
+                "XCURSOR_SIZE,32"
               ];
               exec-once =
                 let
@@ -268,7 +270,7 @@ in
               };
               #enable compatability with X11/xServer
               xwayland = {
-                force_zero_scaling = false;
+                force_zero_scaling = true;
              };
               gesture = [
                 "3, horizontal, workspace"

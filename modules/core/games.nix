@@ -11,7 +11,7 @@
       "steam-unwrapped"
     ];
   hardware.graphics = {
-    #enabled = true; #already enabled in hardware/gpu/amde/:
+    enabled = true; #already enabled in hardware/gpu/amde/:
     enable32Bit = true;
   };
   environment.systemPackages = with pkgs; [
@@ -20,10 +20,11 @@
     mangohud
 
     wineWowPackages.staging
-    gamescope
-  ];
+    # balatro # used to be a thing? look into how declaratively importing steam games work.
+    love # Compat for LOVE (engine) based games 
+    gamemode
+    ];
   programs = {
-    gamemode.enable = true;
     steam = {
       enable = true;
       remotePlay.openFirewall = true;
