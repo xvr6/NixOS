@@ -393,10 +393,10 @@ in
                 "$mainMod SHIFT, j, resizeactive, 0 30"
 
                 # Functional keybinds
-                ",XF86MonBrightnessDown,exec,brightnessctl set 2%-"
-                ",XF86MonBrightnessUp,exec,brightnessctl set +2%"
-                ",XF86AudioLowerVolume,exec,pamixer -d 2"
-                ",XF86AudioRaiseVolume,exec,pamixer -i 2"
+                ",XF86MonBrightnessDown,exec,brightnessctl set 5%-"
+                ",XF86MonBrightnessUp,exec,brightnessctl set +5%"
+                ",XF86AudioLowerVolume,exec,pamixer -d 5"
+                ",XF86AudioRaiseVolume,exec,pamixer -i 5"
               ];
               bind =
                 let
