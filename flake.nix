@@ -10,9 +10,8 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-   
-   hyprland = {
-        url = "github:hyprwm/Hyprland";
+    hyprland = {
+        url = "github:hyprwm/Hyprland?ref=v0.53.0";
         inputs.nixpkgs.follows = "nixpkgs";
     };
     plasma-manager = {
