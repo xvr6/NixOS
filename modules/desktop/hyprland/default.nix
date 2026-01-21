@@ -274,6 +274,8 @@ in
              };
               gesture = [
                 "3, horizontal, workspace"
+                "3, right, mod: $mainMod, dispatcher, movetoworkspace, r+1"
+                "3, left, mod: $mainMod, dispatcher, movetoworkspace, r-1"
               ];
               dwindle = {
                 pseudotile = true;
