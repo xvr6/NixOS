@@ -10,10 +10,6 @@
       "steam"
       "steam-unwrapped"
     ];
-  hardware.graphics = {
-   # enabled = true; #already enabled in hardware/gpu/amde/:
-    enable32Bit = true;
-  };
   environment.systemPackages = with pkgs; [
     bottles
     prismlauncher
