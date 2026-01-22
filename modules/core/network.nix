@@ -10,7 +10,10 @@ in
   
   networking = {
     hostName = "${hostname}";
-    networkmanager.enable = true;
+    networkmanager = {
+        enable = true;
+        wifi.powersave = false;
+    };
     # wireless.enable = true; # Enables wireless support via wpa_supplicant.
     # proxy = {
     #   default = "http://user:password@proxy:port/";

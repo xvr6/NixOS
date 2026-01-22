@@ -18,6 +18,8 @@
     blueman.enable = true; # Bluetooth Support
     tumbler.enable = true; # Image/video preview
 
+    avahi.enable = true; #Airplay/RAOP - required for service discovery
+
     pulseaudio.enable = false;
     pipewire = {
       enable = true;
@@ -33,26 +35,41 @@
       #     '')
       #   ];
       # };
-      extraConfig.pipewire."92-low-latency" = {
-        "context.properties" = {
-          "default.clock.rate" = 48000;
-          "default.clock.min-quantum" = 128;
-          "default.clock.max-quantum" = 2048;
+    
+        #Airplay/RAOP
+      raopOpenFirewall = true;
+      extraConfig.pipewire = {
+        "10-airplay" = {
+            "context.modules" = [ {
+                name = "libpipewire-module-raop-discover";
+                args = {
+                    # "raop.latency.ms" = 500; #If lag/dropouts occur, try increasing buffer.
+                };
+            } ];
         };
-      };
-      extraConfig.pipewire-pulse."92-low-latency" = {
-        context.modules = [
-          {
-            name = "libpipewire-module-protocol-pulse";
-            args = {
-              pulse.min.req = "256/48000";
-              pulse.default.req = "256/48000";
-              pulse.max.req = "256/48000";
-              pulse.min.quantum = "256/48000";
-              pulse.max.quantum = "256/48000";
+
+
+        "92-low-latency" = {
+            "context.properties" = {
+            "default.clock.rate" = 48000;
+            "default.clock.min-quantum" = 128;
+            "default.clock.max-quantum" = 2048;
             };
-          }
-        ];
+        };
+        "92-low-latency" = {
+            context.modules = [
+            {
+                name = "libpipewire-module-protocol-pulse";
+                args = {
+                    pulse.min.req = "256/48000";
+                    pulse.default.req = "256/48000";
+                    pulse.max.req = "256/48000";
+                    pulse.min.quantum = "256/48000";
+                    pulse.max.quantum = "256/48000";
+                };
+            }
+            ];
+        };
       };
     };
   };
