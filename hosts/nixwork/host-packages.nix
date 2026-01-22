@@ -6,6 +6,7 @@
     github-desktop
     ripgrep
     materialgram
-    # pokego # Overlayed
+    amdgpu_top
+   # pokego # Overlayed
   ];
 }
