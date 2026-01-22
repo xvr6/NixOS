@@ -25,7 +25,7 @@
       enable = true;
       alsa.enable = true;
       alsa.support32Bit = true;
-      pulse.enable = true;
+      # pulse.enable = true;
       jack.enable = true;
       # wireplumber = {
       #   enable = true;
@@ -47,28 +47,13 @@
                 };
             } ];
         };
-
-
         "92-low-latency" = {
             "context.properties" = {
-            "default.clock.rate" = 48000;
-            "default.clock.min-quantum" = 128;
-            "default.clock.max-quantum" = 2048;
+                "default.clock.rate" = 48000;
+                "default.clock.quantum" = 32;
+                "default.clock.min-quantum" = 32;
+                "default.clock.max-quantum" = 32;
             };
-        };
-        "92-low-latency" = {
-            context.modules = [
-            {
-                name = "libpipewire-module-protocol-pulse";
-                args = {
-                    pulse.min.req = "256/48000";
-                    pulse.default.req = "256/48000";
-                    pulse.max.req = "256/48000";
-                    pulse.min.quantum = "256/48000";
-                    pulse.max.quantum = "256/48000";
-                };
-            }
-            ];
         };
       };
     };
