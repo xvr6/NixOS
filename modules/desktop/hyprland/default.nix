@@ -342,7 +342,11 @@ in
                 "opacity 0.80 0.70,class:^(nm-connection-editor)$"
                 "opacity 0.80 0.70,class:^(org.kde.polkit-kde-authentication-agent-1)$"
 
-                "opacity 0.85 0.75,title:^(.*)(materialgram)(.*)$"
+                #material gram 
+                "opacity 0.85 0.75,class:^(.*)(materialgram)(.*)$"
+                #float materialgram image preview
+                "float, title:^(.*)(Media viewer)(.*)$, class:^(.*)(materialgram)(.*)$"
+               
                 # Block discord and browsers from screenshare/screenshots
                 # "noscreenshare,class:^(firefox|Brave-browser|floorp|zen|zen-beta)$"
                 # "noscreenshare,class:^(discord)$"
@@ -350,6 +354,7 @@ in
                 # Float and pin Picture-in-Picture in browsers
                 "float,title:^(Picture-in-Picture)$,class:^(zen|zen-beta|floorp|firefox)$"
                 "pin,title:^(Picture-in-Picture)$,class:^(zen|zen-beta|floorp|firefox)$"
+
 
                 "content game, tag:games"
                 "tag +games, content:game"
@@ -397,10 +402,10 @@ in
                 "$mainMod SHIFT, j, resizeactive, 0 30"
 
                 # Functional keybinds
-                ",XF86MonBrightnessDown,exec,brightnessctl set 2%-"
-                ",XF86MonBrightnessUp,exec,brightnessctl set +2%"
-                ",XF86AudioLowerVolume,exec,pamixer -d 2"
-                ",XF86AudioRaiseVolume,exec,pamixer -i 2"
+                ",XF86MonBrightnessDown,exec,brightnessctl set 5%-"
+                ",XF86MonBrightnessUp,exec,brightnessctl set +5%"
+                ",XF86AudioLowerVolume,exec,pamixer -d 5"
+                ",XF86AudioRaiseVolume,exec,pamixer -i 5"
               ];
               bind =
                 let
