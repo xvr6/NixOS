@@ -44,7 +44,7 @@ in
 
   programs.hyprland = {
     enable = true;
-    package = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.hyprland;
+    # package = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.hyprland;
     # withUWSM = true;
   };
 
@@ -214,13 +214,13 @@ in
                 "col.border_locked_inactive" = "rgba(b4befecc) rgba(6c7086cc) 45deg";
               };
               layerrule = [
-                "blur 1, rofi"
-                "ignorezero 1, rofi"
+                "blur, rofi"
+                "ignorezero, rofi"
                 "ignorealpha 0.7, rofi"
-                "blur 1, swaync-control-center"
-                "blur 1, swaync-notification-window"
-                "ignorezero 1, swaync-control-center"
-                "ignorezero 1, swaync-notification-window"
+                "blur, swaync-control-center"
+                "blur, swaync-notification-window"
+                "ignorezero, swaync-control-center"
+                "ignorezero, swaync-notification-window"
                 "ignorealpha 0.7, swaync-control-center"
                 # "ignorealpha 0.8, swaync-notification-window"
                 # "dimaround, swaync-control-center"
@@ -269,6 +269,8 @@ in
               xwayland.force_zero_scaling = false;
               gesture = [
                 "3, horizontal, workspace"
+                "3, right, mod: $mainMod, dispatcher, movetoworkspace, r+1"
+                "3, left, mod: $mainMod, dispatcher, movetoworkspace, r-1"
               ];
               dwindle = {
                 pseudotile = true;
@@ -340,6 +342,7 @@ in
                 "opacity 0.80 0.70,class:^(nm-connection-editor)$"
                 "opacity 0.80 0.70,class:^(org.kde.polkit-kde-authentication-agent-1)$"
 
+                "opacity 0.85 0.75,title:^(.*)(materialgram)(.*)$"
                 # Block discord and browsers from screenshare/screenshots
                 # "noscreenshare,class:^(firefox|Brave-browser|floorp|zen|zen-beta)$"
                 # "noscreenshare,class:^(discord)$"
