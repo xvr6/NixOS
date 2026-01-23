@@ -147,7 +147,7 @@
       in
       {
         home.packages = with pkgs; [
-          pear-desktop
+          youtube-music # unstable: pear-desktop
           curl
         ];
 

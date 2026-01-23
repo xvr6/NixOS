@@ -42,7 +42,7 @@
                     lsp.servers = {
                         nixd.enable = true;
                         vue_ls.enable = true;
-                        conf.enable = true;
+  #                      conf.enable = true;
                     };
 
                     # -- Cosmetic Tweaks --

@@ -46,7 +46,7 @@ in
     # ./programs/media/obs-studio
     ./programs/media/mpv
     #./programs/misc/tlp
-    ./programs/misc/thunar
+    #./programs/misc/thunar
     ./programs/misc/lact # GPU fan, clock and power configuration
   ]
   ++ lib.optional (vars.games == true) ./core/games.nix;
