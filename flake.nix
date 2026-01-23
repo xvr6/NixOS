@@ -2,7 +2,8 @@
   description = "A simple flake for an atomic system";
 
   inputs = {
-    #nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+    nixpkgs-unstable.url = "github:nixos/nixpkgs/nixos-unstable";
+    nixpkgs-stable.url = "github:nixos/nixpkgs/nixos-25.11";
     nixpkgs.url = "github:nixos/nixpkgs/nixos-25.11";
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
 
@@ -12,7 +13,7 @@
     };
     hyprland = {
         url = "github:hyprwm/Hyprland?ref=v0.53.0";
-        inputs.nixpkgs.follows = "nixpkgs";
+        inputs.nixpkgs.follows = "nixpkgs-unstable";
     };
     plasma-manager = {
         url = "github:nix-community/plasma-manager";

@@ -135,16 +135,14 @@ in
                 "OZONE_PLATFORM,wayland"
                 "EGL_PLATFORM,wayland"
                 "CLUTTER_BACKEND,wayland"
-                # "SDL_VIDEODRIVER,wayland"
+                "SDL_VIDEODRIVER,wayland"
                 "QT_QPA_PLATFORM,wayland;xcb"
                 "QT_WAYLAND_DISABLE_WINDOWDECORATION,1"
                 "QT_QPA_PLATFORMTHEME,qt6ct"
                 "QT_AUTO_SCREEN_SCALE_FACTOR,1"
                 "QT_ENABLE_HIGHDPI_SCALING,1"
-                # "WLR_RENDERER_ALLOW_SOFTWARE,1"
+                "WLR_RENDERER_ALLOW_SOFTWARE,1"
                 "NIXPKGS_ALLOW_UNFREE,1"
-                "GDK_SCALE,2"
-                "XCURSOR_SIZE,32"
               ];
               exec-once =
                 let
@@ -216,14 +214,14 @@ in
                 "col.border_locked_inactive" = "rgba(b4befecc) rgba(6c7086cc) 45deg";
               };
               layerrule = [
-                "blur on, match:class rofi"
-                "ignore_alpha 0, match:class rofi"
-                "ignore_alpha 0.7, match:class rofi"
-                "blur on, match:class swaync-control-center"
-                "blur on, match:class swaync-notification-window"
-                "ignore_alpha 0, match:class swaync-control-center"
-                "ignore_alpha 0, match:class swaync-notification-window"
-                "ignore_alpha 0.7, match:class swaync-control-center"
+                "blur 1, rofi"
+                "ignorezero 1, rofi"
+                "ignorealpha 0.7, rofi"
+                "blur 1, swaync-control-center"
+                "blur 1, swaync-notification-window"
+                "ignorezero 1, swaync-control-center"
+                "ignorezero 1, swaync-notification-window"
+                "ignorealpha 0.7, swaync-control-center"
                 # "ignorealpha 0.8, swaync-notification-window"
                 # "dimaround, swaync-control-center"
               ];
@@ -268,14 +266,9 @@ in
                 vfr = true; # always keep on
                 vrr = 2; # enable variable refresh rate (0=off, 1=on, 2=fullscreen only, 3 = fullscreen games/media)
               };
-              #enable compatability with X11/xServer
-              xwayland = {
-                force_zero_scaling = true;
-             };
+              xwayland.force_zero_scaling = false;
               gesture = [
                 "3, horizontal, workspace"
-                "3, right, mod: $mainMod, dispatcher, movetoworkspace, r+1"
-                "3, left, mod: $mainMod, dispatcher, movetoworkspace, r-1"
               ];
               dwindle = {
                 pseudotile = true;
@@ -288,7 +281,7 @@ in
               };
               windowrule = [
                 #"noanim, class:^(Rofi)$
-                #"tile,title:(.*)(Godot)(.*)$"
+                "tile,title:(.*)(Godot)(.*)$"
                 # "workspace 1, class:^(kitty|Alacritty|org.wezfurlong.wezterm)$"
                 # "workspace 2, class:^(code|VSCodium|code-url-handler|codium-url-handler)$"
                 # "workspace 3, class:^(krita)$"
@@ -301,85 +294,91 @@ in
                 # "workspace 6, title:(.*)(Spotify)(.*)$"
 
                 # Can use FLOAT FLOAT for active and inactive or just FLOAT
-                "opacity 1.00 1.00, match:class ^(firefox|Brave-browser|floorp|zen|zen-beta)$"
-                "opacity 0.90 0.80, match:class ^(gcr-prompter)$" # keyring prompt
-                "opacity 0.90 0.80, match:title ^(Hyprland Polkit Agent)$" # polkit prompt
-                "opacity 0.90 0.80, match:class ^(obsidian)$"
-                "opacity 0.90 0.80, match:class ^(Lutris|lutris|net.lutris.Lutris)$"
-                "opacity 0.80 0.70, match:class ^(kitty|alacritty|Alacritty|org.wezfurlong.wezterm)$"
-                "opacity 0.80 0.70, match:class ^(nvim-wrapper)$"
-                "opacity 0.80 0.70, match:class ^(gnome-disks)$"
-                "opacity 0.80 0.70, match:class ^(Steam|steam|steamwebhelper)$"
-                "opacity 0.80 0.70, match:title ^(Kvantum Manager)$"
-                "opacity 0.80 0.70, match:class ^(VSCodium|codium-url-handler)$"
-                "opacity 0.80 0.70, match:class ^(code|code-url-handler)$"
-                "opacity 0.80 0.70, match:class ^(tuiFileManager)$"
-                "opacity 0.80 0.70, match:class ^(org.kde.dolphin)$"
-                "opacity 0.80 0.70, match:class ^(org.kde.ark)$"
-                "opacity 0.80 0.70, match:class ^(nwg-look)$"
-                "opacity 0.80 0.70, match:class ^(qt5ct|qt6ct)$"
-                "opacity 0.80 0.70, match:class ^(yad)$"
+                "opacity 1.00 1.00,class:^(firefox|Brave-browser|floorp|zen|zen-beta)$"
+                "opacity 0.90 0.80,class:^(Emacs)$"
+                "opacity 0.90 0.80,class:^(gcr-prompter)$" # keyring prompt
+                "opacity 0.90 0.80,title:^(Hyprland Polkit Agent)$" # polkit prompt
+                "opacity 0.90 0.80,class:^(obsidian)$"
+                "opacity 0.90 0.80,class:^(Lutris|lutris|net.lutris.Lutris)$"
+                "opacity 0.80 0.70,class:^(kitty|alacritty|Alacritty|org.wezfurlong.wezterm)$"
+                "opacity 0.80 0.70,class:^(nvim-wrapper)$"
+                "opacity 0.80 0.70,class:^(gnome-disks)$"
+                "opacity 0.80 0.70,class:^(org.gnome.Nautilus|Thunar|thunar|pcmanfm)$"
+                "opacity 0.80 0.70,class:^(thunar-volman-settings)$"
+                "opacity 0.80 0.70,class:^(org.gnome.FileRoller)$"
+                "opacity 0.80 0.70,class:^(io.github.ilya_zlobintsev.LACT)$"
+                "opacity 0.80 0.70,class:^(Steam|steam|steamwebhelper)$"
+                "opacity 0.80 0.70,class:^(Spotify|spotify)$"
+                "opacity 0.80 0.70,title:(.*)(Spotify)(.*)$"
+                "opacity 0.80 0.70,title:^(Kvantum Manager)$"
+                "opacity 0.80 0.70,class:^(VSCodium|codium-url-handler)$"
+                "opacity 0.80 0.70,class:^(code|code-url-handler)$"
+                "opacity 0.80 0.70,class:^(tuiFileManager)$"
+                "opacity 0.80 0.70,class:^(org.kde.dolphin)$"
+                "opacity 0.80 0.70,class:^(org.kde.ark)$"
+                "opacity 0.80 0.70,class:^(nwg-look)$"
+                "opacity 0.80 0.70,class:^(qt5ct|qt6ct)$"
+                "opacity 0.80 0.70,class:^(yad)$"
 
-                "opacity 0.90 0.80, match:class ^(discord)$" # Discord-Electron
-                "opacity 0.90 0.80, match:class ^(WebCord)$" # WebCord-Electron
-                "opacity 0.90 0.80, match:class ^(com.github.rafostar.Clapper)$" # Clapper-Gtk
-                "opacity 0.80 0.70, match:class ^(com.github.tchx84.Flatseal)$" # Flatseal-Gtk
-                "opacity 0.80 0.70, match:class ^(hu.kramo.Cartridges)$" # Cartridges-Gtk
-                "opacity 0.80 0.70, match:class ^(com.obsproject.Studio)$" # Obs-Qt
-                "opacity 0.80 0.70, match:class ^(gnome-boxes)$" # Boxes-Gtk
-                "opacity 0.80 0.70, match:class ^(app.drey.Warp)$" # Warp-Gtk
-                "opacity 0.80 0.70, match:class ^(net.davidotek.pupgui2)$" # ProtonUp-Qt
-                "opacity 0.80 0.70, match:class ^(Signal)$" # Signal-Gtk
-                "opacity 0.80 0.70, match:class ^(io.gitlab.theevilskeleton.Upscaler)$" # Upscaler-Gtk
-            
-                "opacity 0.80 0.70, match:class ^(pavucontrol)$"
-                "opacity 0.80 0.70, match:class ^(org.pulseaudio.pavucontrol)$"
-                "opacity 0.80 0.70, match:class ^(blueman-manager)$"
-                "opacity 0.80 0.70, match:class ^(.blueman-manager-wrapped)$"
-                "opacity 0.80 0.70, match:class ^(nm-applet)$"
-                "opacity 0.80 0.70, match:class ^(nm-connection-editor)$"
-                "opacity 0.80 0.70, match:class ^(org.kde.polkit-kde-authentication-agent-1)$"
-                
-                "opacity 0.85 0.75, match:title (.*)(materialgram)(.*)$"
+                "opacity 0.90 0.80,class:^(discord)$" # Discord-Electron
+                "opacity 0.90 0.80,class:^(WebCord)$" # WebCord-Electron
+                "opacity 0.90 0.80,class:^(com.github.rafostar.Clapper)$" # Clapper-Gtk
+                "opacity 0.80 0.70,class:^(com.github.tchx84.Flatseal)$" # Flatseal-Gtk
+                "opacity 0.80 0.70,class:^(hu.kramo.Cartridges)$" # Cartridges-Gtk
+                "opacity 0.80 0.70,class:^(com.obsproject.Studio)$" # Obs-Qt
+                "opacity 0.80 0.70,class:^(gnome-boxes)$" # Boxes-Gtk
+                "opacity 0.80 0.70,class:^(app.drey.Warp)$" # Warp-Gtk
+                "opacity 0.80 0.70,class:^(net.davidotek.pupgui2)$" # ProtonUp-Qt
+                "opacity 0.80 0.70,class:^(Signal)$" # Signal-Gtk
+                "opacity 0.80 0.70,class:^(io.gitlab.theevilskeleton.Upscaler)$" # Upscaler-Gtk
+
+                "opacity 0.80 0.70,class:^(pavucontrol)$"
+                "opacity 0.80 0.70,class:^(org.pulseaudio.pavucontrol)$"
+                "opacity 0.80 0.70,class:^(blueman-manager)$"
+                "opacity 0.80 0.70,class:^(.blueman-manager-wrapped)$"
+                "opacity 0.80 0.70,class:^(nm-applet)$"
+                "opacity 0.80 0.70,class:^(nm-connection-editor)$"
+                "opacity 0.80 0.70,class:^(org.kde.polkit-kde-authentication-agent-1)$"
+
                 # Block discord and browsers from screenshare/screenshots
                 # "noscreenshare,class:^(firefox|Brave-browser|floorp|zen|zen-beta)$"
                 # "noscreenshare,class:^(discord)$"
 
                 # Float and pin Picture-in-Picture in browsers
-                "float on, match:title ^(Picture-in-Picture)$, match:class ^(zen|zen-beta|floorp|firefox)$"
-                "pin on, match:title ^(Picture-in-Picture)$, match:class ^(zen|zen-beta|floorp|firefox)$"
+                "float,title:^(Picture-in-Picture)$,class:^(zen|zen-beta|floorp|firefox)$"
+                "pin,title:^(Picture-in-Picture)$,class:^(zen|zen-beta|floorp|firefox)$"
 
-                "content game, match:tag games"
-                "tag +games, match:content game"
-                "tag +games, match:class ^(steam_app.*|steam_app_\d+)$"
-                "tag +games, match:class ^(gamescope)$"
-                "tag +games, match:class (Waydroid)"
-                "tag +games, match:class (osu!)"
+                "content game, tag:games"
+                "tag +games, content:game"
+                "tag +games, class:^(steam_app.*|steam_app_\d+)$"
+                "tag +games, class:^(gamescope)$"
+                "tag +games, class:(Waydroid)"
+                "tag +games, class:(osu!)"
 
                 # Games
-                "sync_fullscreen on, match:tag games"
-                "fullscreen on, match:tag games"
-                "border_size 0, match:tag games"
-                "no_shadow on, match:tag games"
-                "no_blur on, match:tag games"
-                "no_anim on, match:tag games"
+                "syncfullscreen,tag:games"
+                "fullscreen,tag:games"
+                "noborder 1,tag:games"
+                "noshadow,tag:games"
+                "noblur,tag:games"
+                "noanim,tag:games"
 
-                "float on, match:class ^(qt5ct)$"
-                "float on, match:class ^(nwg-look)$"
-                "float on, match:class ^(org.kde.ark)$"
-                "float on, match:class ^(Signal)$" # Signal-Gtk
-                "float on, match:class ^(com.github.rafostar.Clapper)$" # Clapper-Gtk
-                "float on, match:class ^(app.drey.Warp)$" # Warp-Gtk
-                "float on, match:class ^(net.davidotek.pupgui2)$" # ProtonUp-Qt
-                "float on, match:class ^(eog)$" # Imageviewer-Gtk
-                "float on, match:class ^(io.gitlab.theevilskeleton.Upscaler)$" # Upscaler-Gtk
-                "float on, match:class ^(yad)$"
-                "float on, match:class ^(pavucontrol)$"
-                "float on, match:class ^(blueman-manager)$"
-                "float on, match:class ^(.blueman-manager-wrapped)$"
-                "float on, match:class ^(nm-applet)$"
-                "float on, match:class ^(nm-connection-editor)$"
-                "float on, match:class ^(org.kde.polkit-kde-authentication-agent-1)$"
+                "float,class:^(qt5ct)$"
+                "float,class:^(nwg-look)$"
+                "float,class:^(org.kde.ark)$"
+                "float,class:^(Signal)$" # Signal-Gtk
+                "float,class:^(com.github.rafostar.Clapper)$" # Clapper-Gtk
+                "float,class:^(app.drey.Warp)$" # Warp-Gtk
+                "float,class:^(net.davidotek.pupgui2)$" # ProtonUp-Qt
+                "float,class:^(eog)$" # Imageviewer-Gtk
+                "float,class:^(io.gitlab.theevilskeleton.Upscaler)$" # Upscaler-Gtk
+                "float,class:^(yad)$"
+                "float,class:^(pavucontrol)$"
+                "float,class:^(blueman-manager)$"
+                "float,class:^(.blueman-manager-wrapped)$"
+                "float,class:^(nm-applet)$"
+                "float,class:^(nm-connection-editor)$"
+                "float,class:^(org.kde.polkit-kde-authentication-agent-1)$"
               ];
               binde = [
                 # Resize windows
@@ -395,10 +394,10 @@ in
                 "$mainMod SHIFT, j, resizeactive, 0 30"
 
                 # Functional keybinds
-                ",XF86MonBrightnessDown,exec,brightnessctl set 5%-"
-                ",XF86MonBrightnessUp,exec,brightnessctl set +5%"
-                ",XF86AudioLowerVolume,exec,pamixer -d 5"
-                ",XF86AudioRaiseVolume,exec,pamixer -i 5"
+                ",XF86MonBrightnessDown,exec,brightnessctl set 2%-"
+                ",XF86MonBrightnessUp,exec,brightnessctl set +2%"
+                ",XF86AudioLowerVolume,exec,pamixer -d 2"
+                ",XF86AudioRaiseVolume,exec,pamixer -i 2"
               ];
               bind =
                 let
@@ -423,7 +422,6 @@ in
                   "$mainMod, delete, exit" # kill hyperland session
                   "$mainMod, W, togglefloating" # toggle the window on focus to float
                   "$mainMod SHIFT, G, togglegroup" # toggle the window on focus to float
-                  "$mainMod, F12, fullscreen"
                   "ALT, return, fullscreen" # toggle the window on focus to fullscreen
                   "$mainMod ALT, L, exec, hyprlock" # lock screen
                   "$mainMod, backspace, exec, pkill -x wlogout || wlogout -b 4" # logout menu
@@ -568,8 +566,7 @@ in
 
               monitor = [
                 # Easily plug in any monitor
-                "eDP-1,2880x1920@120,0x0, 1.5"
-                ",preferred,auto,1"
+                ",preferred,auto,1.5"
 
                 # My Monitors (Fine to leave these since i used the serial numbers)
               ];
