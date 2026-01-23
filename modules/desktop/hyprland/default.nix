@@ -342,10 +342,15 @@ in
                 "opacity 0.80 0.70,class:^(nm-connection-editor)$"
                 "opacity 0.80 0.70,class:^(org.kde.polkit-kde-authentication-agent-1)$"
 
-                #material gram 
-                "opacity 0.85 0.75,class:^(.*)(materialgram)(.*)$"
-                #float materialgram image preview
+                #Material Gram
+                "opacity 0.90 0.80, title:^(.*)(materialgram)(.*)$, class:^(.*)(materialgram)(.*)$"
+                
+                #float materialgram Media/Instant View and turn off transparency
                 "float, title:^(.*)(Media viewer)(.*)$, class:^(.*)(materialgram)(.*)$"
+                "float, title:^(.*)(Instant View)(.*)$, class:^(.*)(gram)(.*)$"
+
+                "opacity 1.00 0.90, title:^(.*)(Media viewer)(.*)$, class:^(.*)(materialgram)(.*)$"
+                "opacity 1.00 0.90, title:^(.*)(Instant View)(.*)$, class:^(.*)(materialgram)(.*)$"
                
                 # Block discord and browsers from screenshare/screenshots
                 # "noscreenshare,class:^(firefox|Brave-browser|floorp|zen|zen-beta)$"
@@ -354,8 +359,10 @@ in
                 # Float and pin Picture-in-Picture in browsers
                 "float,title:^(Picture-in-Picture)$,class:^(zen|zen-beta|floorp|firefox)$"
                 "pin,title:^(Picture-in-Picture)$,class:^(zen|zen-beta|floorp|firefox)$"
-
-
+                
+                #steam friends list float
+                "float,class:^(steam)"
+            
                 "content game, tag:games"
                 "tag +games, content:game"
                 "tag +games, class:^(steam_app.*|steam_app_\d+)$"
