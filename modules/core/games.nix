@@ -17,6 +17,7 @@
 
     wineWowPackages.staging
     # balatro # used to be a thing? look into how declaratively importing steam games work.
+    lua
     love # Compat for LOVE (engine) based games 
     gamemode
     ];
