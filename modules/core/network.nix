@@ -8,6 +8,9 @@ in
     iproute2
   ];
   
+    boot.kernel.sysctl = {
+        "net.ipv4.ip_forward" = "1";
+    };
   networking = {
     hostName = "${hostname}";
     networkmanager = {
@@ -41,5 +44,14 @@ in
         59011 # Custom application port
       ];
     };
+    # not needed, using NM
+    dhcpcd.enable = false;
   };
+
+  services.dbus = {
+    implementation = "dbus";
+    #socketActivated = true;
+  };
+systemd.services.NetworkManager-wait-online.enable = false;
+
 }
