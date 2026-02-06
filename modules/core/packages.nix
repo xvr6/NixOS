@@ -15,6 +15,8 @@
   nixpkgs.config.allowUnfree = true;
 
   environment.systemPackages = with pkgs; [
+    hyprpolkitagent #hyprland auth service
+
     gnumake
     appimage-run # Needed For AppImage Support
     killall # For Killing All Instances Of Programs

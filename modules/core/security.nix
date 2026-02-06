@@ -4,6 +4,7 @@
   security = {
     rtkit.enable = true;
     polkit.enable = true;
+    pam.services.hyprland.enableGnomeKeyring = true;
     apparmor = {
       enable = true;
       killUnconfinedConfinables = true;

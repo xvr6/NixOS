@@ -32,16 +32,31 @@ in
     ../../modules/programs/media/discord
     # ../../modules/programs/media/spicetify
     ../../modules/programs/media/youtube-music
+    ../../modules/programs/misc/cpufreq
     # ../../modules/programs/media/thunderbird
     # ../../modules/programs/media/obs-studio
     ../../modules/programs/media/mpv
-    # ../../modules/programs/misc/tlp
+    ../../modules/programs/misc/tlp
     #../../modules/programs/misc/thunar
-    # ../../modules/programs/misc/lact # GPU fan, clock and power configuration
+    ../../modules/programs/misc/lact # GPU fan, clock and power configuration
   ]
   ++ lib.optional (vars.games == true) ../../modules/core/games.nix;
+  #powerManagement.cpuFreqGovernor = "schedutil";
 
-
-
+  environment.etc."shells".text = ''
+/run/current-system/sw/bin/bash
+/run/current-system/sw/bin/zsh
+'';
+environment.etc."polkit-1/rules.d/49-gamemode.rules".text = ''
+polkit.addRule(function(action, subject) {
+    var cmd = action.lookup("command");
+    if (action.id == "org.freedesktop.policykit.exec" &&
+        cmd && (cmd.indexOf("cpugovctl") !== -1 || cmd.indexOf("procsysctl") !== -1)) {
+        if (subject.local && subject.active) {
+            return polkit.Result.YES;
+        }
+    }
+});
+'';
 
 }

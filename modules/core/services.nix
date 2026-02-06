@@ -2,6 +2,8 @@
 {
   # Services to start
   services = {
+    power-profiles-daemon.enable = false;
+    
     libinput.enable = true; # Input Handling
     fstrim.enable = true; # SSD Optimizer
     devmon.enable = true; # For Mounting USB & More
@@ -18,7 +20,7 @@
     blueman.enable = true; # Bluetooth Support
     tumbler.enable = true; # Image/video preview
 
-    avahi.enable = true; #Airplay/RAOP - required for service discovery
+    # avahi.enable = true; #Airplay/RAOP - required for service discovery
 
     pulseaudio.enable = false;
     pipewire = {

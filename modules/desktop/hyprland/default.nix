@@ -41,7 +41,7 @@ in
     };
   };
   services.displayManager.defaultSession = "hyprland";
-
+ 
   programs.hyprland = {
     enable = true;
     # package = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.hyprland;
@@ -154,7 +154,7 @@ in
                   #"[workspace 6 silent] spotify"
                   #"[workspace special silent] ${browser} --private-window"
                   #"[workspace special silent] ${terminal}"
-
+                  "systemctl --user start hyprpolkitagent"
                   "${lib.getExe wallpaper}"
                   "waybar"
                   "swaync"
