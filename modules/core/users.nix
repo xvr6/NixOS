@@ -51,6 +51,7 @@ in
         "networkmanager"
         "video"
         "audio"
+        "gamemode"
         "libvirtd"
         "kvm"
         "docker"

@@ -5,7 +5,7 @@
     ./boot.nix
     # ./flatpak.nix
     ./fonts.nix
-    # ./games.nix
+    ./games.nix
     ./hardware.nix
     ./network.nix
     ./nh.nix

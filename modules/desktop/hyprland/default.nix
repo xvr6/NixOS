@@ -30,16 +30,28 @@ in
   systemd.user.services.hyprpolkitagent = {
     description = "Hyprpolkitagent - Polkit authentication agent";
     wantedBy = [ "graphical-session.target" ];
-    wants = [ "graphical-session.target" ];
-    after = [ "graphical-session.target" ];
+    wants = [ "graphical-session.target" "xdg-desktop-portal.service" ];
+    after = [ "graphical-session.target" "xdg-desktop-portal.service" ];
     serviceConfig = {
       Type = "simple";
-      ExecStart = "${pkgs.hyprpolkitagent}/libexec/hyprpolkitagent";
+      ExecStart = "${pkgs.gtk3}/bin/gtk-launch hyprpolkitagent";
       Restart = "on-failure";
       RestartSec = 1;
       TimeoutStopSec = 10;
     };
   };
+
+  # Provide a .desktop file so xdg-desktop-portal can find an app ID
+  environment.etc."xdg/applications/hyprpolkitagent.desktop".text = ''
+[Desktop Entry]
+Name=Hyprland Polkit Agent
+Comment=Polkit authentication agent for Hyprland
+Exec=${pkgs.hyprpolkitagent}/libexec/hyprpolkitagent
+Icon=security-high
+Type=Application
+NoDisplay=true
+Categories=System;
+'';
   services.displayManager.defaultSession = "hyprland";
  
   programs.hyprland = {
@@ -165,7 +177,6 @@ in
                   "rm '$XDG_CACHE_HOME/cliphist/db'" # Clear clipboard
                   "${./scripts/batterynotify.sh}" # battery notification
                   # "${./scripts/autowaybar.sh}" # uncomment packages at the top
-                  "polkit-agent-helper-1"
                 ];
               input = {
              #  kb_layout = "${kbdLayout}";

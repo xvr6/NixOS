@@ -1,8 +1,14 @@
-{ inputs, lib, ... }:
+{ inputs, lib, pkgs, ... }:
 let
   vars = import ./variables.nix;
 in
 {
+  # Make RAPL energy counter readable to user services (avoids: "Failed to open
+   # .../energy_uj"). This is a sysfs attribute owned by root.
+   systemd.tmpfiles.rules = [
+     "z /sys/class/powercap/intel-rapl/intel-rapl:0/intel-rapl:0:0/energy_uj 0444 - - - -"
+   ];
+
   imports = [
     inputs.nixos-hardware.nixosModules.framework-amd-ai-300-series
 
@@ -41,22 +47,10 @@ in
     ../../modules/programs/misc/lact # GPU fan, clock and power configuration
   ]
   ++ lib.optional (vars.games == true) ../../modules/core/games.nix;
-  #powerManagement.cpuFreqGovernor = "schedutil";
+
 
   environment.etc."shells".text = ''
-/run/current-system/sw/bin/bash
-/run/current-system/sw/bin/zsh
-'';
-environment.etc."polkit-1/rules.d/49-gamemode.rules".text = ''
-polkit.addRule(function(action, subject) {
-    var cmd = action.lookup("command");
-    if (action.id == "org.freedesktop.policykit.exec" &&
-        cmd && (cmd.indexOf("cpugovctl") !== -1 || cmd.indexOf("procsysctl") !== -1)) {
-        if (subject.local && subject.active) {
-            return polkit.Result.YES;
-        }
-    }
-});
-'';
-
+    /run/current-system/sw/bin/bash
+    /run/current-system/sw/bin/zsh
+  '';
 }
