@@ -27,32 +27,33 @@ in
     trusted-public-keys = [ "hyprland.cachix.org-1:a7pgxzMz7+chwVL3/pzj6jIBMioiJM7ypFP8PwtkuGc=" ];
   };
 
-  systemd.user.services.hyprpolkitagent = {
-    description = "Hyprpolkitagent - Polkit authentication agent";
-    wantedBy = [ "graphical-session.target" ];
-    wants = [ "graphical-session.target" "xdg-desktop-portal.service" ];
-    after = [ "graphical-session.target" "xdg-desktop-portal.service" ];
-    serviceConfig = {
-      Type = "simple";
-      ExecStart = "${pkgs.gtk3}/bin/gtk-launch hyprpolkitagent";
-      Restart = "on-failure";
-      RestartSec = 1;
-      TimeoutStopSec = 10;
-    };
-  };
+# systemd.user.services.hyprpolkitagent = {
+#   description = "Hyprpolkitagent - Polkit authentication agent";
+#   wantedBy = [ "graphical-session.target" ];
+#   wants = [ "graphical-session.target" "xdg-desktop-portal.service" ];
+#   after = [ "graphical-session.target" "xdg-desktop-portal.service" ];
+#   serviceConfig = {
+#     Type = "simple";
+#     ExecStart = "${pkgs.gtk3}/bin/gtk-launch hyprpolkitagent";
+#     Restart = "on-failure";
+#     RestartSec = 1;
+#     TimeoutStopSec = 10;
+#   };
+# };
 
-  # Provide a .desktop file so xdg-desktop-portal can find an app ID
-  environment.etc."xdg/applications/hyprpolkitagent.desktop".text = ''
-[Desktop Entry]
-Name=Hyprland Polkit Agent
-Comment=Polkit authentication agent for Hyprland
-Exec=${pkgs.hyprpolkitagent}/libexec/hyprpolkitagent
-Icon=security-high
-Type=Application
-NoDisplay=true
-Categories=System;
-'';
-  services.displayManager.defaultSession = "hyprland";
+#   # Provide a .desktop file so xdg-desktop-portal can find an app ID
+#   environment.etc."xdg/applications/hyprpolkitagent.desktop".text = ''
+#       [Desktop Entry]
+#       Name=Hyprland Polkit Agent
+#       Comment=Polkit authentication agent for Hyprland
+#       Exec=${pkgs.hyprpolkitagent}/libexec/hyprpolkitagent
+#       Icon=security-high
+#       Type=Application
+#       NoDisplay=true
+#       Categories=System;
+#   '';
+    
+    services.displayManager.defaultSession = "hyprland";
  
   programs.hyprland = {
     enable = true;
@@ -137,6 +138,7 @@ Categories=System;
               "$browser" = browser;
 
               env = [
+                # "GAMEMODE_CONFIG,/etc/gamemode.ini"
                 "XDG_CURRENT_DESKTOP,Hyprland"
                 "XDG_SESSION_DESKTOP,Hyprland"
                 "XDG_SESSION_TYPE,wayland"

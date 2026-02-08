@@ -13,41 +13,42 @@
         wineWowPackages.staging
         # balatro # used to be a thing? look into how declaratively importing steam games work.
         lua
-        love # Compat for LOVE (engine) based games
-
+        love
         mangohud
-        gamemode
-        gamescope
     ];
    
     programs = {
-        gamemode = {
-            enable = true;
-            settings = {
-                # Disable ioprio optimisation: on some setups GameMode can't reliably
-                # apply or verify ioprio, causing noisy "ioprio was (0) but we expected" logs.
-                general.ioprio = 0;
-
-                # Steam registers GameMode from its launch wrapper first, then execs the
-                # real game; blacklisting the wrapper prevents duplicate-client warnings.
-                filter.blacklist = [ "steam-launch-wrapper" ];
-            };
-        };
         steam = { 
             enable = true;
             package = pkgs.steam.override {
                 extraPkgs = (pkgs: with pkgs; [
                     # additional pacdkages...
                     # e.g. some games require python3
-                    gamemode
-                    love
                 ]);
             };
             remotePlay.openFirewall = true;
             dedicatedServer.openFirewall = true;
             extraCompatPackages = [ pkgs.proton-ge-bin ];
         };
+        gamemode = {
+            enable = true;
+            settings = {
+                # Disable ioprio optimisation: on some setups GameMode can't reliably
+                # apply or verify ioprio, causing noisy "ioprio was (0) but we expected" logs.
+                general.ioprio = 4;
+
+                # Steam registers GameMode from its launch wrapper first, then execs the
+                # real game; blacklisting the wrapper prevents duplicate-client warnings.
+                filter.blacklist = [ "steam-launch-wrapper" ];
+            };
+        };
     };
+
+    # Ensure the user `gamemoded` service reads the system config generated from
+    # `programs.gamemode.settings` (otherwise a per-user gamemode.ini may override).
+    # systemd.user.services.gamemoded.serviceConfig.Environment = [
+    #    "GAMEMODE_CONFIG=/etc/gamemode.ini"
+    # ];
 }
 
 

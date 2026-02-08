@@ -8,6 +8,8 @@
     materialgram
     amdgpu_top
     
+    p7zip
+
     linuxPackages.cpupower
     cpufrequtils
     util-linux
