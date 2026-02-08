@@ -1,19 +1,14 @@
-{
-  lib,
-  inputs,
-  host,
-  pkgs,
-  ...
-}:
+{ lib, inputs, host, pkgs, ... }:
 let
-  inherit (import ../../../hosts/${host}/variables.nix)
-    browser
-    terminal
-    editor
-    games
-    defaultWallpaper
+    inherit (import ../../../hosts/${host}/variables.nix)
+        browser
+        terminal
+        editor
+        games
+        defaultWallpaper
     ;
 in
+
 {
   programs.thunar.enable = lib.mkForce false;
   services = {
@@ -62,17 +57,17 @@ in
           effects = {
             blur.enable = false;
             cube.enable = true;
-            desktopSwitching.animation = "off";
+            desktopSwitching.animation = "on";
             dimAdminMode.enable = false;
             dimInactive.enable = false;
             fallApart.enable = false;
             fps.enable = false;
-            minimization.animation = "off";
+            minimization.animation = "on";
             shakeCursor.enable = false;
             slideBack.enable = false;
             snapHelper.enable = false;
             translucency.enable = false;
-            windowOpenClose.animation = "off";
+            windowOpenClose.animation = "on";
             wobblyWindows.enable = false;
           };
 
