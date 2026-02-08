@@ -16,6 +16,7 @@ in
     ../../modules/hardware/video/${vars.videoDriver}.nix
     ./host-packages.nix
     
+    ../../modules/programs/cli/tetrigo
     # Core Modules (Don't change unless you know what you're doing)
     ../../modules/scripts
     ../../modules/core

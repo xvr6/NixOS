@@ -35,7 +35,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
    
-    nur.url = "github:nix-community/NUR";
+#    nur.url = "github:nix-community/NUR";
 
     thunderbird-catppuccin = {
       url = "github:catppuccin/thunderbird";
@@ -45,7 +45,8 @@
       url = "github:youwen5/zen-browser-flake";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-  };
+    tetrigo.url = "github:Broderick-Westrope/tetrigo";
+};
 
   outputs =
     { self, nixpkgs, ... }@inputs:

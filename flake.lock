@@ -70,27 +70,6 @@
         "type": "github"
       }
     },
-    "flake-parts_2": {
-      "inputs": {
-        "nixpkgs-lib": [
-          "nur",
-          "nixpkgs"
-        ]
-      },
-      "locked": {
-        "lastModified": 1733312601,
-        "narHash": "sha256-4pDvzqnegAfRkPwO3wmwBhVi/Sye1mzps0zHWYnP88c=",
-        "owner": "hercules-ci",
-        "repo": "flake-parts",
-        "rev": "205b12d8b7cd4802fbcb8e8ef6a0f1408781a4f9",
-        "type": "github"
-      },
-      "original": {
-        "owner": "hercules-ci",
-        "repo": "flake-parts",
-        "type": "github"
-      }
-    },
     "flake-utils": {
       "inputs": {
         "systems": "systems_2"
@@ -540,6 +519,21 @@
         "type": "github"
       }
     },
+    "nix-systems": {
+      "locked": {
+        "lastModified": 1681028828,
+        "narHash": "sha256-Vy1rq5AaRuLzOxct8nz4T6wlgyUR7zLU309k9mBC768=",
+        "owner": "nix-systems",
+        "repo": "default",
+        "rev": "da67096a3b9bf56a91d16901293e51ba5b49a27e",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nix-systems",
+        "repo": "default",
+        "type": "github"
+      }
+    },
     "nixos-hardware": {
       "locked": {
         "lastModified": 1769302137,
@@ -606,16 +600,15 @@
     },
     "nixpkgs_2": {
       "locked": {
-        "lastModified": 1770197578,
-        "narHash": "sha256-AYqlWrX09+HvGs8zM6ebZ1pwUqjkfpnv8mewYwAo+iM=",
-        "owner": "nixos",
+        "lastModified": 1745929011,
+        "narHash": "sha256-ct4HUxgdhor5dRlXehDor3uhgB9WdhmJ3L7hLLGsH5w=",
+        "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "00c21e4c93d963c50d4c0c89bfa84ed6e0694df2",
+        "rev": "10eccd2b55668b09610c499895867bbdb2a6323c",
         "type": "github"
       },
       "original": {
-        "owner": "nixos",
-        "ref": "nixos-unstable",
+        "owner": "NixOS",
         "repo": "nixpkgs",
         "type": "github"
       }
@@ -641,25 +634,6 @@
         "owner": "nix-community",
         "ref": "nixos-25.11",
         "repo": "nixvim",
-        "type": "github"
-      }
-    },
-    "nur": {
-      "inputs": {
-        "flake-parts": "flake-parts_2",
-        "nixpkgs": "nixpkgs_2"
-      },
-      "locked": {
-        "lastModified": 1770430352,
-        "narHash": "sha256-SgQFMWwoAvG1UHopmum2bRoBosL6wmeH/jykeU3b/Go=",
-        "owner": "nix-community",
-        "repo": "NUR",
-        "rev": "6f6b52f32bdf772383a649078f1290e940357736",
-        "type": "github"
-      },
-      "original": {
-        "owner": "nix-community",
-        "repo": "NUR",
         "type": "github"
       }
     },
@@ -781,9 +755,9 @@
         "nixpkgs-stable": "nixpkgs-stable",
         "nixpkgs-unstable": "nixpkgs-unstable",
         "nixvim": "nixvim",
-        "nur": "nur",
         "nvchad4nix": "nvchad4nix",
         "plasma-manager": "plasma-manager",
+        "tetrigo": "tetrigo",
         "thunderbird-catppuccin": "thunderbird-catppuccin",
         "zen-browser": "zen-browser"
       }
@@ -848,6 +822,25 @@
         "type": "github"
       }
     },
+    "tetrigo": {
+      "inputs": {
+        "nixpkgs": "nixpkgs_2",
+        "utils": "utils"
+      },
+      "locked": {
+        "lastModified": 1762515180,
+        "narHash": "sha256-QebdmCn1zPBZxdMAotBJqSDHfw7tkcG3HPSM7h59Xbs=",
+        "owner": "Broderick-Westrope",
+        "repo": "tetrigo",
+        "rev": "1264c1b6fa7bfdfcde08a3db5358254795a8767d",
+        "type": "github"
+      },
+      "original": {
+        "owner": "Broderick-Westrope",
+        "repo": "tetrigo",
+        "type": "github"
+      }
+    },
     "thunderbird-catppuccin": {
       "flake": false,
       "locked": {
@@ -861,6 +854,28 @@
       "original": {
         "owner": "catppuccin",
         "repo": "thunderbird",
+        "type": "github"
+      }
+    },
+    "utils": {
+      "inputs": {
+        "nix-systems": "nix-systems",
+        "nixpkgs": [
+          "tetrigo",
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1745390014,
+        "narHash": "sha256-fRr/v396NBj140H80PdZGdObGP7SLcDw5OKY1BgLSW0=",
+        "owner": "NewDawn0",
+        "repo": "nixUtils",
+        "rev": "a8d08dbc5f64aaecd937e7f434330618f663c779",
+        "type": "github"
+      },
+      "original": {
+        "owner": "NewDawn0",
+        "repo": "nixUtils",
         "type": "github"
       }
     },

@@ -42,8 +42,8 @@
                     lsp.servers = {
                         nixd.enable = true;
                         vue_ls.enable = true;
-  #                      conf.enable = true;
-                    };
+                        golangci_lint_ls.enable = true;
+                   };
 
                     # -- Cosmetic Tweaks --
                     todo-comments.enable = true;
