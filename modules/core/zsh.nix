@@ -141,6 +141,7 @@
 
             # Directory Shortcuts.
             dots = "cd ~/NixOS/";
+            projs = "cd ~/projects/";
           };
         };
         

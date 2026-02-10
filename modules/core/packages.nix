@@ -79,8 +79,8 @@
     foot #TODO: want to configure this later similarily to illogical flake.
     #WARN: these imports are here until i can figure out devshells lol
     go
-    gotools
-    golangci-lint
+  # gotools
+  # golangci-lint
 
 
   ];

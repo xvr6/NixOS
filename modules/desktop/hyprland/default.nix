@@ -373,8 +373,10 @@ in
                 "float,title:^(Picture-in-Picture)$,class:^(zen|zen-beta|floorp|firefox)$"
                 "pin,title:^(Picture-in-Picture)$,class:^(zen|zen-beta|floorp|firefox)$"
                 
-                #steam friends list float
-                "float,class:^(steam)"
+                #TODO:: steam friends list float
+                #"float,class:^(steam)"
+                # zen browser extension windows float
+                "float,title:^(.*)(Extension)(.*)$, class:^(zen)$"
             
                 "content game, tag:games"
                 "tag +games, content:game"
