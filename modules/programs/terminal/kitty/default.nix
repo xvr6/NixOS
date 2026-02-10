@@ -23,7 +23,13 @@
           enable_audio_bell = false;
           mouse_hide_wait = 60;
           update_check_interval = 0;
-
+          
+          ## Cursor Trail
+          cursor_trail = 1;
+          cursor_trail_decay = "0.1 0.4";
+          cursor_trail_start_threshold = 2;
+          cursor_trail_color = "none";         
+          
           ## Tabs
           tab_title_template = "{index}";
           active_tab_font_style = "normal";

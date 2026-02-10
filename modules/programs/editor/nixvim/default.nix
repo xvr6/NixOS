@@ -4,57 +4,9 @@
     in {
         home-manager.sharedModules = [
         (_: {
-            imports = [
-                inputs.nixvim.homeModules.nixvim
+            home.packages = with pkgs; [
+                inputs.nixvim.packages.${stdenv.hostPlatform.system}.default
             ];
-      
-            programs.nixvim = {
-                enable = true;
-                viAlias = true;
-                vimAlias = true;
-      	        defaultEditor = true;
-	            opts = {
-                    #line numbers
-                    number = true;
-                    relativenumber = true;
-
-                    #tab settings
-                    tabstop = 4;
-                    shiftwidth = 4;
-                    softtabstop = 4;
-                    expandtab = true;
-                    shiftround = true;
-                    autoindent = true;
-                    smartindent = true;
-	            };
-	      
-	            plugins = {
-		            nvim-tree = {
-                        enable = true;
-                        openOnSetup = true;
-                        openOnSetupFile = true;
-                    };
-
-		            web-devicons.enable = true;
-                    
-                    # -- Language Server Protocol --
-                    lsp.enable = true;
-                    lsp.servers = {
-                        nixd.enable = true;
-                        vue_ls.enable = true;
-                        golangci_lint_ls.enable = true;
-                   };
-
-                    # -- Cosmetic Tweaks --
-                    todo-comments.enable = true;
-                    lightline.enable = true;
-                    highlight-colors.enable = true;
-                    
-                    telescope = {
-                        enable = true;
-                    };
-	            };
-            };
          
          xdg.desktopEntries = {
             "nvim" = {

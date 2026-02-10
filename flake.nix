@@ -20,10 +20,17 @@
         inputs.nixpkgs.follows = "nixpkgs";
         inputs.home-manager.follows = "home-manager";
     }; 
+
+    #nixvim seperated out into flake
     nixvim = {
-    	url = "github:nix-community/nixvim/nixos-25.11";
-		inputs.nixpkgs.follows = "nixpkgs";
-	};   
+        url = "github:xvr6/nixvim";
+        inputs.nixpkgs.follows = "nixpkgs";
+    };
+    
+####nixvim = {
+####	url = "github:nix-community/nixvim/nixos-25.11";
+####	inputs.nixpkgs.follows = "nixpkgs";
+####};   
     
     nvchad4nix = {
       url = "github:nix-community/nix4nvchad";
