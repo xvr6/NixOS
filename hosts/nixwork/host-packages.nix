@@ -2,7 +2,6 @@
 {
   environment.systemPackages = with pkgs; [
     obsidian
-    ludusavi # For game saves
     github-desktop
     ripgrep
     materialgram
@@ -13,6 +12,6 @@
     linuxPackages.cpupower
     cpufrequtils
     util-linux
-   # pokego # Overlayed
-  ];
+    # pokego # Overlayed
+    ];
 }

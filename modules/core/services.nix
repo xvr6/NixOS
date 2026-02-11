@@ -38,8 +38,8 @@
       #   ];
       # };
     
-        #Airplay/RAOP
-      raopOpenFirewall = true;
+      # -- Airplay/RAOP
+      # raopOpenFirewall = true;
       extraConfig.pipewire = {
         "10-airplay" = {
             "context.modules" = [ {
