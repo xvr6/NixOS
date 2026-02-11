@@ -23,7 +23,7 @@
 
     #nixvim seperated out into flake
     nixvim = {
-        url = "github:xvr6/nixvim";
+        url = "github:xvr6/nixvim/dev";
         inputs.nixpkgs.follows = "nixpkgs";
     };
     

@@ -8,7 +8,7 @@
           size = 12.0;
           name = "monospace";
         };
-        themeFile = "Catppuccin-Mocha";
+        themeFile = "tokyo_night_moon";
         settings = {
           # shell = "${getExe pkgs.tmux}";
           # cursor_trail = 3; # Fancy cursor movements (especially in nixvim)
