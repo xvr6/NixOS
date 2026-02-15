@@ -1,9 +1,9 @@
-{ ... }:
+{ pkgs, ... }:
 {
   # Services to start
   services = {
     power-profiles-daemon.enable = false;
-    
+
     libinput.enable = true; # Input Handling
     fstrim.enable = true; # SSD Optimizer
     devmon.enable = true; # For Mounting USB & More
@@ -20,8 +20,6 @@
     blueman.enable = true; # Bluetooth Support
     tumbler.enable = true; # Image/video preview
 
-    # avahi.enable = true; #Airplay/RAOP - required for service discovery
-
     pulseaudio.enable = false;
     pipewire = {
       enable = true;
@@ -29,33 +27,35 @@
       alsa.support32Bit = true;
       # pulse.enable = true;
       # jack.enable = true;
-      # wireplumber = {
-      #   enable = true;
-      #   configPackages = [
-      #     (pkgs.writeTextDir "share/wireplumber/wireplumber.conf.d/11-bluetooth-policy.conf" ''
-      #       bluetooth.autoswitch-to-headset-profile = false
-      #     '')
-      #   ];
-      # };
-    
+      wireplumber = {
+        enable = true;
+        configPackages = [
+          (pkgs.writeTextDir "share/wireplumber/wireplumber.conf.d/11-bluetooth-policy.conf" ''
+            bluetooth.autoswitch-to-headset-profile = false
+          '')
+        ];
+      };
+
       # -- Airplay/RAOP
       # raopOpenFirewall = true;
       extraConfig.pipewire = {
-        "10-airplay" = {
-            "context.modules" = [ {
-                name = "libpipewire-module-raop-discover";
-                args = {
-                    # "raop.latency.ms" = 500; #If lag/dropouts occur, try increasing buffer.
-                };
-            } ];
-        };
+        #"10-airplay" = {
+        #  "context.modules" = [
+        #    {
+        #      name = "libpipewire-module-raop-discover";
+        #      args = {
+        #        # "raop.latency.ms" = 500; #If lag/dropouts occur, try increasing buffer.
+        #      };
+        #    }
+        #  ];
+        #};
         "92-low-latency" = {
-            "context.properties" = {
-                "default.clock.rate" = 48000;
-                "default.clock.quantum" = 32;
-                "default.clock.min-quantum" = 32;
-                "default.clock.max-quantum" = 32;
-            };
+          "context.properties" = {
+            "default.clock.rate" = 48000;
+            "default.clock.quantum" = 32;
+            "default.clock.min-quantum" = 32;
+            "default.clock.max-quantum" = 32;
+          };
         };
       };
     };

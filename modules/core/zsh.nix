@@ -12,7 +12,7 @@
           history.size = 100000;
           history.path = "\${XDG_DATA_HOME}/zsh/history";
           dotDir = "${config.xdg.configHome}/zsh";
-          
+
           oh-my-zsh = {
             enable = true;
             plugins = [
@@ -22,7 +22,6 @@
               "z"
             ];
           };
-  
 
           initContent = ''
             # # Starship Prompt
@@ -137,14 +136,14 @@
             update-input = "nix flake update $@";
             sysup = "nix flake update --flake ~/NixOS && rebuild";
             nrs = "sudo nixos-rebuild switch --flake ~/NixOS";
-			nrt = "sudo nixos-rebuild test --flake ~/NixOS";
+            nrt = "sudo nixos-rebuild test --flake ~/NixOS";
 
             # Directory Shortcuts.
             dots = "cd ~/NixOS/";
             projs = "cd ~/projects/";
           };
         };
-        
+
         programs.oh-my-posh = {
           enable = true;
           enableZshIntegration = true;

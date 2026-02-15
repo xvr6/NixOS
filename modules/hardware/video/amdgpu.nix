@@ -1,15 +1,22 @@
 { pkgs, ... }:
-
 {
-    imports = [
-        ./common.nix
-    ];
+  imports = [
+    ./common.nix
+  ];
 
-    boot.initrd.kernelModules = ["amdgpu"];
-    
-    services.xserver = {
-        # enable = true;  # Already enabled in display manager
-        videoDrivers = [ "amdgpu" ];
-    };
+  boot.initrd.kernelModules = [ "amdgpu" ];
+  environment.systemPackages = with pkgs; [
+    rocmPackages.clr
+    rocmPackages.amdsmi
+    monado-vulkan-layers
+  ];
+  services.xserver = {
+#   enable = true;
+    videoDrivers = [ "amdgpu" ];
+  };
+  hardware.amdgpu = {
+    opencl.enable = true;
+    initrd.enable = true;
 
+  };
 }

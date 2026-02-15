@@ -1,37 +1,32 @@
 {
-  description = "A simple flake for an atomic system";
+  description = "xvr6 flake - fork of sly-harvey";
 
   inputs = {
     nixpkgs-unstable.url = "github:nixos/nixpkgs/nixos-unstable";
     nixpkgs-stable.url = "github:nixos/nixpkgs/nixos-25.11";
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-25.11";
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
 
     home-manager = {
-      url = "github:nix-community/home-manager/release-25.11";
+      url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     hyprland = {
-        url = "github:hyprwm/Hyprland?ref=v0.53.0";
-        inputs.nixpkgs.follows = "nixpkgs-unstable";
+      url = "github:hyprwm/Hyprland?ref=v0.53.0";
+      inputs.nixpkgs.follows = "nixpkgs-unstable";
     };
     plasma-manager = {
-        url = "github:nix-community/plasma-manager";
-        inputs.nixpkgs.follows = "nixpkgs";
-        inputs.home-manager.follows = "home-manager";
-    }; 
+      url = "github:nix-community/plasma-manager";
+      inputs.nixpkgs.follows = "nixpkgs";
+      inputs.home-manager.follows = "home-manager";
+    };
 
     #nixvim seperated out into flake
     nixvim = {
-        url = "github:xvr6/nixvim/dev";
-        inputs.nixpkgs.follows = "nixpkgs";
+      url = "github:xvr6/nixvim/dev";
+      inputs.nixpkgs.follows = "nixpkgs";
     };
-    
-####nixvim = {
-####	url = "github:nix-community/nixvim/nixos-25.11";
-####	inputs.nixpkgs.follows = "nixpkgs";
-####};   
-    
+
     nvchad4nix = {
       url = "github:nix-community/nix4nvchad";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -41,8 +36,8 @@
       url = "github:nix-community/nix-index-database";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-   
-#    nur.url = "github:nix-community/NUR";
+
+    #    nur.url = "github:nix-community/NUR";
 
     thunderbird-catppuccin = {
       url = "github:catppuccin/thunderbird";
@@ -53,7 +48,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     tetrigo.url = "github:Broderick-Westrope/tetrigo";
-};
+  };
 
   outputs =
     { self, nixpkgs, ... }@inputs:
@@ -64,16 +59,36 @@
         "aarch64-linux"
       ];
       forAllSystems = nixpkgs.lib.genAttrs systems;
-      mkHost = host:
+      mkHost =
+        host:
         nixpkgs.lib.nixosSystem {
           # inherit system;
           system = forAllSystems (system: system);
           modules = [
             ./hosts/${host}/configuration.nix
+            #home manager configuration
+            (
+              { ... }:
+              {
+                home-manager = {
+                  backupFileExtension = "backup";
+                  users.${"xvr6"} = {
+                    # FIX: not dynamic
+                    imports = [ ./home.nix ];
+                  };
+                };
+              }
+            )
           ];
+
           specialArgs = {
             overlays = import ./overlays { inherit inputs host; };
-            inherit self inputs outputs host;
+            inherit
+              self
+              inputs
+              outputs
+              host
+              ;
           };
         };
     in

@@ -6,7 +6,7 @@
 
   # Theme & Appearance
   waybarTheme = "minimal"; # stylish, minimal
-  sddmTheme = "black_hole"; # astronaut, black_hole, purple_leaves, jake_the_dog, hyprland_kath
+  sddmTheme = "purple_leaves"; # astronaut, black_hole, purple_leaves, jake_the_dog, hyprland_kath
   defaultWallpaper = "train-sideview.webp"; # Change with SUPER + SHIFT + W
   hyprlockWallpaper = "train-sideview.webp";
 

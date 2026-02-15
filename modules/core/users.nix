@@ -1,4 +1,9 @@
-{ pkgs, inputs, host, ... }:
+{
+  pkgs,
+  inputs,
+  host,
+  ...
+}:
 
 let
   inherit (import ../../hosts/${host}/variables.nix)

@@ -2,7 +2,7 @@
 {
   virtualisation = {
     spiceUSBRedirection.enable = true;
-    
+
     # Only enable either docker or podman -- Not both
     docker.enable = false;
     podman.enable = true;

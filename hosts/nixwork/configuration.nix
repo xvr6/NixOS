@@ -5,25 +5,24 @@ in
 {
   # Make RAPL energy counter readable to user services (avoids: "Failed to open
    # .../energy_uj"). This is a sysfs attribute owned by root.
-   systemd.tmpfiles.rules = [
-     "z /sys/class/powercap/intel-rapl/intel-rapl:0/intel-rapl:0:0/energy_uj 0444 - - - -"
-   ];
+  # systemd.tmpfiles.rules = [
+  #   "z /sys/class/powercap/intel-rapl/intel-rapl:0/intel-rapl:0:0/energy_uj 0444 - - - -"
+  # ];
 
   imports = [
-    inputs.nixos-hardware.nixosModules.framework-amd-ai-300-series
+     inputs.nixos-hardware.nixosModules.framework-amd-ai-300-series
 
     ./hardware-configuration.nix
-    ../../modules/hardware/video/${vars.videoDriver}.nix
     ./host-packages.nix
     
     ../../modules/programs/cli/tetrigo
-    # Core Modules (Don't change unless you know what you're doing)
+    # Core Modules
     ../../modules/scripts
     ../../modules/core
 
     # Optional
     #../../modules/hardware/drives # Automatically mount extra external/internal drives
-    # ../../modules/hardware/video/${vars.videoDriver}.nix # Enable gpu drivers defined in variables.nix
+    ../../modules/hardware/video/${vars.videoDriver}.nix # Enable gpu drivers defined in variables.nix
     ../../modules/desktop/${vars.desktop} # Set window manager defined in variables.nix
     ../../modules/programs/browser/${vars.browser} # Set browser defined in variables.nix
     ../../modules/programs/terminal/${vars.terminal} # Set terminal defined in variables.nix
@@ -32,7 +31,7 @@ in
     ../../modules/programs/cli/tmux
     ../../modules/programs/editor/vscode
     ../../modules/programs/cli/direnv
-    ../../modules/programs/cli/lazygit
+    ../../modules/programs/cli/git.nix
     ../../modules/programs/cli/cava
     ../../modules/programs/cli/fastfetch
     ../../modules/programs/cli/btop

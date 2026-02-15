@@ -15,7 +15,7 @@
   nixpkgs.config.allowUnfree = true;
 
   environment.systemPackages = with pkgs; [
-    hyprpolkitagent #hyprland auth service
+    hyprpolkitagent # hyprland auth service
 
     gnumake
     appimage-run # Needed For AppImage Support
@@ -42,7 +42,7 @@
     unzip # Tool For Handling .zip Files
     # aider-chat # AI in terminal (Optional: Client only)
     cmatrix # Matrix Movie Effect In Terminal
-    cowsay # Great Fun Terminal Program
+    cowsay # Great goFun Terminal Program
     # duf # Utility For Viewing Disk Usage In Terminal
     dysk # Disk space util nice formattting
     ffmpeg # Terminal Video / Audio Editing
@@ -76,12 +76,13 @@
     # devbox
     # shellify
 
-    foot #TODO: want to configure this later similarily to illogical flake.
+    foot # TODO: want to configure this later similarily to illogical flake.
     #WARN: these imports are here until i can figure out devshells lol
     go
-  # gotools
-  # golangci-lint
+    lua
 
+    # gotools
+    # golangci-lint
 
   ];
 }

@@ -1,5 +1,6 @@
 { ... }:
 {
+  # Enable CUPS to print documents.
   services = {
     printing = {
       enable = true;
@@ -7,11 +8,12 @@
         # pkgs.hplipWithPlugin
       ];
     };
-    # avahi = {
-    #   enable = true;
-    #   nssmdns4 = true;
-    #   openFirewall = true;
-    # };
-    # ipp-usb.enable = true;
+
+    avahi = {
+      enable = true;
+      nssmdns4 = true;
+      openFirewall = true;
+    };
+    ipp-usb.enable = true;
   };
 }
