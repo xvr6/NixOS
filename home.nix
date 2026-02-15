@@ -10,7 +10,7 @@
   #NOTE: I now need to go through and decide what stuff i want to make into nixos modules instead of home modules, and change how flake is structured.	
 	home.username = "xvr6";
 	home.homeDirectory = "/home/${"xvr6"}";
-	home.stateVersion = "25.11";
+	home.stateVersion = "26.05";
  
 
  	home.packages = with pkgs; [];
