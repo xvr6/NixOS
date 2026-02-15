@@ -8,15 +8,15 @@
   environment.systemPackages = with pkgs; [
     rocmPackages.clr
     rocmPackages.amdsmi
-    monado-vulkan-layers
+    #  monado-vulkan-layers
   ];
   services.xserver = {
 #   enable = true;
     videoDrivers = [ "amdgpu" ];
   };
+
   hardware.amdgpu = {
     opencl.enable = true;
     initrd.enable = true;
-
   };
 }

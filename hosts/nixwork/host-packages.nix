@@ -8,7 +8,7 @@
     amdgpu_top
 
     p7zip
-
+    coreutils
     linuxPackages.cpupower
     cpufrequtils
     util-linux

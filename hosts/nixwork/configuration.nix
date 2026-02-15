@@ -5,9 +5,9 @@ in
 {
   # Make RAPL energy counter readable to user services (avoids: "Failed to open
    # .../energy_uj"). This is a sysfs attribute owned by root.
-  # systemd.tmpfiles.rules = [
-  #   "z /sys/class/powercap/intel-rapl/intel-rapl:0/intel-rapl:0:0/energy_uj 0444 - - - -"
-  # ];
+   systemd.tmpfiles.rules = [
+     "z /sys/class/powercap/intel-rapl/intel-rapl:0/intel-rapl:0:0/energy_uj 0444 - - - -"
+   ];
 
   imports = [
      inputs.nixos-hardware.nixosModules.framework-amd-ai-300-series
