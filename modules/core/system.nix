@@ -84,7 +84,6 @@ in
     LC_TIME = "${locale}";
   };
   environment.variables = {
-    templates = "${self}/dev-shells";
     NIXOS_OZONE_WL = "1";
 
     # These are the defaults, and xdg.enable does set them, but due to load

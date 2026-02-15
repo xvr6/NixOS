@@ -54,20 +54,6 @@
                   fi
               }
             '';
-            fnew = ''
-              if [ -d "$2" ]; then
-                echo "Directory \"$2\" already exists!"
-                return 1
-              fi
-              nix flake new $2 --template ${self}/dev-shells#$1
-              cd $2
-              direnv allow
-            '';
-
-            finit = ''
-              nix flake init --template ${self}/dev-shells#$1
-              direnv allow
-            '';
             cdown = ''
               N=$1
               while [[ $((--N)) -gt  0 ]]
