@@ -132,7 +132,7 @@ in
               "$browser" = browser;
 
               env = [
-                # "GAMEMODE_CONFIG,/etc/gamemode.ini"
+                "GAMEMODE_CONFIG,/etc/gamemode.ini" #WARN: unsure if this even works. 
                 "XDG_CURRENT_DESKTOP,Hyprland"
                 "XDG_SESSION_DESKTOP,Hyprland"
                 "XDG_SESSION_TYPE,wayland"
