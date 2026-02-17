@@ -2,7 +2,7 @@
 {
   environment.systemPackages = with pkgs; [
     obsidian
-    github-desktop
+    # github-desktop
     ripgrep
     materialgram
     amdgpu_top

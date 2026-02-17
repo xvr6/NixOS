@@ -50,7 +50,7 @@ in
 
 
   environment.etc."shells".text = ''
-    /run/current-system/sw/bin/bash
     /run/current-system/sw/bin/zsh
+    /run/current-system/sw/bin/bash
   '';
 }

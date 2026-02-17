@@ -37,8 +37,6 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    #    nur.url = "github:nix-community/NUR";
-
     thunderbird-catppuccin = {
       url = "github:catppuccin/thunderbird";
       flake = false;

@@ -23,6 +23,8 @@ let
     (extension "bitwarden-password-manager" "{446900e4-71c2-419f-a6a7-df9c091e268b}")
     (extension "sponsorblock" "sponsorBlocker@ajay.app")
     (extension "darkreader" "addon@darkreader.org")
+    (extension "speedyapply-job-form-autofill" "kirk@speedyapply.com")
+
   ];
 in {
   environment.systemPackages = [
