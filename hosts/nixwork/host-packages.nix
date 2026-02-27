@@ -15,6 +15,6 @@
 
     gcc
 
-    # pokego # Overlayed
+    pokego # Overlayed
   ];
 }

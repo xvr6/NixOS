@@ -13,10 +13,9 @@
 
   # https://wiki.nixos.org/wiki/Overlays
   modifications = final: prev: {
-    # nur = inputs.nur.overlays.default;
-    # unstable = import inputs.nixpkgs-unstable {
-    #     config.allowUnFree = true;
-    # };
+    unstable = import inputs.nixpkgs-unstable {
+      config.allowUnFree = true;
+    };
     stable = import inputs.nixpkgs-stable {
       system = final.system;
       config.allowUnfree = true;

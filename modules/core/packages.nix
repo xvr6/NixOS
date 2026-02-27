@@ -41,6 +41,7 @@
     unrar # Tool For Handling .rar Files
     unzip # Tool For Handling .zip Files
     # aider-chat # AI in terminal (Optional: Client only)
+    curl
     cmatrix # Matrix Movie Effect In Terminal
     cowsay # Great goFun Terminal Program
     # duf # Utility For Viewing Disk Usage In Terminal
@@ -76,8 +77,7 @@
     # devbox
     # shellify
 
-    foot # TODO: want to configure this later similarily to illogical flake.
-    #WARN: these imports are here until i can figure out devshells lol
+    #NOTE: these imports are here until i can figure out devshells lol
     go
     lua
 

@@ -318,8 +318,13 @@ in
                 "opacity 0.80 0.70,match:class ^(org.gnome.FileRoller)$"
                 "opacity 0.80 0.70,match:class ^(io.github.ilya_zlobintsev.LACT)$"
                 "opacity 0.80 0.70,match:class ^(Steam|steam|steamwebhelper)$"
+                # spotify
                 "opacity 0.80 0.70,match:class ^(Spotify|spotify)$"
                 "opacity 0.80 0.70,match:title (.*)(Spotify)(.*)$"
+                
+                # youtube music
+                "opacity 0.90 0.80,match:class (.*)(youtube_music)(.*)$"
+                
                 "opacity 0.80 0.70,match:title ^(Kvantum Manager)$"
                 "opacity 0.80 0.70,match:class ^(VSCodium|codium-url-handler)$"
                 "opacity 0.80 0.70,match:class ^(code|code-url-handler)$"
