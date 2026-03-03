@@ -16,5 +16,6 @@
     gcc
 
     pokego # Overlayed
+    packwiz
   ];
 }
