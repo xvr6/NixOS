@@ -11,8 +11,6 @@ let
     browser
     terminal
     tuiFileManager
-    kbdLayout
-    kbdVariant
     defaultWallpaper
     ;
 in
@@ -133,7 +131,7 @@ in
               "$browser" = browser;
 
               env = [
-                "GAMEMODE_CONFIG,/etc/gamemode.ini" #WARN: unsure if this even works. 
+                "GAMEMODE_CONFIG,/etc/gamemode.ini" # WARN: unsure if this even works.
                 "XDG_CURRENT_DESKTOP,Hyprland"
                 "XDG_SESSION_DESKTOP,Hyprland"
                 "XDG_SESSION_TYPE,wayland"
@@ -272,7 +270,7 @@ in
                 swallow_regex = "^(Alacritty|kitty)$";
                 enable_swallow = true;
                 vfr = true; # always keep on
-                vrr = 2; # enable variable refresh rate (0=off, 1=on, 2=fullscreen only, 3 = fullscreen games/media)
+                vrr = 1; # enable variable refresh rate (0=off, 1=on, 2=fullscreen only, 3 = fullscreen games/media)
               };
               xwayland.force_zero_scaling = false;
               gesture = [
@@ -321,10 +319,10 @@ in
                 # spotify
                 "opacity 0.80 0.70,match:class ^(Spotify|spotify)$"
                 "opacity 0.80 0.70,match:title (.*)(Spotify)(.*)$"
-                
+
                 # youtube music
                 "opacity 0.90 0.80,match:class (.*)(youtube_music)(.*)$"
-                
+
                 "opacity 0.80 0.70,match:title ^(Kvantum Manager)$"
                 "opacity 0.80 0.70,match:class ^(VSCodium|codium-url-handler)$"
                 "opacity 0.80 0.70,match:class ^(code|code-url-handler)$"
@@ -440,7 +438,7 @@ in
                   "$mainMod, slash, exec, ${./scripts/keybinds.sh}"
                   "$mainMod CTRL, K, exec, ${./scripts/keybinds.sh}"
 
-                  "$mainMod, F8, exec, kill $(cat /tmp/auto-clicker.pid) 2>/dev/null || ${lib.getExe autoclicker} --cps 40"
+                  # "$mainMod, F8, exec, kill $(cat /tmp/auto-clicker.pid) 2>/dev/null || ${lib.getExe autoclicker} --cps 40"
                   # "$mainMod ALT, mouse:276, exec, kill $(cat /tmp/auto-clicker.pid) 2>/dev/null || ${lib.getExe autoclicker} --cps 60"
 
                   # Night Mode (lower value means warmer temp)
