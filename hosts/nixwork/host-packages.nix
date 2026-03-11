@@ -17,5 +17,8 @@
 
     pokego # Overlayed
     packwiz
+    
+    parsec-bin
+
   ];
 }

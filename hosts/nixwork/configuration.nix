@@ -38,7 +38,7 @@ in
     ../../modules/programs/media/discord
     # ../../modules/programs/media/spicetify
     ../../modules/programs/media/youtube-music
-    ../../modules/programs/misc/cpufreq
+    #../../modules/programs/misc/cpufreq
     # ../../modules/programs/media/thunderbird
     ../../modules/programs/media/obs-studio
     ../../modules/programs/media/mpv
