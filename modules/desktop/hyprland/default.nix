@@ -357,24 +357,24 @@ in
                 "opacity 0.90 0.80, match:title ^(.*)(materialgram)(.*)$, match:class ^(.*)(materialgram)(.*)$"
 
                 #float materialgram Media/Instant View and turn off transparency
-                "float on, match:title ^(.*)(Media viewer)(.*)$, match:class ^(.*)(materialgram)(.*)$"
-                "float on, match:title ^(.*)(Instant View)(.*)$, match:class ^(.*)(gram)(.*)$"
+                "float on, match:title (.*)(Media viewer)(.*)$, match:class (.*)(materialgram)(.*)$"
+                "float on, match:title (.*)(Instant View)(.*)$, match:class (.*)(materialgram)(.*)$"
 
-                "opacity 1.00 0.90, match:title ^(.*)(Media viewer)(.*)$, match:class ^(.*)(materialgram)(.*)$"
-                "opacity 1.00 0.90, match:title ^(.*)(Instant View)(.*)$, match:class ^(.*)(materialgram)(.*)$"
+                "opacity 1.00 0.90, match:title (.*)(Media viewer)(.*)$, match:class (.*)(materialgram)(.*)$"
+                "opacity 1.00 0.90, match:title (.*)(Instant View)(.*)$, match:class (.*)(materialgram)(.*)$"
 
                 # Block discord and browsers from screenshare/screenshots
                 # "noscreenshare,match:class ^(firefox|Brave-browser|floorp|zen|zen-beta)$"
                 # "noscreenshare,match:class ^(discord)$"
 
                 # Float and pin Picture-in-Picture in browsers
-                "float on ,match:title ^(Picture-in-Picture)$,match:class ^(zen|zen-beta|floorp|firefox)$"
-                "pin on ,match:title ^(Picture-in-Picture)$,match:class ^(zen|zen-beta|floorp|firefox)$"
+                "float on, match:title ^(Picture-in-Picture)$,match:class ^(zen|zen-beta|floorp|firefox)$"
+                "pin on, match:title ^(Picture-in-Picture)$,match:class ^(zen|zen-beta|floorp|firefox)$"
 
                 #TODO:: steam friends list float
                 #"float,match:class ^(steam)"
                 # zen browser extension windows float
-                "float on,match:title ^(.*)(Extension)(.*)$, match:class ^(zen)$"
+                "float on, match:title (.*)(Extension)(.*)$, match:class ^(zen)$"
 
                 "content game, match:tag games"
                 "tag +games, match:content game"
