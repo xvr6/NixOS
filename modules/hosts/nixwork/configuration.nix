@@ -1,0 +1,61 @@
+{ self, inputs, ... }:
+{
+
+  flake.nixosConfigurations.nixwork = inputs.nixpkgs.lib.nixosSystem {
+    modules = [
+      self.nixosModules.nixworkConfig
+    ];
+  };
+  flake.nixosModules.nixworkConfig =
+    { pkgs, lib, ... }:
+    {
+      imports = [
+        inputs.nixos-hardware.nixosModules.framework-amd-ai-300-series
+        # inputs.nixvim.${pkgs.stdenv.hostPlatform.system}.default
+
+        self.nixosModules.niri
+        self.nixosModules.core
+        self.nixosModules.hyprland
+      ];
+
+      nix.settings.experimental-features = [
+        "nix-command"
+        "flakes"
+      ];
+
+      users = {
+        mutableUsers = true;
+        users.xvr6 = {
+          isNormalUser = true;
+          initialPassword = "123";
+          extraGroups = [
+            "wheel" # sudo access
+            "input"
+            "networkmanager"
+            "video"
+            "audio"
+            "gamemode"
+            "libvirtd"
+            "kvm"
+            "docker"
+            "disk"
+            "adbusers"
+            "lp"
+            "scanner"
+            "vboxusers" # Virtual Box
+          ];
+          shell = lib.getExe pkgs.zsh;
+          ignoreShellProgramCheck = true;
+        };
+      };
+
+      nix.settings.allowed-users = [ "xvr6" ];
+      environment.systemPackages = with pkgs; [
+        nh
+        firefox
+        git
+        vim
+      ];
+    };
+
+}
