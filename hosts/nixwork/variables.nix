@@ -2,7 +2,7 @@
   username = "xvr6"; # auto-set with install.sh, live-install.sh, and rebuild scripts.
 
   # Desktop Environment
-  desktop = "hyprland"; # hyprland, i3, gnome, plasma6
+  desktop = "hypr2"; # hyprland, i3, gnome, plasma6
 
   # Theme & Appearance
   waybarTheme = "minimal"; # stylish, minimal

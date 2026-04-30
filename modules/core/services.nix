@@ -2,7 +2,8 @@
 {
   # Services to start
   services = {
-    power-profiles-daemon.enable = false;
+    power-profiles-daemon.enable = true;
+    upower.enable = true;
 
     libinput.enable = true; # Input Handling
     fstrim.enable = true; # SSD Optimizer

@@ -12,9 +12,15 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     hyprland = {
-      url = "github:hyprwm/Hyprland?ref=v0.53.2";
+      url = "github:hyprwm/Hyprland?ref=v0.53.0";
       inputs.nixpkgs.follows = "nixpkgs-unstable";
     };
+
+    noctalia = {
+      url = "github:noctalia-dev/noctalia-shell";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     plasma-manager = {
       url = "github:nix-community/plasma-manager";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -41,10 +47,12 @@
       url = "github:catppuccin/thunderbird";
       flake = false;
     };
+
     zen-browser = {
       url = "github:youwen5/zen-browser-flake";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
     tetrigo.url = "github:Broderick-Westrope/tetrigo";
   };
 
