@@ -85,6 +85,7 @@ in
             yad
             quickshell
             playerctl
+            hyprshot
             # socat # for and autowaybar.sh
             # jq # for and autowaybar.sh
           ];
@@ -430,9 +431,6 @@ in
                 "$mainMod SHIFT, Y, exec, youtube-music"
                 "$CONTROL ALT, DELETE, exec, $term -e '${getExe pkgs.btop}'" # System Monitor
                 "$mainMod CTRL, C, exec, hyprpicker --autocopy --format=hex" # Colour Picker
-
-                "$mainMod SHIFT, N, exec, swaync-client -t -sw" # swayNC panel
-                "$mainMod SHIFT, Q, exec, swaync-client -t -sw" # swayNC panel
                 #                 "$mainMod ALT, G, exec, ${./scripts/gamemode.sh}" # disable hypr effects for gamemode
                 #                 "$mainMod, V, exec, ${./scripts/ClipManager.sh}" # Clipboard Manager
                 #                 "$mainMod, M, exec, ${./scripts/rofimusic.sh}" # online music
@@ -440,10 +438,14 @@ in
                 #                 # Screenshot/Screencapture
                 #                 "$mainMod SHIFT, R, exec, ${./scripts/screen-record.sh} a" # Screen Record (area select)
                 #                 "$mainMod CTRL, R, exec, ${./scripts/screen-record.sh} m" # Screen Record (monitor select)
-                #                 "$mainMod, P, exec, ${./scripts/screenshot.sh} s" # drag to snip an area / click on a window to print it
-                #                 "$mainMod CTRL, P, exec, ${./scripts/screenshot.sh} sf" # frozen screen, drag to snip an area / click on a window to print it
-                #                 "$mainMod, print, exec, ${./scripts/screenshot.sh} m" # print focused monitor
-                #                 "$mainMod ALT, P, exec, ${./scripts/screenshot.sh} p" # print all monitor outputs
+                # -- screenshots
+                # Region
+                "$mainMod, P, exec, hyprshot -m region" #Screenshot a region
+                ", PRINT, exec, hyprshot -m region" #screenshot region
+                #Output
+                "$mainMod SHIFT, P, exec, hyprshot -m output" #Display output
+                ", SHIFT PRINT, exec, hyprshot -m output"
+
 
                 # Functional keybinds
                 ",xf86Sleep, exec, systemctl suspend" # Put computer into sleep mode
