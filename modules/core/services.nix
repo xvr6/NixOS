@@ -4,7 +4,9 @@
   services = {
     power-profiles-daemon.enable = true;
     upower.enable = true;
-
+    tailscale = {
+      enable = true;
+    };
     libinput.enable = true; # Input Handling
     fstrim.enable = true; # SSD Optimizer
     devmon.enable = true; # For Mounting USB & More
