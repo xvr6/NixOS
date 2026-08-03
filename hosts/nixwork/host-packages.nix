@@ -19,6 +19,6 @@
     packwiz
     plex-desktop
     parsec-bin
-
+    # lufus
   ];
 }

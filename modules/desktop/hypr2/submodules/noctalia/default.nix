@@ -1,4 +1,9 @@
-{ inputs, host, pkgs, ... }:
+{
+  inputs,
+  host,
+  pkgs,
+  ...
+}:
 let
   inherit (import ../../../../../hosts/${host}/variables.nix) clock24h;
 in
@@ -10,7 +15,7 @@ in
       ];
       programs.noctalia-shell = {
         enable = true;
-        # settings = {};
+        settings = (builtins.fromJSON (builtins.readFile ./noctalia-settings.json));
       };
     })
   ];

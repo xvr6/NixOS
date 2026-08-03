@@ -13,13 +13,6 @@
 
   # https://wiki.nixos.org/wiki/Overlays
   modifications = final: prev: {
-    unstable = import inputs.nixpkgs-unstable {
-      config.allowUnFree = true;
-    };
-    stable = import inputs.nixpkgs-stable {
-      system = final.system;
-      config.allowUnfree = true;
-    };
     vesktop = prev.vesktop.override {
       withSystemVencord = false;
       withMiddleClickScroll = true;
