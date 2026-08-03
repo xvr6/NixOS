@@ -4,12 +4,10 @@
     { pkgs, lib, ... }:
     {
       imports = [
+        self.nixosModules.core
         self.nixosModules.nixworkHardware
         inputs.nixos-hardware.nixosModules.framework-amd-ai-300-series
-        # inputs.nixvim.${pkgs.stdenv.hostPlatform.system}.default
-
         self.nixosModules.niri
-        self.nixosModules.core
       ];
 
       nix.settings.experimental-features = [
@@ -49,6 +47,7 @@
         firefox
         git
         vim
+        inputs.nixvim.packages."x86_64-linux".default
       ];
     };
 
