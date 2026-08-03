@@ -46,8 +46,10 @@
         nh
         firefox
         git
-        vim
+        discord
+        materialgram
         inputs.nixvim.packages."x86_64-linux".default
+        inputs.zen-browser.packages."x86_64-linux".default
       ];
     };
 

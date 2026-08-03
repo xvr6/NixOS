@@ -4,7 +4,7 @@
   ...
 }:
 {
-  flake.nixosModules.niri = { pkgs, ... }: {
+  flake.nixosModules.niri = { pkgs, lib, ... }: {
     programs.niri = {
       enable = true;
       package = self.packages.${pkgs.stdenv.hostPlatform.system}.myNiri;
@@ -36,7 +36,7 @@
           binds = {
             "Mod+Space".spawn-sh = "${lib.getExe self'.packages.myNoctalia} ipc call launcher toggle";
             "Mod+Return".spawn-sh = lib.getExe self'.packages.myKitty;
-            "Mod+Q".close-window = null;
+            "Mod+Q".close-window = [ ];
           };
         };
       };
