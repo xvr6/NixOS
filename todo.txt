@@ -1,0 +1,4 @@
+(A) +nvim keybind toggle collapse (\tc \c)
+(A) update flake
+(B) make ready for pc
+(C) add picture in picture presets for zen if possible? i think should be due to hyprland, need to learn more +feat

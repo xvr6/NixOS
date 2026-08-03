@@ -1,21 +1,15 @@
 { self, inputs, ... }:
 {
-
-  flake.nixosConfigurations.nixwork = inputs.nixpkgs.lib.nixosSystem {
-    modules = [
-      self.nixosModules.nixworkConfig
-    ];
-  };
   flake.nixosModules.nixworkConfig =
     { pkgs, lib, ... }:
     {
       imports = [
+        self.nixosModules.nixworkHardware
         inputs.nixos-hardware.nixosModules.framework-amd-ai-300-series
         # inputs.nixvim.${pkgs.stdenv.hostPlatform.system}.default
 
         self.nixosModules.niri
         self.nixosModules.core
-        self.nixosModules.hyprland
       ];
 
       nix.settings.experimental-features = [

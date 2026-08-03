@@ -17,8 +17,8 @@
 
     pokego # Overlayed
     packwiz
-    
+    plex-desktop
     parsec-bin
-
+    # lufus
   ];
 }

@@ -49,7 +49,7 @@ in
 
   programs.hyprland = {
     enable = true;
-    #  package = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.hyprland;
+    package = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.hyprland;
     xwayland.enable = true;
     # withUWSM = true;
   };
@@ -81,7 +81,7 @@ in
           };
 
           home.packages = with pkgs; [
-            swww
+            awww
             hyprpicker
             cliphist
             wf-recorder
@@ -109,7 +109,7 @@ in
           };
 
           # Set wallpaper
-          services.swww.enable = true;
+          services.awww.enable = true;
 
           #test later systemd.user.targets.hyprland-session.Unit.Wants = [ "xdg-desktop-autostart.target" ];
           wayland.windowManager.hyprland = {
@@ -493,7 +493,7 @@ in
                   # Functional keybinds
                   ",xf86Sleep, exec, systemctl suspend" # Put computer into sleep mode
                   ",XF86AudioMicMute,exec,pamixer --default-source -t" # mute mic
-                  ",XF86AudioMute,exec,pamixer -t" # mute audio
+                  ",XF86AudioMute,exec, $ipc volume muteOutput" # mute audio
                   ",XF86AudioPlay,exec,playerctl play-pause" # Play/Pause media
                   ",XF86AudioPause,exec,playerctl play-pause" # Play/Pause media
                   ",xf86AudioNext,exec,playerctl next" # go to next media

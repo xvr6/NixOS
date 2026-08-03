@@ -1,7 +1,7 @@
 {
-  "settingsVersion": 57,
+  "settingsVersion": 59,
   "bar": {
-    "barType": "simple",
+    "barType": "floating",
     "position": "top",
     "monitors": [],
     "density": "default",
@@ -13,9 +13,8 @@
     "contentPadding": 2,
     "fontScale": 1,
     "enableExclusionZoneInset": true,
-    "backgroundOpacity": 0.93,
-    "useSeparateOpacity": false,
-    "floating": false,
+    "backgroundOpacity": 0.5,
+    "useSeparateOpacity": true,
     "marginVertical": 4,
     "marginHorizontal": 4,
     "frameThickness": 8,
@@ -30,6 +29,7 @@
       "left": [
         {
           "colorizeSystemIcon": "none",
+          "colorizeSystemText": "none",
           "customIconPath": "",
           "enableColorization": false,
           "icon": "rocket",
@@ -75,6 +75,7 @@
           "maxWidth": 145,
           "scrollingMode": "hover",
           "showIcon": true,
+          "showText": true,
           "textColor": "none",
           "useFixedWidth": false
         },
@@ -162,6 +163,7 @@
         {
           "colorizeDistroLogo": false,
           "colorizeSystemIcon": "none",
+          "colorizeSystemText": "none",
           "customIconPath": "",
           "enableColorization": false,
           "icon": "noctalia",
@@ -184,8 +186,8 @@
   "general": {
     "avatarImage": "/home/xvr6/.face",
     "dimmerOpacity": 0.2,
-    "showScreenCorners": false,
-    "forceBlackScreenCorners": false,
+    "showScreenCorners": true,
+    "forceBlackScreenCorners": true,
     "scaleRatio": 1,
     "radiusRatio": 1,
     "iRadiusRatio": 1,
@@ -219,35 +221,21 @@
     "lockScreenBlur": 0,
     "lockScreenTint": 0,
     "keybinds": {
-      "keyUp": [
-        "Up"
-      ],
-      "keyDown": [
-        "Down"
-      ],
-      "keyLeft": [
-        "Left"
-      ],
-      "keyRight": [
-        "Right"
-      ],
-      "keyEnter": [
-        "Return",
-        "Enter"
-      ],
-      "keyEscape": [
-        "Esc"
-      ],
-      "keyRemove": [
-        "Del"
-      ]
+      "keyUp": ["Up"],
+      "keyDown": ["Down"],
+      "keyLeft": ["Left"],
+      "keyRight": ["Right"],
+      "keyEnter": ["Return", "Enter"],
+      "keyEscape": ["Esc"],
+      "keyRemove": ["Del"]
     },
-    "reverseScroll": false
+    "reverseScroll": false,
+    "smoothScrollEnabled": true
   },
   "ui": {
     "fontDefault": "Sans Serif",
     "fontFixed": "monospace",
-    "fontDefaultScale": 1,
+    "fontDefaultScale": 1.1099999999999999,
     "fontFixedScale": 1,
     "tooltipsEnabled": true,
     "scrollbarAlwaysVisible": true,
@@ -259,9 +247,10 @@
     "settingsPanelSideBarCardStyle": false
   },
   "location": {
-    "name": "Worcester, MA",
+    "name": "Merrimack",
     "weatherEnabled": true,
     "weatherShowEffects": true,
+    "weatherTaliaMascotAlways": false,
     "useFahrenheit": false,
     "use12hourFormat": false,
     "showWeekNumberInCalendar": false,
@@ -270,7 +259,8 @@
     "analogClockInCalendar": false,
     "firstDayOfWeek": -1,
     "hideWeatherTimezone": false,
-    "hideWeatherCityName": false
+    "hideWeatherCityName": false,
+    "autoLocate": true
   },
   "calendar": {
     "cards": [
@@ -295,8 +285,9 @@
     "monitorDirectories": [],
     "enableMultiMonitorDirectories": false,
     "showHiddenFiles": false,
-    "viewMode": "single",
+    "viewMode": "recursive",
     "setWallpaperOnAllMonitors": true,
+    "linkLightAndDarkWallpapers": true,
     "fillMode": "crop",
     "fillColor": "#000000",
     "useSolidColor": false,
@@ -305,15 +296,23 @@
     "wallpaperChangeMode": "random",
     "randomIntervalSec": 300,
     "transitionDuration": 1500,
-    "transitionType": "random",
+    "transitionType": [
+      "fade",
+      "disc",
+      "stripes",
+      "wipe",
+      "pixelate",
+      "honeycomb"
+    ],
     "skipStartupTransition": false,
     "transitionEdgeSmoothness": 0.05,
     "panelPosition": "follow_bar",
     "hideWallpaperFilenames": false,
+    "useOriginalImages": false,
     "overviewBlur": 0.4,
     "overviewTint": 0.6,
     "useWallhaven": false,
-    "wallhavenQuery": "",
+    "wallhavenQuery": "train",
     "wallhavenSorting": "relevance",
     "wallhavenOrder": "desc",
     "wallhavenCategories": "111",
@@ -324,32 +323,52 @@
     "wallhavenResolutionWidth": "",
     "wallhavenResolutionHeight": "",
     "sortOrder": "name",
-    "favorites": []
+    "favorites": [
+      {
+        "appearance": "dark",
+        "colorScheme": "GitHub Dark",
+        "darkMode": true,
+        "generationMethod": "dysfunctional",
+        "paletteColors": ["#e46781", "#db8e6d", "#d5c173", "#d57387"],
+        "path": "/home/xvr6/Pictures/Wallpapers/evening-sky.webp",
+        "useWallpaperColors": true
+      },
+      {
+        "appearance": "dark",
+        "colorScheme": "GitHub Dark",
+        "darkMode": true,
+        "generationMethod": "faithful",
+        "paletteColors": ["#67cee4", "#5c84d6", "#7866cc", "#fd4663"],
+        "path": "/home/xvr6/Pictures/Wallpapers/wallhaven_4d6e9o.jpg",
+        "useWallpaperColors": true
+      }
+    ]
   },
   "appLauncher": {
-    "enableClipboardHistory": false,
+    "enableClipboardHistory": true,
     "autoPasteClipboard": false,
     "enableClipPreview": true,
     "clipboardWrapText": true,
+    "enableClipboardSmartIcons": true,
+    "enableClipboardChips": true,
     "clipboardWatchTextCommand": "wl-paste --type text --watch cliphist store",
     "clipboardWatchImageCommand": "wl-paste --type image --watch cliphist store",
     "position": "center",
     "pinnedApps": [],
-    "useApp2Unit": false,
     "sortByMostUsed": true,
-    "terminalCommand": "alacritty -e",
+    "terminalCommand": "kitty -e",
     "customLaunchPrefixEnabled": false,
     "customLaunchPrefix": "",
-    "viewMode": "list",
+    "viewMode": "grid",
     "showCategories": true,
     "iconMode": "tabler",
-    "showIconBackground": false,
+    "showIconBackground": true,
     "enableSettingsSearch": true,
     "enableWindowsSearch": true,
     "enableSessionSearch": true,
     "ignoreMouseInput": false,
     "screenshotAnnotationTool": "",
-    "overviewLayer": false,
+    "overviewLayer": true,
     "density": "default"
   },
   "controlCenter": {
@@ -453,6 +472,8 @@
     "colorizeIcons": false,
     "showLauncherIcon": false,
     "launcherPosition": "end",
+    "launcherUseDistroLogo": false,
+    "launcherIcon": "",
     "launcherIconColor": "none",
     "pinnedStatic": false,
     "inactiveIndicators": false,
@@ -469,16 +490,14 @@
     "indicatorOpacity": 0.6
   },
   "network": {
-    "wifiEnabled": true,
-    "airplaneModeEnabled": false,
     "bluetoothRssiPollingEnabled": false,
     "bluetoothRssiPollIntervalMs": 60000,
     "networkPanelView": "wifi",
     "wifiDetailsViewMode": "grid",
     "bluetoothDetailsViewMode": "grid",
-    "bluetoothHideUnnamedDevices": false,
+    "bluetoothHideUnnamedDevices": true,
     "disableDiscoverability": false,
-    "bluetoothAutoConnect": true
+    "bluetoothAutoConnect": false
   },
   "sessionMenu": {
     "enableCountdown": true,
@@ -584,11 +603,7 @@
     "autoHideMs": 2000,
     "overlayLayer": true,
     "backgroundOpacity": 1,
-    "enabledTypes": [
-      0,
-      1,
-      2
-    ],
+    "enabledTypes": [0, 1, 2],
     "monitors": []
   },
   "audio": {
@@ -596,6 +611,7 @@
     "volumeOverdrive": false,
     "spectrumFrameRate": 30,
     "visualizerType": "linear",
+    "spectrumMirrored": true,
     "mprisBlacklist": [],
     "preferredPlayer": "",
     "volumeFeedback": false,
@@ -608,14 +624,15 @@
     "backlightDeviceMappings": []
   },
   "colorSchemes": {
-    "useWallpaperColors": false,
-    "predefinedScheme": "Noctalia legacy",
+    "useWallpaperColors": true,
+    "predefinedScheme": "GitHub Dark",
     "darkMode": true,
     "schedulingMode": "off",
     "manualSunrise": "06:30",
     "manualSunset": "18:30",
-    "generationMethod": "tonal-spot",
-    "monitorForColors": ""
+    "generationMethod": "dysfunctional",
+    "monitorForColors": "",
+    "syncGsettings": true
   },
   "templates": {
     "activeTemplates": [],
@@ -639,10 +656,12 @@
     "performanceModeEnabled": "",
     "performanceModeDisabled": "",
     "startup": "",
-    "session": ""
+    "session": "",
+    "colorGeneration": ""
   },
   "plugins": {
-    "autoUpdate": false
+    "autoUpdate": false,
+    "notifyUpdates": true
   },
   "idle": {
     "enabled": false,

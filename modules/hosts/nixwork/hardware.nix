@@ -1,7 +1,6 @@
 { self, inputs, ... }:
-# doing a big no-no and modifying slightly. Mainly formatting and additionn of boot loader as well to this hardware config.
 {
-  flake.nixosModules.nixworkConfig =
+  flake.nixosModules.nixworkHardware =
     {
       config,
       lib,
