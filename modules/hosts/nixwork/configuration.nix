@@ -8,6 +8,7 @@
         self.nixosModules.nixworkHardware
         inputs.nixos-hardware.nixosModules.framework-amd-ai-300-series
         self.nixosModules.niri
+        self.nixosModules.discord
       ];
 
       nix.settings.experimental-features = [
@@ -46,7 +47,7 @@
         nh
         firefox
         git
-        discord
+        claude-code
         materialgram
         inputs.nixvim.packages."x86_64-linux".default
         inputs.zen-browser.packages."x86_64-linux".default

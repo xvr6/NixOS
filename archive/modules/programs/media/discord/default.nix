@@ -21,7 +21,7 @@
         @import url("https://catppuccin.github.io/discord/dist/catppuccin-mocha-mauve.theme.css");
       '';
       xdg.configFile."Vencord/settings/settings.json".text = builtins.toJSON {
-        notifyAboutUpdates = true;
+        notifyAboutUpdates = false;
         autoUpdate = false;
         autoUpdateNotification = false;
         useQuickCss = true;
@@ -88,7 +88,7 @@
           FakeNitro.enabled = true;
           FakeProfileThemes.enabled = false;
           FavoriteEmojiFirst.enabled = false;
-          FavoriteGifSearch.enabled = false;
+          FavoriteGifSearch.enabled = true;
           FixCodeblockGap.enabled = false;
           FixImagesQuality.enabled = false;
           FixSpotifyEmbeds.enabled = false;
@@ -160,7 +160,7 @@
           PermissionsViewer.enabled = false;
           petpet.enabled = false;
           PictureInPicture.enabled = false;
-          PinDMs.enabled = false;
+          PinDMs.enabled = true;
           PlainFolderIcon.enabled = false;
           PlatformIndicators.enabled = false;
           PreviewMessage.enabled = false;

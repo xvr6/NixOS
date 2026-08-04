@@ -10,7 +10,10 @@
     # logitech.wireless.enable = false;
     # logitech.wireless.enableGraphical = false;
 
-    graphics.enable = true;
+    graphics = {
+      enable = true;
+      enable32Bit = true;
+    };
 
     enableRedistributableFirmware = true;
     keyboard.qmk.enable = true;
