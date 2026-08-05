@@ -48,7 +48,7 @@
       ...
     }:
     let
-      ipc = "noctalia ipc call";
+      ipc = "${lib.getExe self'.packages.myNoctalia} ipc call";
     in
     {
       packages.myNiri = inputs.wrapper-modules.wrappers.niri.wrap {
@@ -163,7 +163,7 @@
             # Browsers — fully opaque
             {
               matches = [
-                { app-id = "^(firefox|Brave-browser|floorp|zen|zen-beta)$"; }
+                { app-id = "^(zen|zen-beta|firefox)$"; }
               ];
               opacity = 1.0;
             }
@@ -299,8 +299,7 @@
             # --- Applications ---
             "Mod+Return".spawn-sh = lib.getExe self'.packages.myKitty;
             "Mod+Space".spawn-sh = "${ipc} launcher toggle";
-            "Mod+Ctrl+Return".spawn-sh = "${ipc} launcher toggle";
-            "Mod+B".spawn = [ "firefox" ];
+            "Mod+B".spawn = [ "zen" ];
             "Mod+E".spawn = [ "thunar" ];
             "Mod+Alt+L".spawn = [ "swaylock" ];
 

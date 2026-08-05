@@ -2,7 +2,7 @@
   "settingsVersion": 59,
   "bar": {
     "barType": "floating",
-    "position": "top",
+    "position": "right",
     "monitors": [],
     "density": "default",
     "showOutline": false,
@@ -28,14 +28,112 @@
     "widgets": {
       "left": [
         {
+          "colorizeDistroLogo": false,
           "colorizeSystemIcon": "none",
           "colorizeSystemText": "none",
           "customIconPath": "",
           "enableColorization": false,
-          "icon": "rocket",
-          "iconColor": "none",
-          "id": "Launcher",
+          "icon": "noctalia",
+          "id": "ControlCenter",
           "useDistroLogo": false
+        },
+        {
+          "hideWhenZero": false,
+          "hideWhenZeroUnread": false,
+          "iconColor": "none",
+          "id": "NotificationHistory",
+          "showUnreadBadge": true,
+          "unreadBadgeColor": "primary"
+        },
+        {
+          "deviceNativePath": "__default__",
+          "displayMode": "graphic-clean",
+          "hideIfIdle": false,
+          "hideIfNotDetected": true,
+          "id": "Battery",
+          "showNoctaliaPerformance": false,
+          "showPowerProfiles": false
+        },
+        {
+          "colorizeIcons": false,
+          "hideMode": "hidden",
+          "id": "ActiveWindow",
+          "maxWidth": 145,
+          "scrollingMode": "hover",
+          "showIcon": true,
+          "showText": true,
+          "textColor": "none",
+          "useFixedWidth": false
+        }
+      ],
+      "center": [
+        {
+          "compactMode": false,
+          "hideMode": "hidden",
+          "hideWhenIdle": false,
+          "id": "MediaMini",
+          "maxWidth": 145,
+          "panelShowAlbumArt": true,
+          "scrollingMode": "hover",
+          "showAlbumArt": true,
+          "showArtistFirst": true,
+          "showProgressRing": true,
+          "showVisualizer": false,
+          "textColor": "none",
+          "useFixedWidth": false,
+          "visualizerType": "linear"
+        },
+        {
+          "characterCount": 2,
+          "colorizeIcons": false,
+          "emptyColor": "secondary",
+          "enableScrollWheel": true,
+          "focusedColor": "primary",
+          "followFocusedScreen": false,
+          "fontWeight": "bold",
+          "groupedBorderOpacity": 1,
+          "hideUnoccupied": true,
+          "iconScale": 0.8,
+          "id": "Workspace",
+          "labelMode": "index",
+          "occupiedColor": "secondary",
+          "pillSize": 0.65,
+          "showApplications": false,
+          "showApplicationsHover": false,
+          "showBadge": true,
+          "showLabelsOnlyWhenOccupied": true,
+          "unfocusedIconsOpacity": 1
+        },
+        {
+          "colorName": "secondary",
+          "hideWhenIdle": false,
+          "id": "AudioVisualizer",
+          "width": 125
+        }
+      ],
+      "right": [
+        {
+          "blacklist": [],
+          "chevronColor": "none",
+          "colorizeIcons": false,
+          "drawerEnabled": true,
+          "hidePassive": false,
+          "id": "Tray",
+          "pinned": []
+        },
+        {
+          "applyToAllMonitors": false,
+          "displayMode": "onhover",
+          "iconColor": "none",
+          "id": "Brightness",
+          "textColor": "none"
+        },
+        {
+          "displayMode": "onhover",
+          "iconColor": "none",
+          "id": "Volume",
+          "middleClickCommand": "pwvucontrol || pavucontrol",
+          "textColor": "none"
         },
         {
           "clockColor": "none",
@@ -69,105 +167,13 @@
           "usePadding": false
         },
         {
-          "colorizeIcons": false,
-          "hideMode": "hidden",
-          "id": "ActiveWindow",
-          "maxWidth": 145,
-          "scrollingMode": "hover",
-          "showIcon": true,
-          "showText": true,
-          "textColor": "none",
-          "useFixedWidth": false
-        },
-        {
-          "compactMode": false,
-          "hideMode": "hidden",
-          "hideWhenIdle": false,
-          "id": "MediaMini",
-          "maxWidth": 145,
-          "panelShowAlbumArt": true,
-          "scrollingMode": "hover",
-          "showAlbumArt": true,
-          "showArtistFirst": true,
-          "showProgressRing": true,
-          "showVisualizer": false,
-          "textColor": "none",
-          "useFixedWidth": false,
-          "visualizerType": "linear"
-        }
-      ],
-      "center": [
-        {
-          "characterCount": 2,
-          "colorizeIcons": false,
-          "emptyColor": "secondary",
-          "enableScrollWheel": true,
-          "focusedColor": "primary",
-          "followFocusedScreen": false,
-          "fontWeight": "bold",
-          "groupedBorderOpacity": 1,
-          "hideUnoccupied": false,
-          "iconScale": 0.8,
-          "id": "Workspace",
-          "labelMode": "index",
-          "occupiedColor": "secondary",
-          "pillSize": 0.6,
-          "showApplications": false,
-          "showApplicationsHover": false,
-          "showBadge": true,
-          "showLabelsOnlyWhenOccupied": true,
-          "unfocusedIconsOpacity": 1
-        }
-      ],
-      "right": [
-        {
-          "blacklist": [],
-          "chevronColor": "none",
-          "colorizeIcons": false,
-          "drawerEnabled": true,
-          "hidePassive": false,
-          "id": "Tray",
-          "pinned": []
-        },
-        {
-          "hideWhenZero": false,
-          "hideWhenZeroUnread": false,
-          "iconColor": "none",
-          "id": "NotificationHistory",
-          "showUnreadBadge": true,
-          "unreadBadgeColor": "primary"
-        },
-        {
-          "deviceNativePath": "__default__",
-          "displayMode": "graphic-clean",
-          "hideIfIdle": false,
-          "hideIfNotDetected": true,
-          "id": "Battery",
-          "showNoctaliaPerformance": false,
-          "showPowerProfiles": false
-        },
-        {
-          "displayMode": "onhover",
-          "iconColor": "none",
-          "id": "Volume",
-          "middleClickCommand": "pwvucontrol || pavucontrol",
-          "textColor": "none"
-        },
-        {
-          "applyToAllMonitors": false,
-          "displayMode": "onhover",
-          "iconColor": "none",
-          "id": "Brightness",
-          "textColor": "none"
-        },
-        {
-          "colorizeDistroLogo": false,
           "colorizeSystemIcon": "none",
           "colorizeSystemText": "none",
           "customIconPath": "",
           "enableColorization": false,
-          "icon": "noctalia",
-          "id": "ControlCenter",
+          "icon": "rocket",
+          "iconColor": "none",
+          "id": "Launcher",
           "useDistroLogo": false
         }
       ]
@@ -192,7 +198,7 @@
     "radiusRatio": 1,
     "iRadiusRatio": 1,
     "boxRadiusRatio": 1,
-    "screenRadiusRatio": 1,
+    "screenRadiusRatio": 1.19,
     "animationSpeed": 1,
     "animationDisabled": false,
     "compactLockScreen": false,
@@ -240,8 +246,8 @@
     "tooltipsEnabled": true,
     "scrollbarAlwaysVisible": true,
     "boxBorderEnabled": false,
-    "panelBackgroundOpacity": 0.93,
-    "translucentWidgets": false,
+    "panelBackgroundOpacity": 0.75,
+    "translucentWidgets": true,
     "panelsAttachedToBar": true,
     "settingsPanelMode": "attached",
     "settingsPanelSideBarCardStyle": false
@@ -450,8 +456,8 @@
     "batteryCriticalThreshold": 5,
     "enableDgpuMonitoring": false,
     "useCustomColors": false,
-    "warningColor": "",
-    "criticalColor": "",
+    "warningColor": "#d5c173",
+    "criticalColor": "#d57387",
     "externalMonitor": "resources || missioncenter || jdsystemmonitor || corestats || system-monitoring-center || gnome-system-monitor || plasma-systemmonitor || mate-system-monitor || ukui-system-monitor || deepin-system-monitor || pantheon-system-monitor"
   },
   "noctaliaPerformance": {
@@ -599,7 +605,7 @@
   },
   "osd": {
     "enabled": true,
-    "location": "top_right",
+    "location": "bottom_right",
     "autoHideMs": 2000,
     "overlayLayer": true,
     "backgroundOpacity": 1,

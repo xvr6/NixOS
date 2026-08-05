@@ -81,6 +81,7 @@
     '';
 
     shellAliases = {
+      cls = "clear";
       tml = "tmux list-sessions";
       tma = "tmux attach";
       tms = "tmux attach -t $(tmux ls -F '#{session_name}: #{session_path} (#{session_windows} windows)' | fzf | cut -d: -f1)";
