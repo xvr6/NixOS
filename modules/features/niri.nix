@@ -294,7 +294,7 @@
           binds = {
 
             # --- Compositor ---
-            "Mod+/".show-hotkey-overlay = [ ];
+            "Mod+Slash".show-hotkey-overlay = [ ];
 
             # --- Applications ---
             "Mod+Return".spawn-sh = lib.getExe self'.packages.myKitty;
