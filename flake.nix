@@ -10,11 +10,6 @@
     wrapper-modules.url = "github:BirdeeHub/nix-wrapper-modules";
     wrappers.url = "github:lassulus/wrappers";
 
-    hyprland = {
-      url = "github:hyprwm/Hyprland";
-      inputs.nixpkgs.follows = "nixpkgs-unstable";
-    };
-
     #nixvim seperated out into flake
     nixvim = {
       url = "github:xvr6/nixvim/dev";

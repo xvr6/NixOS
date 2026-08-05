@@ -29,13 +29,13 @@
       "left": [
         {
           "colorizeDistroLogo": false,
-          "colorizeSystemIcon": "none",
+          "colorizeSystemIcon": "primary",
           "colorizeSystemText": "none",
           "customIconPath": "",
-          "enableColorization": false,
+          "enableColorization": true,
           "icon": "noctalia",
           "id": "ControlCenter",
-          "useDistroLogo": false
+          "useDistroLogo": true
         },
         {
           "hideWhenZero": false,
@@ -46,13 +46,18 @@
           "unreadBadgeColor": "primary"
         },
         {
-          "deviceNativePath": "__default__",
-          "displayMode": "graphic-clean",
-          "hideIfIdle": false,
-          "hideIfNotDetected": true,
-          "id": "Battery",
-          "showNoctaliaPerformance": false,
-          "showPowerProfiles": false
+          "applyToAllMonitors": false,
+          "displayMode": "onhover",
+          "iconColor": "none",
+          "id": "Brightness",
+          "textColor": "none"
+        },
+        {
+          "displayMode": "onhover",
+          "iconColor": "none",
+          "id": "Volume",
+          "middleClickCommand": "pwvucontrol || pavucontrol",
+          "textColor": "none"
         },
         {
           "colorizeIcons": false,
@@ -79,7 +84,7 @@
           "showArtistFirst": true,
           "showProgressRing": true,
           "showVisualizer": false,
-          "textColor": "none",
+          "textColor": "secondary",
           "useFixedWidth": false,
           "visualizerType": "linear"
         },
@@ -122,27 +127,13 @@
           "pinned": []
         },
         {
-          "applyToAllMonitors": false,
-          "displayMode": "onhover",
-          "iconColor": "none",
-          "id": "Brightness",
-          "textColor": "none"
-        },
-        {
-          "displayMode": "onhover",
-          "iconColor": "none",
-          "id": "Volume",
-          "middleClickCommand": "pwvucontrol || pavucontrol",
-          "textColor": "none"
-        },
-        {
-          "clockColor": "none",
-          "customFont": "",
-          "formatHorizontal": "HH:mm ddd, MMM dd",
-          "formatVertical": "HH mm - dd MM",
-          "id": "Clock",
-          "tooltipFormat": "HH:mm ddd, MMM dd",
-          "useCustomFont": false
+          "deviceNativePath": "__default__",
+          "displayMode": "graphic-clean",
+          "hideIfIdle": false,
+          "hideIfNotDetected": true,
+          "id": "Battery",
+          "showNoctaliaPerformance": false,
+          "showPowerProfiles": false
         },
         {
           "compactMode": true,
@@ -167,10 +158,19 @@
           "usePadding": false
         },
         {
-          "colorizeSystemIcon": "none",
+          "clockColor": "none",
+          "customFont": "",
+          "formatHorizontal": "HH:mm ddd, MMM dd",
+          "formatVertical": "HH mm - dd MM",
+          "id": "Clock",
+          "tooltipFormat": "HH:mm ddd, MMM dd",
+          "useCustomFont": false
+        },
+        {
+          "colorizeSystemIcon": "secondary",
           "colorizeSystemText": "none",
           "customIconPath": "",
-          "enableColorization": false,
+          "enableColorization": true,
           "icon": "rocket",
           "iconColor": "none",
           "id": "Launcher",
@@ -241,7 +241,7 @@
   "ui": {
     "fontDefault": "Sans Serif",
     "fontFixed": "monospace",
-    "fontDefaultScale": 1.1099999999999999,
+    "fontDefaultScale": 1.1,
     "fontFixedScale": 1,
     "tooltipsEnabled": true,
     "scrollbarAlwaysVisible": true,
@@ -616,7 +616,7 @@
     "volumeStep": 5,
     "volumeOverdrive": false,
     "spectrumFrameRate": 30,
-    "visualizerType": "linear",
+    "visualizerType": "mirrored",
     "spectrumMirrored": true,
     "mprisBlacklist": [],
     "preferredPlayer": "",
@@ -636,7 +636,7 @@
     "schedulingMode": "off",
     "manualSunrise": "06:30",
     "manualSunset": "18:30",
-    "generationMethod": "dysfunctional",
+    "generationMethod": "faithful",
     "monitorForColors": "",
     "syncGsettings": true
   },
