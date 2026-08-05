@@ -36,10 +36,10 @@
           CrashHandler.enabled = true;
           ExpressionCloner.enabled = true;
           Experiments.enabled = true;
-          FakeNitro.enabled = true;
+          #          FakeNitro.enabled = true;
           FavoriteGifSearch.enabled = true;
           MessageLogger = {
-            enabled = true;
+            enabled = false;
             logDeletes = true;
             collapseDeleted = false;
             logEdits = false;
