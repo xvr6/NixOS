@@ -1,4 +1,9 @@
-{ pkgs, ... }:
+{
+  pkgs,
+  lib,
+  self,
+  ...
+}:
 {
   programs.zsh = {
     enable = true;
@@ -102,6 +107,8 @@
       nrt = "sudo nixos-rebuild test --flake ~/NixOS";
       dots = "cd ~/NixOS/";
       projs = "cd ~/projects/";
+
+      noctalia = "${lib.getExe self.packages.${pkgs.stdenv.hostPlatform.system}.myNoctalia}";
     };
   };
 }

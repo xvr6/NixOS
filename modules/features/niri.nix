@@ -27,13 +27,15 @@
 
     environment.variables = {
       XDG_CURRENT_DESKTOP = "niri";
-      XDG_SESSION_TYPE = "wayland";
       XDG_SESSION_DESKTOP = "niri";
-      ELECTRON_OZONE_PLATFORM_HINT = "auto";
+      XDG_SESSION_TYPE = "wayland";
       GDK_BACKEND = "wayland,x11,*";
       MOZ_ENABLE_WAYLAND = "1";
       SDL_VIDEODRIVER = "wayland";
       QT_QPA_PLATFORM = "wayland;xcb";
+      OZONE_PLATFORM = "wayland";
+      ELECTRON_OZONE_PLATFORM_HINT = "wayland";
+      NIXOS_OZONE_WL = 1;
     };
   };
 
@@ -45,6 +47,9 @@
       self',
       ...
     }:
+    let
+      ipc = "noctalia ipc call";
+    in
     {
       packages.myNiri = inputs.wrapper-modules.wrappers.niri.wrap {
         inherit pkgs;
@@ -169,8 +174,7 @@
                 { app-id = "^gcr-prompter$"; }
                 { app-id = "^obsidian$"; }
                 { app-id = "^(Lutris|lutris|net\\.lutris\\.Lutris)$"; }
-                { app-id = "^discord$"; }
-                { app-id = "^WebCord$"; }
+                { app-id = "^vesktop$"; }
                 { app-id = ".*materialgram.*"; }
                 { app-id = ".*youtube_music.*"; }
               ];
@@ -290,53 +294,27 @@
           binds = {
 
             # --- Compositor ---
-            "Mod+Shift+Escape".show-hotkey-overlay = [ ];
+            "Mod+/".show-hotkey-overlay = [ ];
 
             # --- Applications ---
             "Mod+Return".spawn-sh = lib.getExe self'.packages.myKitty;
-            "Mod+Space".spawn-sh = "${lib.getExe self'.packages.myNoctalia} ipc call launcher toggle";
-            "Mod+Ctrl+Return".spawn-sh = "${lib.getExe self'.packages.myNoctalia} ipc call launcher toggle";
+            "Mod+Space".spawn-sh = "${ipc} launcher toggle";
+            "Mod+Ctrl+Return".spawn-sh = "${ipc} launcher toggle";
             "Mod+B".spawn = [ "firefox" ];
             "Mod+E".spawn = [ "thunar" ];
             "Mod+Alt+L".spawn = [ "swaylock" ];
 
-            # --- Audio ---
-            "XF86AudioRaiseVolume" = {
-              allow-when-locked = true;
-              spawn = [
-                "wpctl"
-                "set-volume"
-                "@DEFAULT_AUDIO_SINK@"
-                "0.1+"
-              ];
-            };
-            "XF86AudioLowerVolume" = {
-              allow-when-locked = true;
-              spawn = [
-                "wpctl"
-                "set-volume"
-                "@DEFAULT_AUDIO_SINK@"
-                "0.1-"
-              ];
-            };
-            "XF86AudioMute" = {
-              allow-when-locked = true;
-              spawn = [
-                "wpctl"
-                "set-mute"
-                "@DEFAULT_AUDIO_SINK@"
-                "toggle"
-              ];
-            };
-            "XF86AudioMicMute" = {
-              allow-when-locked = true;
-              spawn = [
-                "wpctl"
-                "set-mute"
-                "@DEFAULT_AUDIO_SOURCE@"
-                "toggle"
-              ];
-            };
+            # --- Audio and System Controls ---
+            "XF86MonBrightnessDown".spawn-sh = "${ipc} brightness decrease";
+            "XF86MonBrightnessUp".spawn-sh = "${ipc} brightness increase";
+            "XF86AudioLowerVolume".spawn-sh = "${ipc} volume decrease";
+            "XF86AudioRaiseVolume".spawn-sh = "${ipc} volume increase";
+            "XF86AudioMute".spawn-sh = "${ipc} volume muteOutput";
+
+            "XF86AudioPlay".spawn-sh = "${ipc} media playPause";
+            "Mod+XF86AudioPlay".spawn-sh = "${ipc} media toggle";
+            "XF86AudioNext".spawn-sh = "${ipc} media next";
+            "XF86AudioPrev".spawn-sh = "${ipc} media previous";
 
             # --- Window: Close ---
             "Mod+Q".close-window = [ ];
@@ -402,21 +380,21 @@
             "Mod+Ctrl+9".move-column-to-workspace = 9;
 
             # --- Scroll: Workspace ---
-            "Mod+WheelScrollDown" = {
-              cooldown-ms = 150;
-              focus-workspace-down = [ ];
+            "Mod+WheelScrollDown" = _: {
+              props.cooldown-ms = 150;
+              content.focus-workspace-down = _: { };
             };
-            "Mod+WheelScrollUp" = {
-              cooldown-ms = 150;
-              focus-workspace-up = [ ];
+            "Mod+WheelScrollUp" = _: {
+              props.cooldown-ms = 150;
+              content.focus-workspace-up = _: { };
             };
-            "Mod+Ctrl+WheelScrollDown" = {
-              cooldown-ms = 150;
-              move-column-to-workspace-down = [ ];
+            "Mod+Ctrl+WheelScrollDown" = _: {
+              props.cooldown-ms = 150;
+              content.move-column-to-workspace-down = _: { };
             };
-            "Mod+Ctrl+WheelScrollUp" = {
-              cooldown-ms = 150;
-              move-column-to-workspace-up = [ ];
+            "Mod+Ctrl+WheelScrollUp" = _: {
+              props.cooldown-ms = 150;
+              content.move-column-to-workspace-up = _: { };
             };
 
             # --- Scroll: Column ---
@@ -450,14 +428,14 @@
             "Ctrl+Shift+3".screenshot-window = [ ];
 
             # --- Special ---
-            "Mod+Escape" = {
-              allow-inhibiting = false;
-              toggle-keyboard-shortcuts-inhibit = [ ];
+            "Mod+Escape" = _: {
+              props.allow-inhibiting = false;
+              content.toggle-keyboard-shortcuts-inhibit = _: { };
             };
             "Mod+Shift+P".power-off-monitors = [ ];
-            "Mod+O" = {
-              repeat = false;
-              toggle-overview = [ ];
+            "Mod+O" = _: {
+              props.repeat = false;
+              content.toggle-overview = _: { };
             };
 
           };

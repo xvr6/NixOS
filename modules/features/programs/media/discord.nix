@@ -1,32 +1,25 @@
 { self, inputs, ... }:
 {
   flake.nixosModules.discord =
-    { host, pkgs, ... }:
+    {
+      host,
+      pkgs,
+      lib,
+      ...
+    }:
     let
       inherit (import ../../../hosts/${host}/_variables.nix) username;
       home = "/home/${username}";
-
-      discordPkg = pkgs.symlinkJoin {
-        name = "discord";
-        paths = [ (pkgs.discord.override { withVencord = true; }) ];
-        buildInputs = [ pkgs.makeWrapper ];
-        postBuild = ''
-          wrapProgram $out/bin/discord \
-            --add-flags "--ozone-platform=wayland --use-gl=egl --enable-features=WaylandWindowDecorations,WebRTCPipeWireCapturer"
-        '';
-      };
-
-      vencordTheme = ''
-        @import url("https://catppuccin.github.io/discord/dist/catppuccin-mocha-mauve.theme.css");
-      '';
 
       vencordSettings = {
         notifyAboutUpdates = false;
         autoUpdate = false;
         autoUpdateNotification = false;
-        useQuickCss = true;
-        themeLinks = [ ];
-        enabledThemes = [ "catppuccin-mocha.css" ];
+        useQuickCss = false;
+        themeLinks = [
+          "https://catppuccin.github.io/userstyles/styles/discord/catppuccin.user.css?flavor=mocha&accent=mauve"
+        ];
+        enabledThemes = [ ];
         enableReactDevtools = false;
         frameless = false;
         transparent = false;
@@ -41,7 +34,7 @@
           ClearURLs.enabled = true;
           CopyFileContents.enabled = true;
           CrashHandler.enabled = true;
-          EmoteCloner.enabled = true;
+          ExpressionCloner.enabled = true;
           Experiments.enabled = true;
           FakeNitro.enabled = true;
           FavoriteGifSearch.enabled = true;
@@ -96,19 +89,14 @@
       };
     in
     {
-      environment.systemPackages = [ discordPkg ];
+      environment.systemPackages = [ pkgs.vesktop ];
 
-      environment.etc = {
-        "vencord/themes/catppuccin-mocha.css".text = vencordTheme;
-        "vencord/settings/settings.json".text = builtins.toJSON vencordSettings;
-      };
+      environment.etc."vesktop/settings/settings.json".text = builtins.toJSON vencordSettings;
 
       systemd.tmpfiles.rules = [
-        "d ${home}/.config/Vencord 0755 ${username} users -"
-        "d ${home}/.config/Vencord/themes 0755 ${username} users -"
-        "d ${home}/.config/Vencord/settings 0755 ${username} users -"
-        "L+ ${home}/.config/Vencord/themes/catppuccin-mocha.css - - - - /etc/vencord/themes/catppuccin-mocha.css"
-        "L+ ${home}/.config/Vencord/settings/settings.json - - - - /etc/vencord/settings/settings.json"
+        "d ${home}/.config/vesktop 0755 ${username} users -"
+        "d ${home}/.config/vesktop/settings 0755 ${username} users -"
+        "L+ ${home}/.config/vesktop/settings/settings.json - - - - /etc/vesktop/settings/settings.json"
       ];
     };
 }
