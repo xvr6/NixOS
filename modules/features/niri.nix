@@ -156,7 +156,7 @@
 
             # Global corner rounding
             {
-              "geometry-corner-radius" = 10.0;
+              "geometry-corner-radius" = 15.0;
               "clip-to-geometry" = true;
             }
 
@@ -184,42 +184,16 @@
             # 0.80 opacity
             {
               matches = [
-                { app-id = "^(kitty|alacritty|Alacritty|org\\.wezfurlong\\.wezterm)$"; }
-                { app-id = "^nvim-wrapper$"; }
-                { app-id = "^gnome-disks$"; }
+                { app-id = "^(kitty)$"; }
                 { app-id = "^thunar-volman-settings$"; }
-                { app-id = "^org\\.gnome\\.FileRoller$"; }
-                { app-id = "^io\\.github\\.ilya_zlobintsev\\.LACT$"; }
                 { app-id = "^(Steam|steam|steamwebhelper)$"; }
-                { app-id = "^(Spotify|spotify)$"; }
                 { app-id = "^(VSCodium|codium-url-handler)$"; }
                 { app-id = "^(code|code-url-handler)$"; }
-                { app-id = "^tuiFileManager$"; }
-                { app-id = "^org\\.kde\\.dolphin$"; }
-                { app-id = "^org\\.kde\\.ark$"; }
-                { app-id = "^nwg-look$"; }
-                { app-id = "^(qt5ct|qt6ct)$"; }
-                { app-id = "^yad$"; }
-                { app-id = "^hu\\.kramo\\.Cartridges$"; }
-                { app-id = "^com\\.obsproject\\.Studio$"; }
                 { app-id = "^gnome-boxes$"; }
                 { app-id = "^app\\.drey\\.Warp$"; }
-                { app-id = "^net\\.davidotek\\.pupgui2$"; }
-                { app-id = "^Signal$"; }
-                { app-id = "^io\\.gitlab\\.theevilskeleton\\.Upscaler$"; }
-                { app-id = "^(pavucontrol|org\\.pulseaudio\\.pavucontrol)$"; }
-                { app-id = "^\\.?blueman-manager(-wrapped)?$"; }
                 { app-id = "^(nm-applet|nm-connection-editor)$"; }
                 { app-id = "^org\\.kde\\.polkit-kde-authentication-agent-1$"; }
               ];
-              opacity = 0.80;
-            }
-            {
-              matches = [ { title = "^Kvantum Manager$"; } ];
-              opacity = 0.80;
-            }
-            {
-              matches = [ { title = ".*Spotify.*"; } ];
               opacity = 0.80;
             }
 
@@ -237,10 +211,6 @@
             # Float rules
             {
               matches = [
-                { app-id = "^qt5ct$"; }
-                { app-id = "^nwg-look$"; }
-                { app-id = "^org\\.kde\\.ark$"; }
-                { app-id = "^Signal$"; }
                 { app-id = "^com\\.github\\.rafostar\\.Clapper$"; }
                 { app-id = "^app\\.drey\\.Warp$"; }
                 { app-id = "^net\\.davidotek\\.pupgui2$"; }
@@ -368,15 +338,15 @@
             "Mod+9".focus-workspace = 9;
 
             # --- Workspaces: Move Column ---
-            "Mod+Ctrl+1".move-column-to-workspace = 1;
-            "Mod+Ctrl+2".move-column-to-workspace = 2;
-            "Mod+Ctrl+3".move-column-to-workspace = 3;
-            "Mod+Ctrl+4".move-column-to-workspace = 4;
-            "Mod+Ctrl+5".move-column-to-workspace = 5;
-            "Mod+Ctrl+6".move-column-to-workspace = 6;
-            "Mod+Ctrl+7".move-column-to-workspace = 7;
-            "Mod+Ctrl+8".move-column-to-workspace = 8;
-            "Mod+Ctrl+9".move-column-to-workspace = 9;
+            "Mod+Shift+1".move-column-to-workspace = 1;
+            "Mod+Shift+2".move-column-to-workspace = 2;
+            "Mod+Shift+3".move-column-to-workspace = 3;
+            "Mod+Shift+4".move-column-to-workspace = 4;
+            "Mod+Shift+5".move-column-to-workspace = 5;
+            "Mod+Shift+6".move-column-to-workspace = 6;
+            "Mod+Shift+7".move-column-to-workspace = 7;
+            "Mod+Shift+8".move-column-to-workspace = 8;
+            "Mod+Shift+9".move-column-to-workspace = 9;
 
             # --- Scroll: Workspace ---
             "Mod+WheelScrollDown" = _: {
