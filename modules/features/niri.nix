@@ -12,6 +12,8 @@
       package = self.packages.${pkgs.stdenv.hostPlatform.system}.myNiri;
     };
 
+    programs.xwayland.enable = true;
+
     xdg.portal = {
       enable = true;
       extraPortals = with pkgs; [
@@ -31,7 +33,7 @@
       XDG_SESSION_TYPE = "wayland";
       GDK_BACKEND = "wayland,x11,*";
       MOZ_ENABLE_WAYLAND = "1";
-      SDL_VIDEODRIVER = "wayland";
+      SDL_VIDEODRIVER = "wayland,x11";
       QT_QPA_PLATFORM = "wayland;xcb";
       OZONE_PLATFORM = "wayland";
       ELECTRON_OZONE_PLATFORM_HINT = "wayland";
@@ -69,7 +71,7 @@
             QT_WAYLAND_DISABLE_WINDOWDECORATION = "1";
             XDG_SESSION_TYPE = "wayland";
             XDG_CURRENT_DESKTOP = "niri";
-            SDL_VIDEODRIVER = "wayland";
+            SDL_VIDEODRIVER = "wayland,x11";
             GDK_BACKEND = "wayland,x11,*";
             MOZ_ENABLE_WAYLAND = "1";
           };

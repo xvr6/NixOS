@@ -109,7 +109,18 @@
       dots = "cd ~/NixOS/";
       projs = "cd ~/projects/";
 
+      # make easier to call noctalia from own shell
       noctalia = "${lib.getExe self.packages.${pkgs.stdenv.hostPlatform.system}.myNoctalia}";
+
+      # Packwiz cmds
+      prf = "packwiz refresh";
+      prh = "packwiz rehash sha512";
+
+      # Git alises
+      #TODO: these appear to already exist from some other source? Does git pkg ship with aliases?
+      # ga = "git add .";
+      # gc
+
     };
   };
 }

@@ -44,6 +44,7 @@
 
       nix.settings.allowed-users = [ "xvr6" ];
       environment.systemPackages = with pkgs; [
+        packwiz
         nh
         git
         claude-code
