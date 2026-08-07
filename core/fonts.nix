@@ -4,7 +4,6 @@
     fontDir.enable = true;
     packages = with pkgs; [
       # Nerd Fonts
-      maple-mono.NF
       pkgs.nerd-fonts.jetbrains-mono
 
       # Normal Fonts
@@ -16,7 +15,7 @@
       antialias = true;
       defaultFonts = {
         monospace = [
-          "Maple Mono NF"
+          "JetBrainsMono Nerd Font"
         ];
         sansSerif = [
           "Noto Sans"
