@@ -4,9 +4,10 @@
     { pkgs, lib, ... }:
     {
       imports = [
-        self.nixosModules.core
         self.nixosModules.nixworkHardware
         inputs.nixos-hardware.nixosModules.framework-amd-ai-300-series
+        self.nixosModules.core
+        self.nixosModules.amdgpu
         self.nixosModules.niri
         self.nixosModules.discord
       ];
@@ -45,6 +46,8 @@
       nix.settings.allowed-users = [ "xvr6" ];
       environment.systemPackages = with pkgs; [
         packwiz
+        plex-desktop
+        parsec-bin
         nh
         git
         claude-code

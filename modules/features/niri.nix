@@ -14,6 +14,10 @@
 
     programs.xwayland.enable = true;
 
+    environment.systemPackages = with pkgs; [
+      xwayland-satellite
+    ];
+
     xdg.portal = {
       enable = true;
       extraPortals = with pkgs; [
@@ -35,8 +39,6 @@
       MOZ_ENABLE_WAYLAND = "1";
       SDL_VIDEODRIVER = "wayland,x11";
       QT_QPA_PLATFORM = "wayland;xcb";
-      OZONE_PLATFORM = "wayland";
-      ELECTRON_OZONE_PLATFORM_HINT = "wayland";
       NIXOS_OZONE_WL = 1;
     };
   };

@@ -159,12 +159,12 @@
         },
         {
           "clockColor": "none",
-          "customFont": "",
+          "customFont": "Maple Mono NF",
           "formatHorizontal": "HH:mm ddd, MMM dd",
-          "formatVertical": "HH mm - dd MM",
+          "formatVertical": "HH mm - ddd MMM dd",
           "id": "Clock",
           "tooltipFormat": "HH:mm ddd, MMM dd",
-          "useCustomFont": false
+          "useCustomFont": true
         },
         {
           "colorizeSystemIcon": "secondary",
