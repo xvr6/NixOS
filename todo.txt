@@ -2,3 +2,4 @@
 x 2026-08-05 2026-08-05 update flake
 (B) make ready for pc
 (C) add picture in picture presets for zen if possible? i think should be due to hyprland, need to learn more +feat
+(A) +syncthing +obsidian syncing between devices. Also backup to my NAS (copyparty/smb/unix file sharing idr the name) if possible
