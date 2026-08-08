@@ -239,8 +239,8 @@
     "smoothScrollEnabled": true
   },
   "ui": {
-    "fontDefault": "Sans Serif",
-    "fontFixed": "monospace",
+    "fontDefault": "Noto Sans",
+    "fontFixed": "Maple Mono NF",
     "fontDefaultScale": 1.1,
     "fontFixedScale": 1,
     "tooltipsEnabled": true,
@@ -615,9 +615,9 @@
   "audio": {
     "volumeStep": 5,
     "volumeOverdrive": false,
-    "spectrumFrameRate": 30,
+    "spectrumFrameRate": 60,
     "visualizerType": "mirrored",
-    "spectrumMirrored": true,
+    "spectrumMirrored": false,
     "mprisBlacklist": [],
     "preferredPlayer": "",
     "volumeFeedback": false,
