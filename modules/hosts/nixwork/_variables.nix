@@ -14,7 +14,7 @@
 
   # Hardware
   hostname = "nixwork";
-  # videoDriver = "amdgpu";
+  gpu = "amd"; # amd, nvidia
 
   # Localization
   timezone = "America/New_York";

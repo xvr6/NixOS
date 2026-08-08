@@ -22,9 +22,13 @@
 
   nixpkgs.config.allowUnfree = true;
 
+  nixpkgs.config.permittedInsecurePackages = [
+    "ventoy-1.1.12"
+  ];
+ 
   environment.systemPackages = with pkgs; [
     file-roller # needed for thunar
-
+    ventoy
     gnumake
     appimage-run # Needed For AppImage Support
     killall # For Killing All Instances Of Programs
