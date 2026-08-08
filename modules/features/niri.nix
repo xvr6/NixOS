@@ -80,6 +80,7 @@
 
           # ── Input ──────────────────────────────────────────────────────────────
           input = {
+            "focus-follows-mouse" = _: { };
             keyboard = {
               xkb.layout = "us,ua";
               "repeat-delay" = 275;
@@ -89,8 +90,34 @@
           };
 
           # ── Output ─────────────────────────────────────────────────────────────
+          #nixwork
           outputs."eDP-1" = {
             scale = 1.5;
+          };
+
+          # - nixtop displays
+          #omen
+          outputs."DP-4" = {
+            mode = "2560x1440@164.834";
+            "focus-at-startup" = _: { };
+            #"variable-refresh-rate" = "on-demand";
+            position = _: {
+              props = {
+                x = 0;
+                y = 0;
+              };
+            };
+          };
+
+          #spectre
+          outputs."DP-5" = {
+            mode = "1920x1080@165.000";
+            position = _: {
+              props = {
+                x = -1920;
+                y = 0;
+              };
+            };
           };
 
           # ── Layout ─────────────────────────────────────────────────────────────
