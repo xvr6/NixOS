@@ -90,8 +90,7 @@
       ll = "${pkgs.eza}/bin/eza -lha --icons=auto --sort=name --group-directories-first";
       ld = "${pkgs.eza}/bin/eza -lhD --icons=auto";
       tree = "${pkgs.eza}/bin/eza --icons=auto --tree";
-      nf = "${pkgs.microfetch}/bin/microfetch";
-      ff = "fastfetch";
+      mf = "microfetch";
       cp = "cp -iv";
       mv = "mv -iv";
       rm = "rm -vI";

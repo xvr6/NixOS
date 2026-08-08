@@ -45,7 +45,6 @@
     # duf # Utility For Viewing Disk Usage In Terminal
     dysk # Disk space util nice formattting
     ffmpeg # Terminal Video / Audio Editing
-    # gemini-cli # CLI AI client ONLY (optional)
     # glxinfo # needed for inxi diag util
     # inxi # CLI System Information Tool
     libsForQt5.qt5.qtgraphicaleffects # Sddm Dependency (Old)
@@ -66,10 +65,11 @@
     # usbutils # Good Tools For USB Devices
     # uwsm # Universal Wayland Session Manager (optional must be enabled)
     v4l-utils # Used For Things Like OBS Virtual Camera
-    # warp-terminal # Terminal with AI support build in
     # waypaper # Change wallpaper
     wget # Tool For Fetching Files With Links
     ytmdl # Tool For Downloading Audio From YouTube
+
+    gcc
 
     # devenv
     # devbox
