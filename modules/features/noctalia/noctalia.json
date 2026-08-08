@@ -240,7 +240,7 @@
   },
   "ui": {
     "fontDefault": "Noto Sans",
-    "fontFixed": "Maple Mono NF",
+    "fontFixed": "JetBrainsMono NF",
     "fontDefaultScale": 1.1,
     "fontFixedScale": 1,
     "tooltipsEnabled": true,
