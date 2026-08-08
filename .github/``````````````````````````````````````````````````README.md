@@ -1,3 +1,6 @@
+# this md is outdated and leftover from the fork days
+
+
 <h1 align="center">
    <img src="assets/nixos-logo.png" width="100px" /> 
    <br>
