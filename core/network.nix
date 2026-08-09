@@ -32,15 +32,9 @@ in
     #   noProxy = "127.0.0.1,localhost,internal.domain";
     # };
 
-    #DNS
-    nameservers = [
-      "1.1.1.1"
-      "1.0.0.1"
-      "8.8.8.8"
-    ];
-
     firewall = {
       enable = true;
+      trustedInterfaces = [ "tailscale0" ];
       allowedTCPPorts = [
         22 # SSH (Secure Shell) - remote access
         80 # HTTP - web traffic
@@ -50,12 +44,26 @@ in
         8080 # Alternative HTTP/web server port
       ];
       allowedUDPPorts = [
+        41641 # Tailscale direct peer connections
         59010 # Custom application port
         59011 # Custom application port
       ];
     };
     # not needed, using NM
     dhcpcd.enable = false;
+  };
+
+  services.resolved = {
+    enable = true;
+    settings.Resolve = {
+      DNSSEC = "allow-downgrade";
+      DNSOverTLS = "opportunistic";
+      FallbackDNS = [
+        "1.1.1.1#one.one.one.one"
+        "1.0.0.1#one.one.one.one"
+        "8.8.8.8#dns.google"
+      ];
+    };
   };
 
   services.dbus = {

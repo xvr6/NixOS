@@ -24,9 +24,14 @@
             "usb_storage"
             "sd_mod"
           ];
-          kernelModules = [ ];
         };
-        kernelModules = [ "kvm-intel" ];
+        kernelModules = [
+          "kvm-intel"
+          "nvidia"
+          "i915"
+          "nvidia_modeset"
+          "nvidia_drm"
+        ];
         extraModulePackages = [ ];
         tmp.cleanOnBoot = true;
         kernelPackages = pkgs.linuxPackages_zen; # _latest, _zen, _xanmod_latest, _hardened, _rt, _OTHER_CHANNEL, etc.
@@ -39,6 +44,7 @@
             enable = true;
             device = "nodev";
             efiSupport = true;
+            # efiInstallAsRemovable = true;
             useOSProber = true;
             gfxmodeEfi = "2880x1920"; # for 4k: 3840x2160
             gfxmodeBios = "2880x1920"; # for 4k: 3840x2160

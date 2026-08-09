@@ -6,6 +6,7 @@
     upower.enable = true;
     tailscale = {
       enable = true;
+      useRoutingFeatures = "client";
     };
     libinput.enable = true; # Input Handling
     fstrim.enable = true; # SSD Optimizer
