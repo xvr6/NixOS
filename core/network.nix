@@ -12,6 +12,7 @@ in
     "net.ipv4.ip_forward" = "1";
   };
   networking = {
+    nftables.enable = true;
     hostName = "${hostname}";
     networkmanager = {
       enable = true;
