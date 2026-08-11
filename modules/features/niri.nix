@@ -14,32 +14,35 @@
 
     programs.xwayland.enable = true;
 
+    # xdg-desktop-portal-gnome is added automatically by programs.niri (needed
+    # for screencast, since niri implements org.gnome.Mutter.ScreenCast).
+
     environment.systemPackages = with pkgs; [
       xwayland-satellite
+      libheif
+      libheif.out
     ];
+    environment.pathsToLink = [ "share/thumbnailers" ];
+    programs.niri.useNautilus = true;
 
     xdg.portal = {
       enable = true;
-      extraPortals = with pkgs; [
-        xdg-desktop-portal-gnome
-        xdg-desktop-portal-gtk
-      ];
+      extraPortals = with pkgs; [ xdg-desktop-portal-gtk ];
       xdgOpenUsePortal = true;
-      config.common.default = [
-        "gnome"
-        "gtk"
-      ];
+      config.niri."org.freedesktop.impl.portal.FileChooser" = "gtk";
     };
 
     environment.variables = {
       XDG_CURRENT_DESKTOP = "niri";
       XDG_SESSION_DESKTOP = "niri";
       XDG_SESSION_TYPE = "wayland";
-      GDK_BACKEND = "wayland,x11,*";
       MOZ_ENABLE_WAYLAND = "1";
       SDL_VIDEODRIVER = "wayland,x11";
       QT_QPA_PLATFORM = "wayland;xcb";
       NIXOS_OZONE_WL = 1;
+      # Java AWT/Swing renders blank/white windows under non-reparenting WMs
+      # (niri, sway, i3, etc.) unless told the WM doesn't reparent.
+      _JAVA_AWT_WM_NONREPARENTING = "1";
     };
   };
 
@@ -74,7 +77,6 @@
             XDG_SESSION_TYPE = "wayland";
             XDG_CURRENT_DESKTOP = "niri";
             SDL_VIDEODRIVER = "wayland,x11";
-            GDK_BACKEND = "wayland,x11,*";
             MOZ_ENABLE_WAYLAND = "1";
           };
 
@@ -301,7 +303,7 @@
             "Mod+Return".spawn-sh = lib.getExe self'.packages.myKitty;
             "Mod+Space".spawn-sh = "${ipc} launcher toggle";
             "Mod+B".spawn = [ "zen" ];
-            "Mod+E".spawn = [ "thunar" ];
+            "Mod+E".spawn = [ "nautilus" ];
             "Mod+Alt+L".spawn = [ "swaylock" ];
 
             # --- Audio and System Controls ---

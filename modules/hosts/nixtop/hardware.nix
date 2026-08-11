@@ -27,11 +27,8 @@
         };
         kernelModules = [
           "kvm-intel"
-          "nvidia"
-          "i915"
-          "nvidia_modeset"
-          "nvidia_drm"
         ];
+        kernelParams = [ "preempt=full" ];
         extraModulePackages = [ ];
         tmp.cleanOnBoot = true;
         kernelPackages = pkgs.linuxPackages_zen; # _latest, _zen, _xanmod_latest, _hardened, _rt, _OTHER_CHANNEL, etc.

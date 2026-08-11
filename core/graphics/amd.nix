@@ -1,5 +1,7 @@
 { pkgs, ... }:
 {
+  imports = [ ./common.nix ];
+
   boot.initrd.kernelModules = [ "amdgpu" ];
   environment.systemPackages = with pkgs; [
     rocmPackages.clr

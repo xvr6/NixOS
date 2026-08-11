@@ -3,14 +3,36 @@
   # TODO: review
   programs = {
 
-    thunar = {
-      enable = true;
-      plugins = with pkgs; [
-        thunar-archive-plugin # Archive management
-        thunar-volman # Volume management (automount removable devices)
-        thunar-media-tags-plugin # Tagging & renaming feature for media files
-      ];
-    };
+    #   btop = {
+    #     enable = true;
+    #     package = pkgs.btop.override {
+    #       rocmSupport = true;
+    #       cudaSupport = true;
+    #     };
+    #     settings = {
+    #       color_theme = "catppuccin-mocha";
+    #       show_gpu_info = "on";
+    #       cpu_sensor = "auto";
+    #       vim_keys = true;
+    #       rounded_corners = true;
+    #       proc_tree = false;
+    #       show_uptime = true;
+    #       show_coretemp = true;
+    #       show_disks = true;
+    #       only_physical = true;
+    #       io_mode = true;
+    #       io_graph_combined = false;
+    #     };
+    #   };
+
+    #   thunar = {
+    #     enable = true;
+    #     plugins = with pkgs; [
+    #       thunar-archive-plugin # Archive management
+    #       thunar-volman # Volume management (automount removable devices)
+    #       thunar-media-tags-plugin # Tagging & renaming feature for media files
+    #     ];
+    #   };
     fuse.userAllowOther = true;
     mtr.enable = true;
     #adb.enable = true;
@@ -25,15 +47,16 @@
   nixpkgs.config.permittedInsecurePackages = [
     "ventoy-1.1.12"
   ];
- 
+
   environment.systemPackages = with pkgs; [
+    nautilus
+
     file-roller # needed for thunar
     ventoy
     gnumake
     appimage-run # Needed For AppImage Support
     killall # For Killing All Instances Of Programs
     lm_sensors # Used For Getting Hardware Temps
-    gnome-disk-utility # Disk Partitioning and Mounting Utility
     rclone # Cloning Utility
     jq # Json Formatting Utility
     bibata-cursors
@@ -85,6 +108,7 @@
 
     gcc
 
+    btop-cuda
     # devenv
     # devbox
     # shellify

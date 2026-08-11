@@ -1,5 +1,6 @@
 { pkgs, ... }:
 {
+
   # Services to start
   services = {
     power-profiles-daemon.enable = true;
@@ -24,20 +25,21 @@
     blueman.enable = true; # Bluetooth Support
     tumbler.enable = true; # Image/video preview
 
-    pulseaudio.enable = false;
     pipewire = {
       enable = true;
-      alsa.enable = true;
-      alsa.support32Bit = true;
       pulse.enable = true;
+      alsa = {
+        enable = true;
+        support32Bit = true;
+      };
       # jack.enable = true;
       wireplumber = {
         enable = true;
-        configPackages = [
-          (pkgs.writeTextDir "share/wireplumber/wireplumber.conf.d/11-bluetooth-policy.conf" ''
-            bluetooth.autoswitch-to-headset-profile = false
-          '')
-        ];
+        # configPackages = [
+        #   (pkgs.writeTextDir "share/wireplumber/wireplumber.conf.d/11-bluetooth-policy.conf" ''
+        #     bluetooth.autoswitch-to-headset-profile = false
+        #   '')
+        # ];
       };
 
       # -- Airplay/RAOP
@@ -56,9 +58,9 @@
         "92-low-latency" = {
           "context.properties" = {
             "default.clock.rate" = 48000;
-            "default.clock.quantum" = 32;
+            "default.clock.quantum" = 256;
             "default.clock.min-quantum" = 32;
-            "default.clock.max-quantum" = 32;
+            "default.clock.max-quantum" = 2048;
           };
         };
       };
