@@ -304,7 +304,8 @@
             "Mod+Space".spawn-sh = "${ipc} launcher toggle";
             "Mod+B".spawn = [ "zen" ];
             "Mod+E".spawn = [ "nautilus" ];
-            "Mod+Alt+L".spawn = [ "swaylock" ];
+            "Mod+Alt+L".spawn-sh = "${ipc} lockScreen lock";
+            "Mod+Shift+E".spawn-sh = "${ipc} sessionMenu toggle";
 
             # --- Audio and System Controls ---
             "XF86MonBrightnessDown".spawn-sh = "${ipc} brightness decrease";
