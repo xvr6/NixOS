@@ -430,7 +430,7 @@
             # --- Screenshots ---
             "Print".screenshot = [ ];
             "Mod+Print".screenshot-screen = [ ];
-            "Ctrl+Print".screenshot-window = [ ];
+            "Alt+Print".screenshot-window = [ ];
 
             # --- Special ---
             "Mod+Escape" = _: {
