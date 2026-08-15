@@ -16,7 +16,10 @@ in
     hostName = "${hostname}";
     networkmanager = {
       enable = true;
-      wifi.powersave = false;
+      wifi = {
+        powersave = false;
+        macAddress = "stable-ssid";
+      };
     };
 
     timeServers = [

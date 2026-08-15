@@ -7,8 +7,8 @@
     #   disabledDefaultBackends = [ "escl" ];
     # };
 
-    # logitech.wireless.enable = false;
-    # logitech.wireless.enableGraphical = false;
+    logitech.wireless.enable = true;
+    logitech.wireless.enableGraphical = true;
 
     enableRedistributableFirmware = true;
     keyboard.qmk.enable = true;

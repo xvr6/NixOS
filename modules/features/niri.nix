@@ -33,6 +33,7 @@
     };
 
     environment.variables = {
+      NIXPKGS_ALLOW_UNFREE = "1";
       XDG_CURRENT_DESKTOP = "niri";
       XDG_SESSION_DESKTOP = "niri";
       XDG_SESSION_TYPE = "wayland";
@@ -321,6 +322,7 @@
 
             # --- Window: Close ---
             "Mod+Q".close-window = [ ];
+            "Alt+F4".close-window = [ ];
 
             # --- Window: Focus ---
             "Mod+Left".focus-column-left = [ ];
@@ -426,9 +428,9 @@
             "Mod+W".toggle-column-tabbed-display = [ ];
 
             # --- Screenshots ---
-            "Ctrl+Shift+1".screenshot = [ ];
-            "Ctrl+Shift+2".screenshot-screen = [ ];
-            "Ctrl+Shift+3".screenshot-window = [ ];
+            "Print".screenshot = [ ];
+            "Mod+Print".screenshot-screen = [ ];
+            "Ctrl+Print".screenshot-window = [ ];
 
             # --- Special ---
             "Mod+Escape" = _: {
