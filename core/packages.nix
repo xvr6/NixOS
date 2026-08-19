@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ inputs, pkgs, ... }:
 {
   # TODO: review
   programs = {
@@ -70,7 +70,6 @@
     gh # Github Authentication Client
     libjxl # Support for JXL Images
     microfetch # Small fetch (Blazingly fast)
-    nix-prefetch-scripts # Find Hashes/Revisions of Nix Packages
     ripgrep # Improved Grep
     tldr # Improved Man
     unrar # Tool For Handling .rar Files
@@ -119,6 +118,7 @@
 
     # gotools
     # golangci-lint
-
+    inputs.nixvim.packages."x86_64-linux".default
+    inputs.zen-browser.packages."x86_64-linux".default
   ];
 }

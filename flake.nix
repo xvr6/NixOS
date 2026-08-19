@@ -24,7 +24,6 @@
     tetrigo.url = "github:Broderick-Westrope/tetrigo";
   };
 
-
   # imports ./modules/ automatically
   outputs = inputs: inputs.flake-parts.lib.mkFlake { inherit inputs; } (inputs.import-tree ./modules);
 }
