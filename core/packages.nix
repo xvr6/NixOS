@@ -50,7 +50,7 @@
 
   environment.systemPackages = with pkgs; [
     nautilus
-
+    lshw
     file-roller # needed for thunar
     ventoy
     gnumake

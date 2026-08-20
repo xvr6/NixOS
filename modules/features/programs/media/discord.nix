@@ -13,7 +13,7 @@
 
       vencordSettings = {
         notifyAboutUpdates = false;
-        autoUpdate = false;
+        autoUpdate = true;
         autoUpdateNotification = false;
         useQuickCss = false;
         themeLinks = [

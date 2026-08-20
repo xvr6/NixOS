@@ -8,15 +8,19 @@ in
     iproute2
   ];
 
-  boot.kernel.sysctl = {
-    "net.ipv4.ip_forward" = "1";
-  };
+  # Turns on the Linux kernel's ability to act as a router.
+  # boot.kernel.sysctl = {
+  #   "net.ipv4.ip_forward" = "1";
+  # };
   networking = {
+    useDHCP = false;
     nftables.enable = true;
     hostName = "${hostname}";
+    wireless.enable = false; # not needed; using NM
     networkmanager = {
       enable = true;
       wifi = {
+        backend = "iwd";
         powersave = false;
         macAddress = "stable-ssid";
       };
