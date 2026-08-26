@@ -12,7 +12,7 @@
 
     #nixvim seperated out into flake
     nixvim = {
-      url = "github:xvr6/nixvim/dev";
+      url = "git+https://forge.xvr6.dev/xvr6/nixvim";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
@@ -20,7 +20,8 @@
       url = "github:youwen5/zen-browser-flake";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-
+    
+    # FIXME: not actually piped to any overlay or install
     tetrigo.url = "github:Broderick-Westrope/tetrigo";
   };
 
