@@ -49,7 +49,7 @@
   ];
 
   environment.systemPackages = with pkgs; [
-    nautilus
+    nemo
     lshw
     file-roller # needed for thunar
     ventoy

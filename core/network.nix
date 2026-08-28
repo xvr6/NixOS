@@ -8,6 +8,17 @@ in
     iproute2
   ];
 
+  # network filesystems
+  fileSystems = {
+    "/mnt/NAS" = {
+      device = "shitnas:/mc";
+      fsType = "nfs";
+      options = [
+        "x-systemd.automount"
+        "noauto"
+      ];
+    };
+  };
   # Turns on the Linux kernel's ability to act as a router.
   # boot.kernel.sysctl = {
   #   "net.ipv4.ip_forward" = "1";

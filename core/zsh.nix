@@ -11,7 +11,6 @@
     syntaxHighlighting.enable = true;
     enableCompletion = true;
     histSize = 100000;
-    histFile = "$HOME/.local/share/zsh/history";
 
     ohMyZsh = {
       enable = true;
