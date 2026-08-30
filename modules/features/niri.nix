@@ -100,7 +100,7 @@
 
           # - nixtop displays
           #omen
-          outputs."DP-4" = {
+          outputs."HP Inc. OMEN 27q CNC43225MX" = {
             mode = "2560x1440@164.834";
             "focus-at-startup" = _: { };
             #"variable-refresh-rate" = "on-demand";
@@ -113,7 +113,7 @@
           };
 
           #spectre
-          outputs."DP-5" = {
+          outputs."Sceptre Tech Inc Sceptre M25 Unknown" = {
             mode = "1920x1080@165.000";
             position = _: {
               props = {
