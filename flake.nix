@@ -1,14 +1,16 @@
 {
-  inputs = {
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-26.05";
-    nixpkgs-unstable.url = "github:nixos/nixpkgs/nixpkgs-unstable";
-    nixos-hardware.url = "github:NixOS/nixos-hardware/master";
+  description = "Basic NixOS Home-Manager + Noctalia Suite Flake";
 
-    # Dendridic
-    flake-parts.url = "github:hercules-ci/flake-parts";
-    import-tree.url = "github:vic/import-tree";
-    wrapper-modules.url = "github:BirdeeHub/nix-wrapper-modules";
-    wrappers.url = "github:lassulus/wrappers";
+  inputs = {
+    nixpkgs.url = "nixpkgs/nixos-unstable";
+    nixpkgs-stable.url = "nixpkgs/nixos-26.05";
+
+    home-manager = {
+      url = "github:nix-community/home-manager/master";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    nixos-hardware.url = "github:NixOS/nixos-hardware/master";
 
     #nixvim seperated out into flake
     nixvim = {
@@ -16,15 +18,61 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    umbriel.url = "github:noctalia-dev/umbriel";
     zen-browser = {
       url = "github:youwen5/zen-browser-flake";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    
+
     # FIXME: not actually piped to any overlay or install
     tetrigo.url = "github:Broderick-Westrope/tetrigo";
   };
 
-  # imports ./modules/ automatically
-  outputs = inputs: inputs.flake-parts.lib.mkFlake { inherit inputs; } (inputs.import-tree ./modules);
+  outputs =
+    inputs@{
+      self,
+      nixpkgs,
+      home-manager,
+      ...
+    }:
+    let
+      inherit (nixpkgs) lib;
+
+      hosts = [
+        "nixtop"
+        "nixwork"
+      ];
+
+      mkHost =
+        host:
+        lib.nixosSystem {
+          system = "x86_64-linux";
+
+          specialArgs = {
+            inherit inputs self host;
+          };
+
+          modules = [
+            ./hosts/${host}/configuration.nix
+
+            home-manager.nixosModules.home-manager
+            {
+              home-manager = {
+                useGlobalPkgs = true;
+                useUserPackages = true;
+                extraSpecialArgs = {
+                  inherit inputs self host;
+                };
+                sharedModules = [
+                  inputs.umbriel.homeModules.default
+                ];
+                users.xvr6 = import ./home/${host};
+              };
+            }
+          ];
+        };
+    in
+    {
+      nixosConfigurations = lib.genAttrs hosts mkHost;
+    };
 }

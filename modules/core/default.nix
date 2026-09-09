@@ -4,12 +4,12 @@
     ./boot.nix
     ./fonts.nix
     ./games.nix
+    ./greeter.nix
     ./hardware.nix
     ./network.nix
     ./nh.nix
     ./packages.nix
     ./printing.nix
-    ./sddm.nix
     ./security.nix
     ./services.nix
     ./ssh.nix

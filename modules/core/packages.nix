@@ -45,14 +45,14 @@
   nixpkgs.config.allowUnfree = true;
 
   nixpkgs.config.permittedInsecurePackages = [
-    "ventoy-1.1.12"
+    #    "ventoy-*"
   ];
 
   environment.systemPackages = with pkgs; [
     nemo
     lshw
     file-roller # needed for thunar
-    ventoy
+    #ventoy
     gnumake
     appimage-run # Needed For AppImage Support
     killall # For Killing All Instances Of Programs
@@ -60,10 +60,6 @@
     rclone # Cloning Utility
     jq # Json Formatting Utility
     bibata-cursors
-    sddm-astronaut # Sddm Theme (Overlayed)
-    kdePackages.qtsvg # Sddm Dependency
-    kdePackages.qtmultimedia # Sddm Dependency
-    kdePackages.qtvirtualkeyboard # Sddm Dependency
     fzf # Fuzzy Finder
     fd # Better Find
     git # Git
@@ -83,7 +79,7 @@
     ffmpeg # Terminal Video / Audio Editing
     # glxinfo # needed for inxi diag util
     # inxi # CLI System Information Tool
-    libsForQt5.qt5.qtgraphicaleffects # Sddm Dependency (Old)
+    qt5.qtgraphicaleffects # Sddm Dependency (Old)
     libnotify # For Notifications
     lolcat # Add Colors To Your Terminal Command Output
     # lshw # Detailed Hardware Information

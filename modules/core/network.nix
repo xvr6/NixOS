@@ -1,7 +1,4 @@
-{ host, pkgs, ... }:
-let
-  inherit (import ../modules/hosts/${host}/_variables.nix) hostname;
-in
+{ pkgs, ... }:
 {
   environment.systemPackages = with pkgs; [
     networkmanagerapplet
@@ -26,7 +23,6 @@ in
   networking = {
     useDHCP = false;
     nftables.enable = true;
-    hostName = "${hostname}";
     wireless.enable = false; # not needed; using NM
     networkmanager = {
       enable = true;

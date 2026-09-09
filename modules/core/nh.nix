@@ -1,7 +1,4 @@
-{ host, pkgs, ... }:
-let
-  inherit (import ../modules/hosts/${host}/_variables.nix) username;
-in
+{ pkgs, ... }:
 {
   programs.nh = {
     enable = true;
@@ -9,7 +6,7 @@ in
       enable = true;
       extraArgs = "--keep-since 7d --keep 3";
     };
-    flake = "/home/${username}/NixOS";
+    flake = "/home/xvr6/NixOS";
   };
 
   # environment.systemPackages = with pkgs; [

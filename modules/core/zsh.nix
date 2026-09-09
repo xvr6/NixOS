@@ -1,6 +1,5 @@
 {
   pkgs,
-  lib,
   self,
   ...
 }:
@@ -106,9 +105,6 @@
       nrt = "sudo nixos-rebuild test --flake ~/NixOS";
       dots = "cd ~/NixOS/";
       projs = "cd ~/projects/";
-
-      # make easier to call noctalia from own shell
-      noctalia = "${lib.getExe self.packages.${pkgs.stdenv.hostPlatform.system}.myNoctalia}";
 
       # Packwiz cmds
       prf = "packwiz refresh";
