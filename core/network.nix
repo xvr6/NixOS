@@ -6,19 +6,19 @@ in
   environment.systemPackages = with pkgs; [
     networkmanagerapplet
     iproute2
+    nfs-utils
   ];
 
-  # network filesystems
-  fileSystems = {
-    "/mnt/NAS" = {
-      device = "shitnas:/mc";
-      fsType = "nfs";
-      options = [
-        "x-systemd.automount"
-        "noauto"
-      ];
-    };
+  # Network Drives
+  fileSystems."/mnt/nfs" = {
+    device = "10.0.0.240:/mc";
+    fsType = "nfs";
+    options = [
+      "x-systemd.automount"
+      "noauto"
+    ];
   };
+
   # Turns on the Linux kernel's ability to act as a router.
   # boot.kernel.sysctl = {
   #   "net.ipv4.ip_forward" = "1";

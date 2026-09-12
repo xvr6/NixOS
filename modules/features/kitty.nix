@@ -76,5 +76,40 @@
           "ctrl+shift+right" = "no_op";
         };
       };
+
+      # Lets GUI file managers (nemo/nautilus) launch neovim in a terminal
+      # via "Open With" / default mimeapps association. See core/packages.nix.
+      packages.myKittyNvim = pkgs.makeDesktopItem {
+        name = "kitty-nvim";
+        desktopName = "Neovim (kitty)";
+        genericName = "Text Editor";
+        exec = "${lib.getExe self'.packages.myKitty} nvim %F";
+        terminal = false;
+        icon = "utilities-terminal";
+        categories = [
+          "Utility"
+          "TextEditor"
+        ];
+        # Kept in sync with the textMimeTypes list in core/packages.nix,
+        # which sets this as the actual default via /etc/xdg/mimeapps.list.
+        mimeTypes = [
+          "text/plain"
+          "text/markdown"
+          "text/x-shellscript"
+          "text/x-python"
+          "text/x-csrc"
+          "text/x-chdr"
+          "text/x-nix"
+          "text/x-log"
+          "text/csv"
+          "text/html"
+          "text/css"
+          "text/x-diff"
+          "application/json"
+          "application/x-yaml"
+          "application/xml"
+          "application/javascript"
+        ];
+      };
     };
 }

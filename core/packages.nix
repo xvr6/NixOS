@@ -1,4 +1,10 @@
-{ inputs, pkgs, ... }:
+{
+  self,
+  inputs,
+  pkgs,
+  lib,
+  ...
+}:
 {
   # TODO: review
   programs = {
@@ -48,8 +54,61 @@
     "ventoy-1.1.12"
   ];
 
+  # Default XDG mime handlers: imv for images, kitty+nvim for text/code
+  # (declarative equivalent of home-manager's xdg.mimeApps, since this
+  # config doesn't use home-manager).
+  environment.etc."xdg/mimeapps.list".text =
+    let
+      imageMimeTypes = [
+        "image/x-farbfeld"
+        "image/tiff"
+        "image/tiff-fx"
+        "image/png"
+        "image/x-png"
+        "image/jpeg"
+        "image/jpg"
+        "image/pjpeg"
+        "image/svg+xml"
+        "image/gif"
+        "image/bmp"
+        "image/x-bmp"
+        "image/heif"
+        "image/avif"
+        "image/jxl"
+        "image/webp"
+        "image/qoi"
+      ];
+      textMimeTypes = [
+        "text/plain"
+        "text/markdown"
+        "text/x-shellscript"
+        "text/x-python"
+        "text/x-csrc"
+        "text/x-chdr"
+        "text/x-nix"
+        "text/x-log"
+        "text/csv"
+        "text/html"
+        "text/css"
+        "text/x-diff"
+        "application/json"
+        "application/x-yaml"
+        "application/xml"
+        "application/javascript"
+      ];
+      defaultsFor =
+        desktopFile: mimeTypes: lib.concatMapStringsSep "\n" (m: "${m}=${desktopFile}") mimeTypes;
+    in
+    ''
+      [Default Applications]
+      ${defaultsFor "imv.desktop" imageMimeTypes}
+      ${defaultsFor "kitty-nvim.desktop" textMimeTypes}
+    '';
+
   environment.systemPackages = with pkgs; [
     nemo
+    imv
+    self.packages.${pkgs.stdenv.hostPlatform.system}.myKittyNvim
     lshw
     file-roller # needed for thunar
     ventoy

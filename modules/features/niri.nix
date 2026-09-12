@@ -248,7 +248,7 @@
                 { app-id = "^com\\.github\\.rafostar\\.Clapper$"; }
                 { app-id = "^app\\.drey\\.Warp$"; }
                 { app-id = "^net\\.davidotek\\.pupgui2$"; }
-                { app-id = "^eog$"; }
+                { app-id = "^imv$"; }
                 { app-id = "^io\\.gitlab\\.theevilskeleton\\.Upscaler$"; }
                 { app-id = "^yad$"; }
                 { app-id = "^pavucontrol$"; }
