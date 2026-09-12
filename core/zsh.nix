@@ -105,7 +105,7 @@
       nrs = "sudo nixos-rebuild switch --flake ~/NixOS";
       nrt = "sudo nixos-rebuild test --flake ~/NixOS";
       dots = "cd ~/NixOS/";
-      projs = "cd ~/projects/";
+      projs = "cd ~/Projects/";
 
       # make easier to call noctalia from own shell
       noctalia = "${lib.getExe self.packages.${pkgs.stdenv.hostPlatform.system}.myNoctalia}";
