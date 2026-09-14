@@ -10,12 +10,25 @@ in
   ];
 
   # Network Drives
-  fileSystems."/mnt/nfs" = {
-    device = "10.0.0.240:/mc";
+  fileSystems."/mnt/NAS/mc" = {
+    device = "10.0.0.240:/mnt/shitNAS/mc";
     fsType = "nfs";
     options = [
-      "x-systemd.automount"
       "noauto"
+      "x-systemd.automount"
+      "x-systemd.idle-timeout=600"
+      "nfsvers=4.0"
+    ];
+  };
+
+  fileSystems."/mnt/NAS/media" = {
+    device = "10.0.0.240:/mnt/shitNAS/media";
+    fsType = "nfs";
+    options = [
+      "noauto"
+      "x-systemd.automount"
+      "x-systemd.idle-timeout=600"
+      "nfsvers=4.0"
     ];
   };
 

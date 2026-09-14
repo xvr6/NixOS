@@ -106,6 +106,7 @@
     '';
 
   environment.systemPackages = with pkgs; [
+    gvfs
     nemo
     imv
     self.packages.${pkgs.stdenv.hostPlatform.system}.myKittyNvim

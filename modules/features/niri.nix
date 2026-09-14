@@ -23,7 +23,6 @@
       libheif.out
     ];
     environment.pathsToLink = [ "share/thumbnailers" ];
-    programs.niri.useNautilus = true;
 
     xdg.portal = {
       enable = true;
@@ -304,7 +303,7 @@
             "Mod+Return".spawn-sh = lib.getExe self'.packages.myKitty;
             "Mod+Space".spawn-sh = "${ipc} launcher toggle";
             "Mod+B".spawn = [ "zen" ];
-            "Mod+E".spawn = [ "nautilus" ];
+            "Mod+E".spawn = [ "nemo" ];
             "Mod+Alt+L".spawn-sh = "${ipc} lockScreen lock";
             "Mod+Shift+E".spawn-sh = "${ipc} sessionMenu toggle";
 

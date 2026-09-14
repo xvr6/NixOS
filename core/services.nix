@@ -5,6 +5,7 @@
   services = {
     power-profiles-daemon.enable = true;
     upower.enable = true;
+    rpcbind.enable = true;
     tailscale = {
       enable = true;
       useRoutingFeatures = "client";
