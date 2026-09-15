@@ -77,8 +77,9 @@
 
         # programs
         "Mod+Return" = "spawn:kitty";
-        "Mod+E" = "spawn:yazi";
-
+        "Mod+E" = "spawn:kitty yazi %F";
+        "Mod+B" = "spawn:zen";
+          
         #Umbriel Keybinds
         "Mod+Q" = "window-close";
         "Mod+W" = "window-toggle-floating";

@@ -3,7 +3,6 @@
 {
   imports = [
     ../../modules/programs
-    inputs.noctalia.homeModules.default
   ];
 
   home.username = "xvr6";

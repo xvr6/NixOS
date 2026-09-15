@@ -8,6 +8,7 @@
     ./hardware.nix
     ./network.nix
     ./nh.nix
+    ./nix.nix
     ./packages.nix
     ./printing.nix
     ./security.nix
@@ -21,16 +22,16 @@
   ];
 
   #overlays
-  nixpkgs.overlays = [
-    (final: prev: {
-      nautilus = prev.nautilus.overrideAttrs (nprev: {
-        buildInputs =
-          nprev.buildInputs
-          ++ (with pkgs.gst_all_1; [
-            gst-plugins-good
-            gst-plugins-bad
-          ]);
-      });
-    })
-  ];
+  # nixpkgs.overlays = [
+  #   (final: prev: {
+  #     nautilus = prev.nautilus.overrideAttrs (nprev: {
+  #       buildInputs =
+  #         nprev.buildInputs
+  #         ++ (with pkgs.gst_all_1; [
+  #           gst-plugins-good
+  #           gst-plugins-bad
+  #         ]);
+  #     });
+  #   })
+  # ];
 }

@@ -1,10 +1,5 @@
 { pkgs, lib, ... }:
 {
-  nix.settings.experimental-features = [
-    "nix-command"
-    "flakes"
-  ];
-
   boot = {
     supportedFilesystems = lib.mkDefault [
       "nfs"

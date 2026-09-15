@@ -9,6 +9,7 @@
     ./hardware.nix
     inputs.nixos-hardware.nixosModules.framework-amd-ai-300-series
     inputs.umbriel.nixosModules.default
+    inputs.noctalia.nixosModules.default
     ../../modules/core
     ../../modules/graphics/amd.nix
     ../../modules/programs/media/discord.nix
