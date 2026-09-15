@@ -30,21 +30,6 @@
     tmp.cleanOnBoot = true;
     kernelPackages = pkgs.linuxPackages_zen; # _latest, _zen, _xanmod_latest, _hardened, _rt, _OTHER_CHANNEL, etc.
 
-    loader = {
-      efi.canTouchEfiVariables = true;
-      efi.efiSysMountPoint = "/boot";
-      timeout = null; # Display bootloader indefinitely until user selects OS
-      grub = {
-        enable = true;
-        device = "nodev";
-        efiSupport = true;
-        # efiInstallAsRemovable = true;
-        useOSProber = true;
-        gfxmodeEfi = "2880x1920"; # for 4k: 3840x2160
-        gfxmodeBios = "2880x1920"; # for 4k: 3840x2160
-      };
-    };
-  };
 
   fileSystems."/" = {
     device = "/dev/disk/by-uuid/5781cc2d-f267-4cbc-86b2-ba0806de6cd8";

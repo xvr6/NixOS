@@ -3,6 +3,11 @@
   # TODO: review
   programs = {
 
+    noctalia = {
+      # Enables NetworkManager, Bluetooth, UPower, and a power profile service.
+      recommendedServices.enable = true;
+    };
+
     #   btop = {
     #     enable = true;
     #     package = pkgs.btop.override {
@@ -49,8 +54,9 @@
   ];
 
   environment.systemPackages = with pkgs; [
-    nemo
+
     lshw
+    _7zz # current 7zip
     file-roller # needed for thunar
     #ventoy
     gnumake

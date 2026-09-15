@@ -1,5 +1,5 @@
 { config, pkgs, ... }: {
-
+  # Home Module
   programs.umbriel = {
     enable = true;
 
@@ -62,7 +62,6 @@
         "Mod+L" = "spawn: noctalia ipc call lockScreen lock";
 
         # System
-
         "XF86MonBrightnessUp" = "spawn: noctalia msg brightness-up 5";
         "XF86MonBrightnessDown" = "spawn: noctalia msg brightness-down 5";
         "XF86AudioRaiseVolume" = "spawn: noctalia msg volume-up 5";
@@ -73,11 +72,17 @@
         "XF86AudioNext" = "spawn: noctalia msg media next";
         "XF86AudioPrev" = "spawn: noctalia msg media previous";
         "Print" = "spawn: noctalia msg screenshot-annotate";
+        #show clipboard
+        "Mod+V" = "spawn: noctalia msg panel-toggle clipboard";
 
+        # programs
         "Mod+Return" = "spawn:kitty";
+        "Mod+E" = "spawn:yazi";
+
+        #Umbriel Keybinds
         "Mod+Q" = "window-close";
-        "Mod+W" = "window-toggle-maximize";
-        "Mod+F" = "window-toggle-floating";
+        "Mod+W" = "window-toggle-floating";
+        "Mod+F" = "window-toggle-maximize";
         "Mod+H" = "cheatsheet-toggle";
       };
     };

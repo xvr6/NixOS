@@ -4,6 +4,7 @@
   ...
 }:
 let
+  #NixOS Module
   home = "/home/xvr6";
 
   vencordSettings = {

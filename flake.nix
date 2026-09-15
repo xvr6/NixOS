@@ -18,7 +18,15 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    umbriel.url = "github:noctalia-dev/umbriel";
+    noctalia = {
+      url = "github:noctalia-dev/noctalia";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+    umbriel = {
+      url = "github:noctalia-dev/umbriel";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     zen-browser = {
       url = "github:youwen5/zen-browser-flake";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -65,6 +73,7 @@
                 };
                 sharedModules = [
                   inputs.umbriel.homeModules.default
+                  inputs.noctalia.homeModules.default
                 ];
                 users.xvr6 = import ./home/${host};
               };
