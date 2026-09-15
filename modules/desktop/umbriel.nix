@@ -78,6 +78,7 @@
         # programs
         "Mod+Return" = "spawn:kitty";
         "Mod+E" = "spawn:kitty yazi %F";
+        "Mod+Shift+Escape" = "spawn:kitty btop";
         "Mod+B" = "spawn:zen";
           
         #Umbriel Keybinds
