@@ -11,11 +11,6 @@ let
     autoUpdate = true;
     autoUpdateNotification = false;
     useQuickCss = false;
-    themeLinks = [
-      "https://catppuccin.github.io/userstyles/styles/discord/catppuccin.user.css?flavor=mocha&accent=mauve"
-    ];
-    enabledThemes = [ ];
-    enableReactDevtools = false;
     frameless = false;
     transparent = false;
     winCtrlQ = false;

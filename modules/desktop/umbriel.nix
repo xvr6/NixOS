@@ -61,6 +61,19 @@
         "Mod+Space" = "spawn: noctalia msg panel-toggle launcher";
         "Mod+L" = "spawn: noctalia ipc call lockScreen lock";
 
+        # System
+
+        "XF86MonBrightnessUp" = "spawn: noctalia msg brightness-up 5";
+        "XF86MonBrightnessDown" = "spawn: noctalia msg brightness-down 5";
+        "XF86AudioRaiseVolume" = "spawn: noctalia msg volume-up 5";
+        "XF86AudioLowerVolume" = "spawn: noctalia msg volume-down 5";
+        "XF86AudioMute" = "spawn: noctalia msg volume-mute";
+
+        "XF86AudioPlay" = "spawn: noctalia msg media toggle";
+        "XF86AudioNext" = "spawn: noctalia msg media next";
+        "XF86AudioPrev" = "spawn: noctalia msg media previous";
+        "Print" = "spawn: noctalia msg screenshot-annotate";
+
         "Mod+Return" = "spawn:kitty";
         "Mod+Q" = "window-close";
         "Mod+W" = "window-toggle-maximize";
