@@ -16,15 +16,10 @@
 
   networking.hostName = "nixwork";
 
+  programs.umbriel.enable = true;
   # Registers the Umbriel session with the display manager (greeters only pick up
   # sessions via services.displayManager.sessionPackages, not home-manager's
   # user-profile .desktop file).
-  programs.umbriel.enable = true;
-
-  nix.settings.experimental-features = [
-    "nix-command"
-    "flakes"
-  ];
 
   users = {
     mutableUsers = true;

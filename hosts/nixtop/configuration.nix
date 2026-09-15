@@ -14,11 +14,6 @@
 
   networking.hostName = "nixtop";
 
-  nix.settings.experimental-features = [
-    "nix-command"
-    "flakes"
-  ];
-
   users = {
     mutableUsers = true;
     users.xvr6 = {

@@ -1,5 +1,8 @@
 { pkgs, ... }:
 {
+  #Logitech graphical companion app
+  programs.solaar.enable = true;
+
   hardware = {
     # sane = {
     #   enable = true;
@@ -8,7 +11,6 @@
     # };
 
     logitech.wireless.enable = true;
-    logitech.wireless.enableGraphical = true;
 
     enableRedistributableFirmware = true;
     keyboard.qmk.enable = true;

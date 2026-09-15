@@ -3,19 +3,32 @@
   environment.systemPackages = with pkgs; [
     networkmanagerapplet
     iproute2
+    nfs-utils
   ];
 
-  # network filesystems
-  fileSystems = {
-    "/mnt/NAS" = {
-      device = "shitnas:/mc";
-      fsType = "nfs";
-      options = [
-        "x-systemd.automount"
-        "noauto"
-      ];
-    };
+  # Network Drives
+  fileSystems."/mnt/NAS/mc" = {
+    device = "10.0.0.240:/mnt/shitNAS/mc";
+    fsType = "nfs";
+    options = [
+      "noauto"
+      "x-systemd.automount"
+      "x-systemd.idle-timeout=600"
+      "nfsvers=4.0"
+    ];
   };
+
+  fileSystems."/mnt/NAS/media" = {
+    device = "10.0.0.240:/mnt/shitNAS/media";
+    fsType = "nfs";
+    options = [
+      "noauto"
+      "x-systemd.automount"
+      "x-systemd.idle-timeout=600"
+      "nfsvers=4.0"
+    ];
+  };
+
   # Turns on the Linux kernel's ability to act as a router.
   # boot.kernel.sysctl = {
   #   "net.ipv4.ip_forward" = "1";
