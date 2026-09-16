@@ -74,13 +74,15 @@
         "Print" = "spawn: noctalia msg screenshot-annotate";
         #show clipboard
         "Mod+V" = "spawn: noctalia msg panel-toggle clipboard";
+        #Yputube Music Noctalia Plugin
+        "Mod+M" = "spawn: noctalia msg panel-toggle aabidk20/yt-music:panel";
 
         # programs
         "Mod+Return" = "spawn:kitty";
         "Mod+E" = "spawn:kitty yazi %F";
         "Mod+Shift+Escape" = "spawn:kitty btop";
         "Mod+B" = "spawn:zen";
-          
+
         #Umbriel Keybinds
         "Mod+Q" = "window-close";
         "Mod+W" = "window-toggle-floating";

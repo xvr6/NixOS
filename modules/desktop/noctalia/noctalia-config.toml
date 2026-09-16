@@ -6,13 +6,13 @@ order = [ "Right" ]
 
     [bar.Right]
     capsule = true
-    center = [ "active_window", "workspaces", "audio_visualizer" ]
+    center = [ "media", "workspaces", "audio_visualizer" ]
     contact_shadow = true
-    end = [ "group:g2", "group:g1" ]
+    end = [ "group:g2", "group:g1", "session" ]
     position = "right"
     radius = 28
     scale = 1.2500000111758709
-    start = [ "control-center", "notifications", "output_volume", "media" ]
+    start = [ "control-center", "notifications", "output_volume", "active_window" ]
     thickness = 42
 
         [[bar.Right.capsule_group]]
@@ -21,7 +21,7 @@ order = [ "Right" ]
         enabled = true
         fill = "surface_variant"
         id = "g1"
-        members = [ "clock", "-", "date", "session" ]
+        members = [ "clock", "-", "date" ]
         opacity = 1.0
         padding = 6.0
 
@@ -34,6 +34,9 @@ order = [ "Right" ]
         members = [ "tray", "battery", "sysmon" ]
         opacity = 1.0
         padding = 6.0
+
+[battery.device."/org/freedesktop/UPower/devices/headset_dev_BC_3E_0B_21_04_D6"]
+warning_threshold = 15
 
 [calendar]
 
@@ -83,6 +86,9 @@ widget_order = [ "lockscreen-login-box@eDP-1" ]
         show_unlock_hint = true
         show_weather = true
 
+[plugins]
+enabled = [ "aabidk20/yt-music" ]
+
 [shell]
 settings_show_advanced = false
 
@@ -94,8 +100,9 @@ settings_show_advanced = false
 
 [theme]
 mode = "dark"
+shell_mode = "dark"
 source = "wallpaper"
-wallpaper_scheme = "vibrant"
+wallpaper_scheme = "dysfunctional"
 
     [theme.templates]
     builtin_ids = [ "kitty", "umbriel" ]
@@ -115,15 +122,18 @@ length = 4
 type = "spacer"
 
 [widget.active_window]
-show_empty_label = true
+show_empty_label = false
 
 [widget.audio_visualizer]
-bands = 128
+bands = 92
 capsule = true
+capsule_padding = 4
+capsule_radius = "auto"
 color_2 = "secondary"
 mirrored = false
+scale = 0.90000000000000013
 show_when_idle = true
-width = 148
+width = 224
 
 [widget.battery]
 display_mode = "graphic"
@@ -133,6 +143,7 @@ show_label = false
 show_label = false
 
 [widget.clock]
+font_scale = 0.94999999999999996
 scale = 0.94999999999999996
 
 [widget.control-center]
@@ -144,6 +155,9 @@ scale = 0.85000000000000009
 
 [widget.media]
 album_art_only = true
+
+    [widget.media.actions]
+    right = "exec noctalia msg panel-toggle aabidk20/yt-music:panel"
 
 [widget.network]
 scale = 1.3500000000000001
