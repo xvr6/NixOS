@@ -12,6 +12,4 @@
   home.stateVersion = "26.05";
 
   home.packages = with pkgs; [ ];
-
-  programs.kitty.enable = true;
 }

@@ -57,7 +57,7 @@
       };
 
       keybinds = {
-        # noctalia
+        # Noctalia
         "Mod+Space" = "spawn: noctalia msg panel-toggle launcher";
         "Mod+L" = "spawn: noctalia ipc call lockScreen lock";
 
@@ -77,11 +77,11 @@
         #Yputube Music Noctalia Plugin
         "Mod+M" = "spawn: noctalia msg panel-toggle aabidk20/yt-music:panel";
 
-        # programs
-        "Mod+Return" = "spawn:kitty";
-        "Mod+E" = "spawn:kitty yazi %F";
+        # Programs
+        "Mod+Return" = "spawn: kitty";
+        "Mod+E" = "spawn:kitty yazi";
         "Mod+Shift+Escape" = "spawn:kitty btop";
-        "Mod+B" = "spawn:zen";
+        "Mod+B" = "spawn: zen";
 
         #Umbriel Keybinds
         "Mod+Q" = "window-close";
