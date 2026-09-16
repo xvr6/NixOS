@@ -75,7 +75,7 @@
                   inputs.umbriel.homeModules.default
                   inputs.noctalia.homeModules.default
                 ];
-                users.xvr6 = import ./home/${host};
+                users.xvr6 = import ./hosts/${host}/home.nix;
               };
             }
           ];

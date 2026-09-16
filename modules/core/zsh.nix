@@ -93,6 +93,7 @@
       mv = "mv -iv";
       rm = "rm -vI";
       bc = "bc -ql";
+      "7z"= "7zz";
       mkd = "mkdir -pv";
       tp = "${pkgs.trash-cli}/bin/trash-put";
       tpr = "${pkgs.trash-cli}/bin/trash-restore";
@@ -115,6 +116,7 @@
       # ga = "git add .";
       # gc
 
+      #
     };
   };
 }

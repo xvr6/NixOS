@@ -2,7 +2,9 @@
 
 {
   imports = [
-    ../../modules/programs
+    ./programs
+    ./desktop/noctalia
+    ./desktop/umbriel.nix
   ];
 
   home.username = "xvr6";

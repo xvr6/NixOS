@@ -54,9 +54,12 @@
   ];
 
   environment.systemPackages = with pkgs; [
+    #TODO: Move out this mess into files its prevelant to. I.e move all noctalia stuff to noctalia file.
+
     # -- Noctalia + Addons
     yt-dlp
     mpv # video player, also needed for addons
+    mpvScripts.mpris # integration with system media status
 
     ##Anything below must be vetted for usage.
 
