@@ -5,8 +5,12 @@
 
     settings = {
       general = {
-        autostart = [ "noctalia" ];
+        autostart = [
+          "noctalia"
+          "kitty"
+        ];
         xwayland = true;
+        show_cheatsheet = true; # shows on boot
       };
       appearance = {
         corner_radius = 15;
@@ -57,8 +61,12 @@
 
       input = {
         focus.follows_mouse = true;
+        middle_click_paste = false;
         cursor = {
-
+          theme = "";
+          size = 24;
+          hardware_cursor = true;
+          follows_focus = true; # snapping to  window when focus changes.
         };
         keyboard = {
           layout = "us";

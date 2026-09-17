@@ -1,5 +1,5 @@
 [accessibility]
-ui_scale = 1.25
+ui_scale = 1.2500000111758709
 
 [bar]
 order = [ "Right" ]
@@ -12,7 +12,7 @@ order = [ "Right" ]
     margin_ends = 0
     position = "right"
     radius = 28
-    scale = 1.25
+    scale = 1.2500000111758709
     start = [ "control-center", "notifications", "output_volume", "active_window" ]
     thickness = 42
 
@@ -53,7 +53,7 @@ auto_locate = true
 [lockscreen_widgets]
 enabled = false
 schema_version = 2
-widget_order = [ "lockscreen-login-box@DP-4", "lockscreen-login-box@DP-3", "lockscreen-login-box@eDP-1" ]
+widget_order = [ "lockscreen-login-box@WL-1", "lockscreen-login-box@eDP-1" ]
 
     [lockscreen_widgets.grid]
     cell_size = 16
@@ -114,6 +114,33 @@ widget_order = [ "lockscreen-login-box@DP-4", "lockscreen-login-box@DP-3", "lock
         show_unlock_hint = true
         show_weather = true
 
+    [lockscreen_widgets.widget."lockscreen-login-box@WL-1"]
+    box_height = 196.0
+    box_width = 810.0
+    cx = 640.0
+    cy = 1336.0
+    output = "WL-1"
+    placement_height = 1518.0
+    placement_width = 1280.0
+    rotation = 0.0
+    type = "login_box"
+
+        [lockscreen_widgets.widget."lockscreen-login-box@WL-1".settings]
+        background_color = "surface_variant"
+        background_opacity = 0.88
+        background_radius = 12.0
+        center_password_text = false
+        input_opacity = 1.0
+        input_radius = 6.0
+        layout = "regular"
+        show_caps_lock = true
+        show_keyboard_layout = true
+        show_login_button = true
+        show_media = true
+        show_session_buttons = true
+        show_unlock_hint = true
+        show_weather = true
+
     [lockscreen_widgets.widget."lockscreen-login-box@eDP-1"]
     box_height = 196.0
     box_width = 810.0
@@ -151,26 +178,26 @@ settings_show_advanced = false
     auto_sync = true
 
     [shell.panel]
-    transparency_mode = "glass"
+    transparency_mode = "soft"
 
 [theme]
 mode = "dark"
 shell_mode = "dark"
 source = "wallpaper"
-wallpaper_scheme = "faithful"
+wallpaper_scheme = "dysfunctional"
 
     [theme.templates]
     builtin_ids = [ "kitty", "umbriel" ]
-    community_ids = [ "claude-code", "zen-browser", "vscode", "obs", "yazi" ]
+    community_ids = [ "claude-code", "zen-browser", "vscode", "prismlauncher", "obs", "yazi" ]
 
 [wallpaper]
 directory = "/home/xvr6/Pictures/Wallpapers"
 
     [wallpaper.default]
-    path = "/home/xvr6/Pictures/Wallpapers/wallhaven_39wk99.jpg"
+    path = "/home/xvr6/Pictures/Wallpapers/wallhaven_4xryxd.jpg"
 
     [wallpaper.last]
-    path = "/home/xvr6/Pictures/Wallpapers/wallhaven_39wk99.jpg"
+    path = "/home/xvr6/Pictures/Wallpapers/wallhaven_4xryxd.jpg"
 
     [wallpaper.monitors.DP-3]
     path = "/home/xvr6/Pictures/Wallpapers/wallhaven_39wk99.jpg"
@@ -181,6 +208,9 @@ directory = "/home/xvr6/Pictures/Wallpapers"
     [wallpaper.monitors.eDP-1]
     path = "/home/xvr6/Pictures/Wallpapers/wallhaven_4xryxd.jpg"
 
+[weather]
+refresh_minutes = 15
+
 [widget.-]
 length = 4
 type = "spacer"
@@ -189,16 +219,16 @@ type = "spacer"
 show_empty_label = false
 
 [widget.audio_visualizer]
-bands = 112
+bands = 92
 capsule = true
 capsule_padding = 4
 capsule_radius = "auto"
 color_1 = "secondary"
 color_2 = "tertiary"
 mirrored = false
-scale = 0.9
+scale = 0.90000000000000013
 show_when_idle = true
-width = 210
+width = 224
 
 [widget.battery]
 display_mode = "graphic"
@@ -217,16 +247,16 @@ walk_threshold = 25
     right = "panel-open control-center system"
 
 [widget.clock]
-font_scale = 0.95
-scale = 0.95
+font_scale = 0.94999999999999996
+scale = 0.94999999999999996
 
 [widget.control-center]
 custom_image_colorize = true
 
 [widget.date]
-font_scale = 0.85
+font_scale = 0.85000000000000009
 format = "{:%a %b %d}"
-scale = 0.85
+scale = 0.84999999999999998
 
 [widget.media]
 album_art_only = true
@@ -235,7 +265,7 @@ album_art_only = true
     right = "exec noctalia msg panel-toggle aabidk20/yt-music:panel"
 
 [widget.network]
-scale = 1.35
+scale = 1.3500000000000001
 show_label = false
 
 [widget.output_volume]

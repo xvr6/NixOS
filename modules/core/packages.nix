@@ -32,7 +32,7 @@
 
   environment.systemPackages = with pkgs; [
     #TODO: Move out this mess into files its prevelant to. I.e move all noctalia stuff to noctalia file.
-
+    firefox
     # -- Noctalia + Addons
     yt-dlp
     mpv # video player, also needed for addons
@@ -86,7 +86,7 @@
 
     gcc
 
-    btop-cuda
+    btop
     # devenv
     # devbox
     # shellify
