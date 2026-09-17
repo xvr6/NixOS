@@ -12,6 +12,9 @@
 
   environment.systemPackages = with pkgs; [
     prismlauncher
+    packwiz
+    
+    parsec-bin
 
     protonup-qt
     cabextract # needed for ^

@@ -42,14 +42,10 @@
 
   nix.settings.allowed-users = [ "xvr6" ];
   environment.systemPackages = with pkgs; [
-    packwiz
     plex-desktop
-    parsec-bin
-    nh
     git
     claude-code
     materialgram
-    pear-desktop
-    davinci-resolve
+    #   davinci-resolve
   ];
 }

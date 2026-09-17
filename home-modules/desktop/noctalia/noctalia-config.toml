@@ -9,6 +9,7 @@ order = [ "Right" ]
     center = [ "media", "workspaces", "audio_visualizer" ]
     contact_shadow = true
     end = [ "group:g2", "group:g1" ]
+    margin_ends = 0
     position = "right"
     radius = 28
     scale = 1.25
@@ -52,12 +53,66 @@ auto_locate = true
 [lockscreen_widgets]
 enabled = false
 schema_version = 2
-widget_order = [ "lockscreen-login-box@eDP-1" ]
+widget_order = [ "lockscreen-login-box@DP-4", "lockscreen-login-box@DP-3", "lockscreen-login-box@eDP-1" ]
 
     [lockscreen_widgets.grid]
     cell_size = 16
     major_interval = 4
     visible = true
+
+    [lockscreen_widgets.widget."lockscreen-login-box@DP-3"]
+    box_height = 196.0
+    box_width = 810.0
+    cx = 1280.0
+    cy = 1258.0
+    output = "DP-3"
+    placement_height = 1440.0
+    placement_width = 2560.0
+    rotation = 0.0
+    type = "login_box"
+
+        [lockscreen_widgets.widget."lockscreen-login-box@DP-3".settings]
+        background_color = "surface_variant"
+        background_opacity = 0.88
+        background_radius = 12.0
+        center_password_text = false
+        input_opacity = 1.0
+        input_radius = 6.0
+        layout = "regular"
+        show_caps_lock = true
+        show_keyboard_layout = true
+        show_login_button = true
+        show_media = true
+        show_session_buttons = true
+        show_unlock_hint = true
+        show_weather = true
+
+    [lockscreen_widgets.widget."lockscreen-login-box@DP-4"]
+    box_height = 196.0
+    box_width = 810.0
+    cx = 960.0
+    cy = 898.0
+    output = "DP-4"
+    placement_height = 1080.0
+    placement_width = 1920.0
+    rotation = 0.0
+    type = "login_box"
+
+        [lockscreen_widgets.widget."lockscreen-login-box@DP-4".settings]
+        background_color = "surface_variant"
+        background_opacity = 0.88
+        background_radius = 12.0
+        center_password_text = false
+        input_opacity = 1.0
+        input_radius = 6.0
+        layout = "regular"
+        show_caps_lock = true
+        show_keyboard_layout = true
+        show_login_button = true
+        show_media = true
+        show_session_buttons = true
+        show_unlock_hint = true
+        show_weather = true
 
     [lockscreen_widgets.widget."lockscreen-login-box@eDP-1"]
     box_height = 196.0
@@ -102,20 +157,29 @@ settings_show_advanced = false
 mode = "dark"
 shell_mode = "dark"
 source = "wallpaper"
-wallpaper_scheme = "dysfunctional"
+wallpaper_scheme = "faithful"
 
     [theme.templates]
     builtin_ids = [ "kitty", "umbriel" ]
     community_ids = [ "claude-code", "zen-browser", "vscode", "obs", "yazi" ]
 
-[wallpaper.default]
-path = "/home/xvr6/Pictures/Wallpapers/wallhaven_4xryxd.jpg"
+[wallpaper]
+directory = "/home/xvr6/Pictures/Wallpapers"
 
-[wallpaper.last]
-path = "/home/xvr6/Pictures/Wallpapers/wallhaven_4xryxd.jpg"
+    [wallpaper.default]
+    path = "/home/xvr6/Pictures/Wallpapers/wallhaven_39wk99.jpg"
 
-[wallpaper.monitors.eDP-1]
-path = "/home/xvr6/Pictures/Wallpapers/wallhaven_4xryxd.jpg"
+    [wallpaper.last]
+    path = "/home/xvr6/Pictures/Wallpapers/wallhaven_39wk99.jpg"
+
+    [wallpaper.monitors.DP-3]
+    path = "/home/xvr6/Pictures/Wallpapers/wallhaven_39wk99.jpg"
+
+    [wallpaper.monitors.DP-4]
+    path = "/home/xvr6/Pictures/Wallpapers/wallhaven_39wk99.jpg"
+
+    [wallpaper.monitors.eDP-1]
+    path = "/home/xvr6/Pictures/Wallpapers/wallhaven_4xryxd.jpg"
 
 [widget.-]
 length = 4
@@ -125,15 +189,16 @@ type = "spacer"
 show_empty_label = false
 
 [widget.audio_visualizer]
-bands = 92
+bands = 112
 capsule = true
 capsule_padding = 4
 capsule_radius = "auto"
-color_2 = "secondary"
+color_1 = "secondary"
+color_2 = "tertiary"
 mirrored = false
-scale = 0.9 
+scale = 0.9
 show_when_idle = true
-width = 224
+width = 210
 
 [widget.battery]
 display_mode = "graphic"

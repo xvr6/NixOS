@@ -1,43 +1,20 @@
 { inputs, pkgs, ... }:
 {
-  # TODO: review
+  imports = [
+    # imported flake packages
+    inputs.umbriel.nixosModules.default
+    inputs.noctalia.nixosModules.default
+  ];
   programs = {
-
     noctalia = {
+      enable = true;
       # Enables NetworkManager, Bluetooth, UPower, and a power profile service.
       recommendedServices.enable = true;
     };
+    umbriel.enable = true;
+    # Registers the Umbriel session with the display manager
+    # (greeters dont pick up home manager)
 
-    #   btop = {
-    #     enable = true;
-    #     package = pkgs.btop.override {
-    #       rocmSupport = true;
-    #       cudaSupport = true;
-    #     };
-    #     settings = {
-    #       color_theme = "catppuccin-mocha";
-    #       show_gpu_info = "on";
-    #       cpu_sensor = "auto";
-    #       vim_keys = true;
-    #       rounded_corners = true;
-    #       proc_tree = false;
-    #       show_uptime = true;
-    #       show_coretemp = true;
-    #       show_disks = true;
-    #       only_physical = true;
-    #       io_mode = true;
-    #       io_graph_combined = false;
-    #     };
-    #   };
-
-    #   thunar = {
-    #     enable = true;
-    #     plugins = with pkgs; [
-    #       thunar-archive-plugin # Archive management
-    #       thunar-volman # Volume management (automount removable devices)
-    #       thunar-media-tags-plugin # Tagging & renaming feature for media files
-    #     ];
-    #   };
     fuse.userAllowOther = true;
     mtr.enable = true;
     #adb.enable = true;

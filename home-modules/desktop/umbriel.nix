@@ -16,7 +16,7 @@
         blur = {
           enabled = true;
           passes = 3;
-          radius = 3;
+          radius = 6;
           noise = 0.02;
           brightness = 0.9;
           contrast = 0.9;
@@ -32,13 +32,24 @@
       events.lid_close = "";
       output = {
         "eDP-1" = {
-          # nixtop display
+          # nixwork laptop display
           mode = "2880x1920@120";
           scale = 1.25;
         };
 
-        "HP Inc. OMEN 27q CNC43225MX" = { };
-        "Sceptre Tech Inc Sceptre M25 Unknown" = { };
+        # nixtop displays
+        "HP Inc. OMEN 27q CNC43225MX" = {
+          mode = "2560x1440@165";
+          scale = 1;
+        };
+        "Sceptre Tech Inc Sceptre M25 Unknown" = {
+          mode = "1920x1080@165";
+          scale = 1;
+          position = [
+            (-1920)
+            (1440 - 1080)
+          ]; # [x y]
+        };
       };
       layout = {
         gap = 5;
@@ -57,6 +68,9 @@
       };
 
       keybinds = {
+        # With keybinds, control is for anything local, shift is for anything workspace/layout based.
+        # i.e: mod+control modifies the active window; mod+shift modifies workspaces (move window to x workspace, etc)
+
         # Noctalia
         "Mod+Space" = "spawn: noctalia msg panel-toggle launcher";
         "Mod+L" = "spawn: noctalia ipc call lockScreen lock";
@@ -86,11 +100,38 @@
         #Umbriel window management
         "Mod+Q" = "window-close";
         "Mod+W" = "window-toggle-floating";
-        "Mod+F" = "window-toggle-maximize";
+        "Mod+F" = "window-cycle-primary-extent";
+        "Mod+Shift+F" = "window-toggle-fullscreen";
+        "Mod+Control+F" = "window-toggle-maximize";
         "Mod+P" = "window-toggle-pinned";
-        "Mod+Control+F" = "window-toggle-fullscreen";
         "F11" = "window-toggle-fullscreen";
 
+        # Focus & Window Positions
+        "Mod+Left" = "window-focus-left";
+        "Mod+WheelLeft" = "window-focus-left";
+        "Mod+Control+Left" = "column-move-left";
+        "Mod+Control+WheelLeft" = "column-move-left";
+        "Mod+Shift+Left" = "column-move-to-output-left";
+        "Mod+Shift+WheelLeft" = "column-move-to-output-left";
+
+        "Mod+Right" = "window-focus-right";
+        "Mod+WheelRight" = "window-focus-right";
+        "Mod+Control+Right" = "column-move-right";
+        "Mod+Control+WheelRight" = "column-move-right";
+        "Mod+Shift+Right" = "column-move-to-output-right";
+        "Mod+Shift+WheelRight" = "column-move-to-output-right";
+
+        "Mod+Down" = "workspace-next";
+        "Mod+WheelDown" = "workspace-next";
+        "Mod+Shift+Down" = "window-move-to-workspace-next";
+        "Mod+Shift+WheelDown" = "window-move-to-workspace-next";
+
+        "Mod+Up" = "workspace-previous";
+        "Mod+WheelUp" = "workspace-previous";
+        "Mod+Shift+Up" = "window-move-to-workspace-previous";
+        "Mod+Shift+WheelUp" = "window-move-to-workspace-previous";
+
+        # - Misc
         "Mod+H" = "cheatsheet-toggle";
       };
       window_rule = [
@@ -102,7 +143,7 @@
           match = {
             app_id = "kitty";
           };
-          opacity = 0.80;
+          opacity = 0.75;
         }
       ];
     };
