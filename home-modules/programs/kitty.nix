@@ -18,7 +18,7 @@
 
       #Cursor Trail
       cursor_trail = 3;
-      cursor_trail_decay = "0.08 0.3";
+      cursor_trail_decay = "0.1 0.35"; #min max; in seconds
       cursor_trail_start_threshold = 4;
       cursor_trail_color = "none";
 

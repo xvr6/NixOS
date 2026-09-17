@@ -2,38 +2,38 @@
 ui_scale = 1.25
 
 [bar]
-order = ["Right"]
+order = [ "Right" ]
 
-[bar.Right]
-capsule = true
-center = ["media", "workspaces", "audio_visualizer"]
-contact_shadow = true
-end = ["group:g2", "group:g1", "session"]
-position = "right"
-radius = 28
-scale = 1.25
-start = ["control-center", "notifications", "output_volume", "active_window"]
-thickness = 42
+    [bar.Right]
+    capsule = true
+    center = [ "media", "workspaces", "audio_visualizer" ]
+    contact_shadow = true
+    end = [ "group:g2", "group:g1" ]
+    position = "right"
+    radius = 28
+    scale = 1.25
+    start = [ "control-center", "notifications", "output_volume", "active_window" ]
+    thickness = 42
 
-[[bar.Right.capsule_group]]
-accordion = false
-accordion_direction = "end"
-enabled = true
-fill = "surface_variant"
-id = "g1"
-members = ["clock", "-", "date"]
-opacity = 1.0
-padding = 6.0
+        [[bar.Right.capsule_group]]
+        accordion = false
+        accordion_direction = "end"
+        enabled = true
+        fill = "surface_variant"
+        id = "g1"
+        members = [ "clock", "cat", "date" ]
+        opacity = 1.0
+        padding = 6.0
 
-[[bar.Right.capsule_group]]
-accordion = false
-accordion_direction = "start"
-enabled = true
-fill = "surface_variant"
-id = "g2"
-members = ["tray", "battery", "sysmon"]
-opacity = 1.0
-padding = 6.0
+        [[bar.Right.capsule_group]]
+        accordion = false
+        accordion_direction = "start"
+        enabled = true
+        fill = "surface_variant"
+        id = "g2"
+        members = [ "tray", "battery" ]
+        opacity = 1.0
+        padding = 6.0
 
 [battery.device."/org/freedesktop/UPower/devices/headset_dev_BC_3E_0B_21_04_D6"]
 warning_threshold = 15
@@ -52,51 +52,51 @@ auto_locate = true
 [lockscreen_widgets]
 enabled = false
 schema_version = 2
-widget_order = ["lockscreen-login-box@eDP-1"]
+widget_order = [ "lockscreen-login-box@eDP-1" ]
 
-[lockscreen_widgets.grid]
-cell_size = 16
-major_interval = 4
-visible = true
+    [lockscreen_widgets.grid]
+    cell_size = 16
+    major_interval = 4
+    visible = true
 
-[lockscreen_widgets.widget."lockscreen-login-box@eDP-1"]
-box_height = 196.0
-box_width = 810.0
-cx = 1152.0
-cy = 1244.800048828125
-output = "eDP-1"
-placement_height = 1536.0
-placement_width = 2304.0
-rotation = 0.0
-type = "login_box"
+    [lockscreen_widgets.widget."lockscreen-login-box@eDP-1"]
+    box_height = 196.0
+    box_width = 810.0
+    cx = 1152.0
+    cy = 1244.800048828125
+    output = "eDP-1"
+    placement_height = 1536.0
+    placement_width = 2304.0
+    rotation = 0.0
+    type = "login_box"
 
-[lockscreen_widgets.widget."lockscreen-login-box@eDP-1".settings]
-background_color = "surface_variant"
-background_opacity = 0.88
-background_radius = 12.0
-center_password_text = false
-input_opacity = 1.0
-input_radius = 6.0
-layout = "regular"
-show_caps_lock = true
-show_keyboard_layout = true
-show_login_button = true
-show_media = true
-show_session_buttons = true
-show_unlock_hint = true
-show_weather = true
+        [lockscreen_widgets.widget."lockscreen-login-box@eDP-1".settings]
+        background_color = "surface_variant"
+        background_opacity = 0.88
+        background_radius = 12.0
+        center_password_text = false
+        input_opacity = 1.0
+        input_radius = 6.0
+        layout = "regular"
+        show_caps_lock = true
+        show_keyboard_layout = true
+        show_login_button = true
+        show_media = true
+        show_session_buttons = true
+        show_unlock_hint = true
+        show_weather = true
 
 [plugins]
-enabled = ["aabidk20/yt-music"]
+enabled = [ "aabidk20/yt-music", "dotnetrob/cat", "noctalia/umbriel-companion" ]
 
 [shell]
 settings_show_advanced = false
 
-[shell.greeter_sync]
-auto_sync = true
+    [shell.greeter_sync]
+    auto_sync = true
 
-[shell.panel]
-transparency_mode = "glass"
+    [shell.panel]
+    transparency_mode = "glass"
 
 [theme]
 mode = "dark"
@@ -104,9 +104,9 @@ shell_mode = "dark"
 source = "wallpaper"
 wallpaper_scheme = "dysfunctional"
 
-[theme.templates]
-builtin_ids = ["kitty", "umbriel"]
-community_ids = ["claude-code", "zen-browser", "vscode", "obs", "yazi"]
+    [theme.templates]
+    builtin_ids = [ "kitty", "umbriel" ]
+    community_ids = [ "claude-code", "zen-browser", "vscode", "obs", "yazi" ]
 
 [wallpaper.default]
 path = "/home/xvr6/Pictures/Wallpapers/wallhaven_4xryxd.jpg"
@@ -131,7 +131,7 @@ capsule_padding = 4
 capsule_radius = "auto"
 color_2 = "secondary"
 mirrored = false
-scale = 0.90000000000000013
+scale = 0.9 
 show_when_idle = true
 width = 224
 
@@ -142,6 +142,15 @@ show_label = false
 [widget.brightness]
 show_label = false
 
+[widget.cat]
+cat_size = 28
+run_threshold = 80
+type = "dotnetrob/cat:cat"
+walk_threshold = 25
+
+    [widget.cat.actions]
+    right = "panel-open control-center system"
+
 [widget.clock]
 font_scale = 0.95
 scale = 0.95
@@ -150,14 +159,15 @@ scale = 0.95
 custom_image_colorize = true
 
 [widget.date]
+font_scale = 0.85
 format = "{:%a %b %d}"
 scale = 0.85
 
 [widget.media]
 album_art_only = true
 
-[widget.media.actions]
-right = "exec noctalia msg panel-toggle aabidk20/yt-music:panel"
+    [widget.media.actions]
+    right = "exec noctalia msg panel-toggle aabidk20/yt-music:panel"
 
 [widget.network]
 scale = 1.35
@@ -174,3 +184,6 @@ drawer = true
 
 [widget.volume]
 show_label = false
+
+[widget.workspaces.actions]
+right = "panel-toggle noctalia/umbriel-companion:panel"
