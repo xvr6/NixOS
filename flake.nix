@@ -25,7 +25,7 @@
     };
     noctalia-greeter = {
       url = "github:noctalia-dev/noctalia-greeter";
-      inputs.nixvim.follows = "nixpkgs";
+      inputs.nixpkgs.follows = "nixpkgs";
     };
     umbriel = {
       url = "github:noctalia-dev/umbriel";
