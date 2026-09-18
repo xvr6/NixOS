@@ -47,11 +47,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1789618856,
-        "narHash": "sha256-OSqj7eOijvCZfN7owFWRxLWRhej5lZI+Kt82q3INLvc=",
+        "lastModified": 1789695075,
+        "narHash": "sha256-HREFWgmCTp28ZdMkSFOW2QW8uI17v5CNc04W46h6aPo=",
         "owner": "nix-community",
         "repo": "home-manager",
-        "rev": "afa6821c70560bb19d1a8c577bff398f7f239869",
+        "rev": "4ac5a2ae9025eab1ebece4f9df8c315fd84a738a",
         "type": "github"
       },
       "original": {
@@ -169,6 +169,19 @@
     },
     "nixpkgs_4": {
       "locked": {
+        "lastModified": 1789149629,
+        "narHash": "sha256-eQUZVehWLDBbpBR2rq6DnuRee1ULT6Y675RhsYDSjYI=",
+        "rev": "eaad089433ca2bb662274377d33df3d0e51ef28b",
+        "type": "tarball",
+        "url": "https://releases.nixos.org/nixos/unstable/nixos-26.11pre1072397.eaad089433ca/nixexprs.tar.zst"
+      },
+      "original": {
+        "type": "tarball",
+        "url": "https://channels.nixos.org/nixos-unstable/nixexprs.tar.zst"
+      }
+    },
+    "nixpkgs_5": {
+      "locked": {
         "lastModified": 1745929011,
         "narHash": "sha256-ct4HUxgdhor5dRlXehDor3uhgB9WdhmJ3L7hLLGsH5w=",
         "owner": "NixOS",
@@ -244,6 +257,24 @@
         "type": "github"
       }
     },
+    "noctalia-greeter": {
+      "inputs": {
+        "nixpkgs": "nixpkgs_4"
+      },
+      "locked": {
+        "lastModified": 1789740526,
+        "narHash": "sha256-TMCQpvmJueVI9hTh4dP7exUQBaKqMRY//+VsTb0G99I=",
+        "owner": "noctalia-dev",
+        "repo": "noctalia-greeter",
+        "rev": "8f0fe9dcc16c32bde332d6cd64f404ab37f9ba9e",
+        "type": "github"
+      },
+      "original": {
+        "owner": "noctalia-dev",
+        "repo": "noctalia-greeter",
+        "type": "github"
+      }
+    },
     "root": {
       "inputs": {
         "home-manager": "home-manager",
@@ -252,6 +283,7 @@
         "nixpkgs-stable": "nixpkgs-stable",
         "nixvim": "nixvim",
         "noctalia": "noctalia",
+        "noctalia-greeter": "noctalia-greeter",
         "tetrigo": "tetrigo",
         "umbriel": "umbriel",
         "zen-browser": "zen-browser"
@@ -275,7 +307,7 @@
     },
     "tetrigo": {
       "inputs": {
-        "nixpkgs": "nixpkgs_4",
+        "nixpkgs": "nixpkgs_5",
         "utils": "utils"
       },
       "locked": {
@@ -300,11 +332,11 @@
         "xdg-desktop-portal-umbriel": "xdg-desktop-portal-umbriel"
       },
       "locked": {
-        "lastModified": 1789644894,
-        "narHash": "sha256-HbqHCaFVUctw5GlWguD1iVoE4kvMGVvFxAaNYR8dEuc=",
+        "lastModified": 1789730565,
+        "narHash": "sha256-l4R9P0p4Z6M9gvW8U48ZDlYVfeqjkUbEcuTZQ3BcQTg=",
         "owner": "noctalia-dev",
         "repo": "umbriel",
-        "rev": "f0b3830afd997e04f25ab0c80f3d09a9e8814704",
+        "rev": "76cede129dc3e86bfb1e3a0009829c06618c0fdb",
         "type": "github"
       },
       "original": {

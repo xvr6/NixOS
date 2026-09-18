@@ -6,10 +6,12 @@
     power-profiles-daemon.enable = true;
     upower.enable = true;
     rpcbind.enable = true;
+
     tailscale = {
       enable = true;
       useRoutingFeatures = "client";
     };
+
     libinput.enable = true; # Input Handling
     fstrim.enable = true; # SSD Optimizer
     devmon.enable = true; # For Mounting USB & More
@@ -39,11 +41,6 @@
       # jack.enable = true;
       wireplumber = {
         enable = true;
-        # configPackages = [
-        #   (pkgs.writeTextDir "share/wireplumber/wireplumber.conf.d/11-bluetooth-policy.conf" ''
-        #     bluetooth.autoswitch-to-headset-profile = false
-        #   '')
-        # ];
       };
 
       # -- Airplay/RAOP
@@ -71,4 +68,3 @@
     };
   };
 }
-

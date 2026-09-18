@@ -2,9 +2,11 @@
 {
   imports = [
     # imported flake packages
-    inputs.umbriel.nixosModules.default
     inputs.noctalia.nixosModules.default
+    inputs.noctalia-greeter.nixosModules.default
+    inputs.umbriel.nixosModules.default
   ];
+
   programs = {
     noctalia = {
       enable = true;
@@ -31,12 +33,15 @@
   ];
 
   environment.systemPackages = with pkgs; [
+    handbrake
     #TODO: Move out this mess into files its prevelant to. I.e move all noctalia stuff to noctalia file.
     firefox
     # -- Noctalia + Addons
     yt-dlp
-    mpv # video player, also needed for addons
-    mpvScripts.mpris # integration with system media status
+    # mpv-mpris is wired in via `scripts` so mpv actually loads it and exposes
+    # MPRIS on the session bus (just installing mpvScripts.mpris alongside
+    # mpv does nothing - mpv only loads scripts passed via --script).
+    (mpv.override { scripts = [ mpvScripts.mpris ]; }) # video player, also needed for addons; exposes MPRIS for e.g. the yt-music noctalia plugin
 
     ##Anything below must be vetted for usage.
 
@@ -70,7 +75,6 @@
     ffmpeg # Terminal Video / Audio Editing
     # glxinfo # needed for inxi diag util
     # inxi # CLI System Information Tool
-    qt5.qtgraphicaleffects # Sddm Dependency (Old)
     libnotify # For Notifications
     lolcat # Add Colors To Your Terminal Command Output
     # lshw # Detailed Hardware Information

@@ -12,15 +12,20 @@
 
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
 
-    #nixvim seperated out into flake
+    # Nixvim seperated out into flake
     nixvim = {
       url = "git+https://forge.xvr6.dev/xvr6/nixvim";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    # - Noctalia Suite
     noctalia = {
       url = "github:noctalia-dev/noctalia";
       inputs.nixpkgs.follows = "nixpkgs";
+    };
+    noctalia-greeter = {
+      url = "github:noctalia-dev/noctalia-greeter";
+      inputs.nixvim.follows = "nixpkgs";
     };
     umbriel = {
       url = "github:noctalia-dev/umbriel";
@@ -59,7 +64,6 @@
           specialArgs = {
             inherit inputs self host;
           };
-
           modules = [
             ./hosts/${host}/configuration.nix
 
