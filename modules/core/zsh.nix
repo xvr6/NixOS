@@ -80,9 +80,6 @@
 
     shellAliases = {
       cls = "clear";
-      tml = "tmux list-sessions";
-      tma = "tmux attach";
-      tms = "tmux attach -t $(tmux ls -F '#{session_name}: #{session_path} (#{session_windows} windows)' | fzf | cut -d: -f1)";
       l = "${pkgs.eza}/bin/eza -lh  --icons=auto";
       ls = "${pkgs.eza}/bin/eza -1   --icons=auto";
       ll = "${pkgs.eza}/bin/eza -lha --icons=auto --sort=name --group-directories-first";
@@ -93,19 +90,14 @@
       mv = "mv -iv";
       rm = "rm -vI";
       bc = "bc -ql";
-      "7z"= "7zz";
+      "7z" = "7zz";
       mkd = "mkdir -pv";
       tp = "${pkgs.trash-cli}/bin/trash-put";
       tpr = "${pkgs.trash-cli}/bin/trash-restore";
       grep = "grep --color=always";
-      list-gens = "nixos-rebuild list-generations";
-      find-store-path = "nix-shell -p $1 --command 'nix eval -f \"<nixpkgs>\" --raw $1'";
-      update-input = "nix flake update $@";
-      sysup = "nix flake update --flake ~/NixOS && rebuild";
-      nrs = "sudo nixos-rebuild switch --flake ~/NixOS";
-      nrt = "sudo nixos-rebuild test --flake ~/NixOS";
+
       dots = "cd ~/NixOS/";
-      projs = "cd ~/projects/";
+      projs = "cd ~/Projects/";
 
       # Packwiz cmds
       prf = "packwiz refresh";

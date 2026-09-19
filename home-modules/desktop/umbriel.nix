@@ -51,7 +51,7 @@
           scale = 1;
           position = [
             (-1920)
-            (1440 - 1080)
+            (1080 - 1440)
           ]; # [x y]
         };
       };
@@ -145,13 +145,13 @@
       window_rule = [
         {
           blur = true;
-          opacity = 0.95;
+          opacity = 0.90;
         }
         {
           match = {
             app_id = "kitty";
           };
-          opacity = 0.75;
+          opacity = 0.70;
         }
       ];
     };

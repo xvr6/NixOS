@@ -9,6 +9,7 @@
       color_theme = "TTY";
       show_gpu_info = "on";
       cpu_sensor = "auto";
+      update_ms = 500; # time between updates in ms
       vim_keys = true;
       rounded_corners = true;
       proc_tree = false;

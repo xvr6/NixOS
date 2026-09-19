@@ -1,4 +1,20 @@
 { inputs, pkgs, ... }:
+let
+  zenPkgs = inputs.zen-browser.packages."x86_64-linux";
+
+  # The zen flake still sets the old `ffmpegSupport`/`gssSupport` passthru names,
+  # but nixpkgs wrapFirefox now reads `withFFmpeg`/`withGSSAPI`/`withPipewire`.
+  # Without them ffmpeg never lands on LD_LIBRARY_PATH (no H.264/AAC playback).
+  zen-browser = zenPkgs.zen-browser.override {
+    zen-browser-unwrapped = zenPkgs.zen-browser-unwrapped.overrideAttrs (old: {
+      passthru = old.passthru // {
+        withFFmpeg = true;
+        withGSSAPI = true;
+        withPipewire = true;
+      };
+    });
+  };
+in
 {
   imports = [
     # imported flake packages
@@ -33,6 +49,11 @@
   ];
 
   environment.systemPackages = with pkgs; [
+    # --- Flake imports and manually defined packages
+    inputs.nixvim.packages."x86_64-linux".default
+    zen-browser
+
+    # --- Packages
     handbrake
     #TODO: Move out this mess into files its prevelant to. I.e move all noctalia stuff to noctalia file.
     firefox
@@ -101,7 +122,5 @@
 
     # gotools
     # golangci-lint
-    inputs.nixvim.packages."x86_64-linux".default
-    inputs.zen-browser.packages."x86_64-linux".default
   ];
 }
