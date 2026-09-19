@@ -188,7 +188,7 @@ source = "wallpaper"
 wallpaper_scheme = "soft"
 
     [theme.templates]
-    builtin_ids = [ "kitty", "umbriel" ]
+    builtin_ids = [ "kitty", "umbriel", "gtk3", "gtk4" ]
     community_ids = [ "claude-code", "zen-browser", "vscode", "prismlauncher", "obs", "yazi" ]
 
 [wallpaper]

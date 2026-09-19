@@ -10,6 +10,10 @@
 
   services.lact.enable = true;
 
+  # Swing/AWT apps (e.g. the packwiz installer bootstrap in Prism) render blank
+  # white windows under non-reparenting WMs like umbriel + xwayland-satellite.
+  environment.sessionVariables._JAVA_AWT_WM_NONREPARENTING = "1";
+
   environment.systemPackages = with pkgs; [
     prismlauncher
     packwiz

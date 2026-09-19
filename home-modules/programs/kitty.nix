@@ -6,6 +6,10 @@
       name = "monospace";
     };
     themeFile = "tokyo_night_moon";
+    keybindings = {
+      "alt+y" = "copy_to_clipboard";
+      "alt+p" = "paste_from_clipboard";
+    };
     settings = {
       #General
       strip_trailing_spaces = "smart";

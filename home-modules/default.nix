@@ -3,6 +3,7 @@
 {
   imports = [
     ./programs
+    ./desktop/gtk.nix
     ./desktop/noctalia
     ./desktop/umbriel.nix
   ];

@@ -13,15 +13,15 @@
         show_cheatsheet = true; # shows on boot
       };
       appearance = {
-        corner_radius = 15;
-        border_width = 4;
-        outer_border_width = 0;
+        corner_radius = 16;
+        border_width = 2;
+        outer_border_width = 2;
 
         blur = {
           enabled = true;
           passes = 3;
           radius = 6;
-          noise = 0.02;
+          noise = 0.06;
           brightness = 0.9;
           contrast = 0.9;
           saturation = 1.1;
@@ -32,6 +32,15 @@
           offset_x = 2;
           offset_y = 2;
         };
+      };
+      overview = {
+        zoom = 0.5; # 0.1-0.75
+        scroll_factor_horizontal = 1.0; # 0.1-10.0
+        scroll_factor_vertical = 1.0; # 0.1-10.0
+        background_blur = true;
+        workspace_wallpaper = true;
+        shortcuts = true;
+        shortcut_keys = "1234567890";
       };
       events.lid_close = "";
       output = {
@@ -51,7 +60,7 @@
           scale = 1;
           position = [
             (-1920)
-            (1080 - 1440)
+            0
           ]; # [x y]
         };
       };
@@ -96,17 +105,18 @@
         "Print" = "spawn: noctalia msg screenshot-annotate";
         #show clipboard
         "Mod+V" = "spawn: noctalia msg panel-toggle clipboard";
-        #Yputube Music Noctalia Plugin
+        #Youtube Music Noctalia Plugin
         "Mod+M" = "spawn: noctalia msg panel-toggle aabidk20/yt-music:panel";
 
         # Programs
         "Mod+Return" = "spawn: kitty";
-        "Mod+E" = "spawn:kitty yazi";
+        "Mod+E" = "spawn:nemo";
         "Mod+Shift+Escape" = "spawn:kitty btop";
         "Mod+B" = "spawn: zen";
 
         #Umbriel window management
         "Mod+Q" = "window-close";
+        "Alt+F4" = "window-close";
         "Mod+W" = "window-toggle-floating";
         "Mod+F" = "window-cycle-primary-extent";
         "Mod+Shift+F" = "window-toggle-fullscreen";
@@ -139,6 +149,16 @@
         "Mod+Shift+Up" = "window-move-to-workspace-previous";
         "Mod+Shift+WheelUp" = "window-move-to-workspace-previous";
 
+        # - Overview/Output focusing
+        "Mod+Alt+Left" = "output-focus-left";
+        "Mod+Alt+WheelLeft" = "output-focus-left";
+        "Mod+Alt+Right" = "output-focus-right";
+        "Mod+Alt+WheelRight" = "output-focus-right";
+
+        "Mod+Tab" = "overview-toggle";
+        "Alt+Tab" = "output-focus-next";
+        "Alt+Shift+Tab" = "output-focus-previous";
+
         # - Misc
         "Mod+H" = "cheatsheet-toggle";
       };
@@ -152,6 +172,33 @@
             app_id = "kitty";
           };
           opacity = 0.70;
+        }
+
+        # Nemo Properties Window
+        {
+          match = {
+            app_id = "nemo";
+            title = ".Properties$";
+          };
+          default_floating = true;
+        }
+
+        # Any extension from Zen
+        {
+          match = {
+            app_id = "zen";
+            title = "^Extension.";
+          };
+          default_floating = true;
+          default_floating_size = {
+            width = 0.30;
+            height = 0.45;
+          };
+          default_position = {
+            x = 0;
+            y = 0;
+            anchor = "center";
+          };
         }
       ];
     };

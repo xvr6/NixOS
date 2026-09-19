@@ -1,5 +1,6 @@
 { pkgs, ... }:
 {
+  programs.dconf.enable = true; # gsettings backend; Noctalia's GTK template writes theme/color-scheme here
   services.xserver = {
     enable = true;
     excludePackages = with pkgs; [ xterm ];

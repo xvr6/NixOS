@@ -6,7 +6,7 @@
       cudaSupport = true;
     };
     settings = {
-      color_theme = "TTY";
+      color_theme = "tokyo-storm";
       show_gpu_info = "on";
       cpu_sensor = "auto";
       update_ms = 500; # time between updates in ms
