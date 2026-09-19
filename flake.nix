@@ -84,8 +84,29 @@
             }
           ];
         };
+
+      # Standalone home-manager entrypoint (e.g. `nh home switch`) so
+      # home config can be iterated on without a full NixOS rebuild.
+      mkHomeConfig =
+        host:
+        home-manager.lib.homeManagerConfiguration {
+          pkgs = nixpkgs.legacyPackages.x86_64-linux;
+
+          extraSpecialArgs = {
+            inherit inputs self host;
+          };
+          modules = [
+            inputs.umbriel.homeModules.default
+            inputs.noctalia.homeModules.default
+            ./hosts/${host}/home.nix
+          ];
+        };
     in
     {
       nixosConfigurations = lib.genAttrs hosts mkHost;
+
+      homeConfigurations = lib.genAttrs (map (host: "xvr6@${host}") hosts) (
+        nameAndHost: mkHomeConfig (lib.removePrefix "xvr6@" nameAndHost)
+      );
     };
 }

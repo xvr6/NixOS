@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ host, ... }:
 {
   programs.nh = {
     enable = true;
@@ -7,10 +7,7 @@
       extraArgs = "--keep-since 7d --keep 3";
     };
     flake = "/home/xvr6/NixOS";
+    home = "/home/xvr6/NixOS/hosts/${host}/home.nix";
   };
 
-  # environment.systemPackages = with pkgs; [
-  #   nix-output-monitor
-  #   nvd
-  # ];
 }
