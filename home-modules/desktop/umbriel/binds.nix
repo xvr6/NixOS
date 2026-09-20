@@ -1,93 +1,8 @@
-{ config, pkgs, ... }: {
-  # Home Module
+
+{ config, ... }: {
   programs.umbriel = {
-    enable = true;
-
     settings = {
-      general = {
-        autostart = [
-          "noctalia"
-          "kitty"
-        ];
-        xwayland = true;
-        show_cheatsheet = true; # shows on boot
-      };
-      appearance = {
-        corner_radius = 16;
-        border_width = 2;
-        outer_border_width = 2;
-
-        blur = {
-          enabled = true;
-          passes = 3;
-          radius = 6;
-          noise = 0.06;
-          brightness = 0.9;
-          contrast = 0.9;
-          saturation = 1.1;
-        };
-        shadow = {
-          enabled = true;
-          softness = 10;
-          offset_x = 2;
-          offset_y = 2;
-        };
-      };
-      overview = {
-        zoom = 0.5; # 0.1-0.75
-        scroll_factor_horizontal = 1.0; # 0.1-10.0
-        scroll_factor_vertical = 1.0; # 0.1-10.0
-        background_blur = true;
-        workspace_wallpaper = true;
-        shortcuts = true;
-        shortcut_keys = "1234567890";
-      };
-      events.lid_close = "";
-      output = {
-        "eDP-1" = {
-          # nixwork laptop display
-          mode = "2880x1920@120";
-          scale = 1.25;
-        };
-
-        # nixtop displays
-        "HP Inc. OMEN 27q CNC43225MX" = {
-          mode = "2560x1440@165";
-          scale = 1;
-        };
-        "Sceptre Tech Inc Sceptre M25 Unknown" = {
-          mode = "1920x1080@165";
-          scale = 1;
-          position = [
-            (-1920)
-            0
-          ]; # [x y]
-        };
-      };
-      layout = {
-        gap = 5;
-      };
-
-      input = {
-        focus.follows_mouse = true;
-        middle_click_paste = false;
-        cursor = {
-          theme = "";
-          size = 24;
-          hardware_cursor = true;
-          follows_focus = true; # snapping to  window when focus changes.
-        };
-        keyboard = {
-          layout = "us";
-          repeat_rate = 40;
-          repeat_delay = 250;
-        };
-      };
-
       keybinds = {
-        # With keybinds, control is for anything local, shift is for anything workspace/layout based.
-        # i.e: mod+control modifies the active window; mod+shift modifies workspaces (move window to x workspace, etc)
-
         # Noctalia
         "Mod+Space" = "spawn: noctalia msg panel-toggle launcher";
         "Mod+L" = "spawn: noctalia ipc call lockScreen lock";
@@ -162,45 +77,6 @@
         # - Misc
         "Mod+H" = "cheatsheet-toggle";
       };
-      window_rule = [
-        {
-          blur = true;
-          opacity = 0.90;
-        }
-        {
-          match = {
-            app_id = "kitty";
-          };
-          opacity = 0.70;
-        }
-
-        # Nemo Properties Window
-        {
-          match = {
-            app_id = "nemo";
-            title = ".Properties$";
-          };
-          default_floating = true;
-        }
-
-        # Any extension from Zen
-        {
-          match = {
-            app_id = "zen";
-            title = "^Extension.";
-          };
-          default_floating = true;
-          default_floating_size = {
-            width = 0.30;
-            height = 0.45;
-          };
-          default_position = {
-            x = 0;
-            y = 0;
-            anchor = "center";
-          };
-        }
-      ];
     };
   };
 }

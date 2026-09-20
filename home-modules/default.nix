@@ -5,7 +5,7 @@
     ./programs
     ./desktop/gtk.nix
     ./desktop/noctalia
-    ./desktop/umbriel.nix
+    ./desktop/umbriel
   ];
 
   home.username = "xvr6";
