@@ -42,12 +42,6 @@ in
     };
   };
 
-  nixpkgs.config.allowUnfree = true;
-
-  nixpkgs.config.permittedInsecurePackages = [
-    #    "ventoy-*"
-  ];
-
   environment.systemPackages = with pkgs; [
     # --- Flake imports and manually defined packages
     inputs.nixvim.packages."x86_64-linux".default

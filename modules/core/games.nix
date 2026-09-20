@@ -1,13 +1,6 @@
 { pkgs, lib, ... }:
 {
 
-  nixpkgs.config.allowUnfreePredicate =
-    pkg:
-    builtins.elem (lib.getName pkg) [
-      "steam"
-      "steam-original"
-    ];
-
   services.lact.enable = true;
 
   # Swing/AWT apps (e.g. the packwiz installer bootstrap in Prism) render blank
@@ -17,7 +10,7 @@
   environment.systemPackages = with pkgs; [
     prismlauncher
     packwiz
-    
+
     parsec-bin
 
     protonup-qt
@@ -42,18 +35,6 @@
       settings = {
         general = {
           renice = 10;
-        };
-
-        # Warning: GPU optimisations have the potential to damage hardware
-        gpu = {
-          apply_gpu_optimisations = "accept-responsibility";
-          gpu_device = 0;
-          nv_powermizer_mode = 1;
-          amd_performance_level = "high";
-        };
-        cpu = {
-          park_cores = "no";
-          pin_cores = "yes";
         };
 
         custom = {

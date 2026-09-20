@@ -3,7 +3,7 @@
 {
   imports = [
     ./kitty.nix
-    ./cli/yazi.nix
+    ./cli/lf
     ./cli/btop.nix
   ];
 

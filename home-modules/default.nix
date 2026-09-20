@@ -3,9 +3,7 @@
 {
   imports = [
     ./programs
-    ./desktop/gtk.nix
-    ./desktop/noctalia
-    ./desktop/umbriel
+    ./desktop
   ];
 
   home.username = "xvr6";
