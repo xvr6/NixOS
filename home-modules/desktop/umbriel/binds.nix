@@ -1,4 +1,3 @@
-
 { config, ... }: {
   programs.umbriel = {
     settings = {
@@ -6,6 +5,9 @@
         # Noctalia
         "Mod+Space" = "spawn: noctalia msg panel-toggle launcher";
         "Mod+L" = "spawn: noctalia ipc call lockScreen lock";
+        "Mod+Shift+W" = "spawn:noctalia msg panel-toggle wallpaper";
+        "Mod+Control+W" = "spawn:noctalia msg panel-toggle noctalia/wallhaven:browser";
+        "Mod+Shift+S" = "noctalia msg panel-toggle noctalia/wallhaven:browser";
 
         # - System
         "XF86MonBrightnessUp" = "spawn: noctalia msg brightness-up 5";

@@ -49,7 +49,7 @@
         };
       };
       layout = {
-        gap = 5;
+        gap = 6;
       };
 
       input = {

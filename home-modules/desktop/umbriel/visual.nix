@@ -2,9 +2,13 @@
   programs.umbriel = {
     settings = {
 
+      layout = {
+        gap = 6;
+      };
+
       appearance = {
-        corner_radius = 16;
-        border_width = 2;
+        corner_radius = 18;
+        border_width = 3;
         outer_border_width = 2;
         blur = {
           enabled = true;
@@ -17,7 +21,7 @@
         };
         shadow = {
           enabled = true;
-          softness = 10;
+          softness = 8;
           offset_x = 2;
           offset_y = 2;
         };
