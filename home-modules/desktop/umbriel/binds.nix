@@ -4,7 +4,7 @@
       keybinds = {
         # Noctalia
         "Mod+Space" = "spawn: noctalia msg panel-toggle launcher";
-        "Mod+L" = "spawn: noctalia ipc call lockScreen lock";
+        "Mod+L" = "spawn: noctalia msg session lock";
         "Mod+Shift+W" = "spawn:noctalia msg panel-toggle wallpaper";
         "Mod+Control+W" = "spawn:noctalia msg panel-toggle noctalia/wallhaven:browser";
 
