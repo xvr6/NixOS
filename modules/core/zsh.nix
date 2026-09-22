@@ -80,11 +80,11 @@
 
     shellAliases = {
       cls = "clear";
-      l = "${pkgs.eza}/bin/eza -lh  --icons=auto";
-      ls = "${pkgs.eza}/bin/eza -1   --icons=auto";
-      ll = "${pkgs.eza}/bin/eza -lha --icons=auto --sort=name --group-directories-first";
-      ld = "${pkgs.eza}/bin/eza -lhD --icons=auto";
-      tree = "${pkgs.eza}/bin/eza --icons=auto --tree";
+      l = "eza -lha --icons=auto --sort=name --group-directories-first";
+      ls = "l";
+      la = "l";
+      ld = "eza -lhDa --icons=auto";
+      tree = "eza --icons=auto --tree";
       mf = "microfetch";
       cp = "cp -iv";
       mv = "mv -iv";
@@ -96,8 +96,8 @@
       tpr = "${pkgs.trash-cli}/bin/trash-restore";
       grep = "grep --color=always";
 
-      dots = "cd ~/NixOS/";
-      projs = "cd ~/Projects/";
+      dots = "cd ~/NixOS/ && vi";
+      projs = "cd ~/Projects/ && l";
 
       # Packwiz cmds
       prf = "packwiz refresh";
