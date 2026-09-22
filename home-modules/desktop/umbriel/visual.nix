@@ -81,6 +81,17 @@
           };
         }
 
+        # Steam Games
+        { # TODO: test if works
+          match = {
+            app_id = ".steam_app.";
+          };
+          default_floating = false;
+          default_maximize = true;
+
+          opacity = 1;
+        }
+
       ];
     };
   };
