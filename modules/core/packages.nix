@@ -75,6 +75,7 @@ in
     fd # Better Find
     git # Git
     gh # Github Authentication Client
+    eza
     libjxl # Support for JXL Images
     microfetch # Small fetch (Blazingly fast)
     ripgrep # Improved Grep

@@ -81,7 +81,7 @@
     shellAliases = {
       cls = "clear";
       l = "eza -lha --icons=auto --sort=name --group-directories-first";
-      ls = "l";
+      ls = "eza -1";
       la = "l";
       ld = "eza -lhDa --icons=auto";
       tree = "eza --icons=auto --tree";
@@ -96,7 +96,8 @@
       tpr = "${pkgs.trash-cli}/bin/trash-restore";
       grep = "grep --color=always";
 
-      dots = "cd ~/NixOS/ && vi";
+      # Dir shortcuts
+      dots = "cd ~/NixOS/ && l";
       projs = "cd ~/Projects/ && l";
 
       # Packwiz cmds
