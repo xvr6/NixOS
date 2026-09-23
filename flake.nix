@@ -54,8 +54,6 @@
       system = "x86_64-linux";
 
       # Single global nixpkgs instance shared by NixOS and standalone home-manager.
-      # NixOS asserts `nixpkgs.config == { }` when `nixpkgs.pkgs` is set, so all
-      # nixpkgs config (unfree, insecure packages, ...) must live here.
       pkgs = import nixpkgs {
         inherit system;
         config = {

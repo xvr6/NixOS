@@ -80,9 +80,9 @@
 
     shellAliases = {
       cls = "clear";
-      l = "eza -lha --icons=auto --sort=name --group-directories-first";
-      ls = "eza -1";
-      la = "l";
+      l = "eza -lh --icons=auto --sort=name --group-directories-first";
+      ls = "eza -1 --sort=name --group-directories-first";
+      la = "eza -lha --icons=auto --sort=name --group-directories-first";
       ld = "eza -lhDa --icons=auto";
       tree = "eza --icons=auto --tree";
       mf = "microfetch";
