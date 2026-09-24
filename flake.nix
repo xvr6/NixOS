@@ -37,6 +37,11 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    fluxer = {
+      url = "github:hy4ri/fluxer-flake";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     # FIXME: not actually piped to any overlay or install
     tetrigo.url = "github:Broderick-Westrope/tetrigo";
   };

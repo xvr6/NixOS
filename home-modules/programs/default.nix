@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ ... }:
 
 {
   imports = [
@@ -6,9 +6,6 @@
     ./cli/lf
     ./cli/btop
     ./cli/eza
-  ];
-
-  home.packages = with pkgs; [
-    nemo
+    ./nemo.nix
   ];
 }

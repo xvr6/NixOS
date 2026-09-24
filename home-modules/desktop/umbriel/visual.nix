@@ -37,7 +37,7 @@
         }
         {
           match = {
-            app_id = "kitty";
+            app_id = "^kitty";
           };
           opacity = 0.75;
         }
@@ -49,6 +49,31 @@
             title = ".Properties$";
           };
           default_floating = true;
+        }
+
+        # Image Viewer
+        {
+          match = {
+            app_id = ".Loupe$";
+          };
+          default_floating = true;
+          default_floating_size = {
+            width = 0.6;
+            height = 0.6;
+          };
+          default_position = {
+            x = 0;
+            y = 0;
+            anchor = "center";
+          };
+          opacity = 1;
+        }
+        {
+          match = {
+            app_id = ".FileRoller$";
+          };
+          default_floating = true;
+          opacity = 1;
         }
 
         # Any extension from Zen
@@ -68,6 +93,17 @@
             anchor = "center";
           };
         }
+        # Zen Picture in Picture
+        {
+          match = {
+            app_id = "zen";
+            title = "Picture-in-Picture";
+          };
+          default_floating = true;
+          default_position = {
+            anchor = "bottom_right";
+          };
+        }
         # Materialgram media viewer
         {
           match = {
@@ -82,9 +118,10 @@
         }
 
         # Steam Games
-        { # TODO: test if works
+        {
+          # TODO: test if works
           match = {
-            app_id = ".steam_app.";
+            app_id = "^.steam_app.";
           };
           default_floating = false;
           default_maximize = true;
