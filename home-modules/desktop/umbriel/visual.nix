@@ -101,6 +101,8 @@
           };
           default_floating = true;
           default_position = {
+            x = 0;
+            y = 0;
             anchor = "bottom_right";
           };
         }
