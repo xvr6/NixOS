@@ -21,7 +21,4 @@
     ./zsh.nix
   ];
 
-  nixpkgs.overlays = [
-    inputs.fluxer.overlays.default
-  ];
 }

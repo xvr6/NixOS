@@ -25,11 +25,9 @@
     };
     noctalia-greeter = {
       url = "github:noctalia-dev/noctalia-greeter";
-      inputs.nixpkgs.follows = "nixpkgs";
     };
     umbriel = {
       url = "github:noctalia-dev/umbriel";
-      inputs.nixpkgs.follows = "nixpkgs";
     };
 
     zen-browser = {
@@ -39,7 +37,6 @@
 
     fluxer = {
       url = "github:hy4ri/fluxer-flake";
-      inputs.nixpkgs.follows = "nixpkgs";
     };
 
     # FIXME: not actually piped to any overlay or install

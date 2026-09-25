@@ -110,7 +110,7 @@
         {
           match = {
             app_id = ".materialgram$";
-            title = ".Media Viewer.";
+            title = ".Media viewer.";
           };
           default_floating = true;
           default_position = {
