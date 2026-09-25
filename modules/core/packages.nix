@@ -53,10 +53,8 @@ in
     firefox
     # -- Noctalia + Addons
     yt-dlp
-    # mpv-mpris is wired in via `scripts` so mpv actually loads it and exposes
-    # MPRIS on the session bus (just installing mpvScripts.mpris alongside
-    # mpv does nothing - mpv only loads scripts passed via --script).
-    (mpv.override { scripts = [ mpvScripts.mpris ]; }) # video player, also needed for addons; exposes MPRIS for e.g. the yt-music noctalia plugin
+    (mpv.override { scripts = [ mpvScripts.mpris ]; }) # video player, also needed for addons;
+    # exposes MPRIS for e.g. the yt-music noctalia plugin
 
     ##Anything below must be vetted for usage.
 
@@ -118,4 +116,5 @@ in
     # gotools
     # golangci-lint
   ];
+
 }

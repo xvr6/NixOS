@@ -1,4 +1,4 @@
-{ ... }:
+{ inputs, ... }:
 
 {
   imports = [
@@ -7,5 +7,6 @@
     ./cli/btop
     ./cli/eza
     ./nemo.nix
+    ./media/fluxer.nix
   ];
 }
