@@ -25,9 +25,11 @@
     };
     noctalia-greeter = {
       url = "github:noctalia-dev/noctalia-greeter";
+      inputs.nixpkgs.follows = "nixpkgs";
     };
     umbriel = {
       url = "github:noctalia-dev/umbriel";
+      inputs.nixpkgs.follows = "nixpkgs";
     };
 
     zen-browser = {
@@ -58,6 +60,7 @@
       # Single global nixpkgs instance shared by NixOS and standalone home-manager.
       pkgs = import nixpkgs {
         inherit system;
+        overlays = [ inputs.fluxer.overlays.default ];
         config = {
           allowUnfree = true;
           # permittedInsecurePackages = [ "ventoy-*" ];

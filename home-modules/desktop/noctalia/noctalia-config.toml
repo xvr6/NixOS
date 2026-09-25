@@ -9,7 +9,7 @@ order = [ "Right" ]
     center = [ "media", "workspaces", "audio_visualizer" ]
     contact_shadow = true
     end = [ "group:g2", "group:g1" ]
-    margin_ends = 0
+    margin_ends = 64
     position = "right"
     radius = 28
     scale = 1.2500000111758709
@@ -53,12 +53,73 @@ auto_locate = true
 [lockscreen_widgets]
 enabled = false
 schema_version = 2
-widget_order = [ "lockscreen-login-box@WL-1", "lockscreen-login-box@eDP-1" ]
+widget_order = [
+    "lockscreen-login-box@WL-1",
+    "lockscreen-login-box@DP-2",
+    "lockscreen-login-box@DP-1",
+    "lockscreen-login-box@DP-4",
+    "lockscreen-login-box@DP-3",
+    "lockscreen-login-box@eDP-1"
+]
 
     [lockscreen_widgets.grid]
     cell_size = 16
     major_interval = 4
     visible = true
+
+    [lockscreen_widgets.widget."lockscreen-login-box@DP-1"]
+    box_height = 196.0
+    box_width = 810.0
+    cx = 1280.0
+    cy = 1258.0
+    output = "DP-1"
+    placement_height = 1440.0
+    placement_width = 2560.0
+    rotation = 0.0
+    type = "login_box"
+
+        [lockscreen_widgets.widget."lockscreen-login-box@DP-1".settings]
+        background_color = "surface_variant"
+        background_opacity = 0.88
+        background_radius = 12.0
+        center_password_text = false
+        input_opacity = 1.0
+        input_radius = 6.0
+        layout = "regular"
+        show_caps_lock = true
+        show_keyboard_layout = true
+        show_login_button = true
+        show_media = true
+        show_session_buttons = true
+        show_unlock_hint = true
+        show_weather = true
+
+    [lockscreen_widgets.widget."lockscreen-login-box@DP-2"]
+    box_height = 196.0
+    box_width = 810.0
+    cx = 960.0
+    cy = 898.0
+    output = "DP-2"
+    placement_height = 1080.0
+    placement_width = 1920.0
+    rotation = 0.0
+    type = "login_box"
+
+        [lockscreen_widgets.widget."lockscreen-login-box@DP-2".settings]
+        background_color = "surface_variant"
+        background_opacity = 0.88
+        background_radius = 12.0
+        center_password_text = false
+        input_opacity = 1.0
+        input_radius = 6.0
+        layout = "regular"
+        show_caps_lock = true
+        show_keyboard_layout = true
+        show_login_button = true
+        show_media = true
+        show_session_buttons = true
+        show_unlock_hint = true
+        show_weather = true
 
     [lockscreen_widgets.widget."lockscreen-login-box@DP-3"]
     box_height = 196.0
@@ -118,9 +179,9 @@ widget_order = [ "lockscreen-login-box@WL-1", "lockscreen-login-box@eDP-1" ]
     box_height = 196.0
     box_width = 810.0
     cx = 640.0
-    cy = 1336.0
+    cy = 1240.0
     output = "WL-1"
-    placement_height = 1518.0
+    placement_height = 1422.0
     placement_width = 1280.0
     rotation = 0.0
     type = "login_box"
@@ -169,13 +230,17 @@ widget_order = [ "lockscreen-login-box@WL-1", "lockscreen-login-box@eDP-1" ]
         show_weather = true
 
 [plugins]
-enabled = [ "aabidk20/yt-music", "dotnetrob/cat", "noctalia/umbriel-companion", "noctalia/wallhaven" ]
+enabled = [ "dotnetrob/cat", "noctalia/umbriel-companion", "noctalia/wallhaven" ]
 
 [shell]
 settings_show_advanced = false
+umbriel_overview_type_to_launch_enabled = true
 
     [shell.greeter_sync]
     auto_sync = true
+
+    [shell.launcher]
+    pinned = [ "fluxer" ]
 
     [shell.panel]
     transparency_mode = "soft"
@@ -185,20 +250,20 @@ community_palette = "Oxocarbon"
 mode = "dark"
 shell_mode = "dark"
 source = "wallpaper"
-wallpaper_scheme = "soft"
+wallpaper_scheme = "faithful"
 
     [theme.templates]
     builtin_ids = [ "kitty", "umbriel", "gtk3", "gtk4" ]
-    community_ids = [ "claude-code", "zen-browser", "vscode", "prismlauncher", "obs", "yazi" ]
+    community_ids = [ "claude-code", "zen-browser", "vscode", "prismlauncher", "obs", "yazi", "pear-desktop" ]
 
 [wallpaper]
 directory = "/home/xvr6/Pictures/Wallpapers"
 
     [wallpaper.default]
-    path = "/home/xvr6/Pictures/Wallpapers/evening-sky.webp"
+    path = "/home/xvr6/Pictures/Wallpapers/wallhaven_39wk99.jpg"
 
     [wallpaper.last]
-    path = "/home/xvr6/Pictures/Wallpapers/evening-sky.webp"
+    path = "/home/xvr6/Pictures/Wallpapers/wallhaven_39wk99.jpg"
 
     [wallpaper.monitors.DP-3]
     path = "/home/xvr6/Pictures/Wallpapers/wallhaven_39wk99.jpg"
@@ -220,7 +285,7 @@ type = "spacer"
 show_empty_label = false
 
 [widget.audio_visualizer]
-bands = 92
+bands = 112
 capsule = true
 capsule_padding = 4
 capsule_radius = "auto"
@@ -229,7 +294,7 @@ color_2 = "tertiary"
 mirrored = false
 scale = 0.90000000000000013
 show_when_idle = true
-width = 224
+width = 210
 
 [widget.battery]
 display_mode = "graphic"
@@ -263,7 +328,7 @@ scale = 0.84999999999999998
 album_art_only = true
 
     [widget.media.actions]
-    right = "exec noctalia msg panel-toggle aabidk20/yt-music:panel"
+    right = "exec umbriel msg  scratchpad-toggle:music"
 
 [widget.network]
 scale = 1.3500000000000001

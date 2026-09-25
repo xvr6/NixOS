@@ -1,4 +1,4 @@
-{ pkgs, inputs, ... }:
+{ pkgs, ... }:
 
 {
   imports = [
@@ -11,8 +11,4 @@
   home.stateVersion = "26.05";
 
   home.packages = with pkgs; [ ];
-
-  nixpkgs.overlays = [
-    inputs.fluxer.overlays.default
-  ];
 }

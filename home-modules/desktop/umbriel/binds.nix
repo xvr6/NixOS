@@ -21,8 +21,6 @@
         "Print" = "spawn: noctalia msg screenshot-annotate";
         #show clipboard
         "Mod+V" = "spawn: noctalia msg panel-toggle clipboard";
-        #Youtube Music Noctalia Plugin
-        "Mod+M" = "spawn: noctalia msg panel-toggle aabidk20/yt-music:panel";
 
         # Programs
         "Mod+Return" = "spawn: kitty";

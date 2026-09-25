@@ -44,7 +44,8 @@ in
 
   environment.systemPackages = with pkgs; [
     # --- Flake imports and manually defined packages
-    inputs.nixvim.packages."x86_64-linux".default
+    inputs.nixvim.packages.${system}.default
+    inputs.fluxer.packages.${system}.fluxer
     zen-browser
 
     # --- Packages

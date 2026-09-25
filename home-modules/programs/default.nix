@@ -8,5 +8,6 @@
     ./cli/eza
     ./nemo.nix
     ./media/fluxer.nix
+    ./media/pear-desktop.nix
   ];
 }
