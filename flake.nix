@@ -37,9 +37,8 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    fluxer = {
-      url = "github:hy4ri/fluxer-flake";
-    };
+    # Declarative flatpaks, for apps best tracked straight from upstream
+    nix-flatpak.url = "github:gmodena/nix-flatpak/?ref=latest";
 
     # FIXME: not actually piped to any overlay or install
     tetrigo.url = "github:Broderick-Westrope/tetrigo";
@@ -60,7 +59,6 @@
       # Single global nixpkgs instance shared by NixOS and standalone home-manager.
       pkgs = import nixpkgs {
         inherit system;
-        overlays = [ inputs.fluxer.overlays.default ];
         config = {
           allowUnfree = true;
           # permittedInsecurePackages = [ "ventoy-*" ];
@@ -94,6 +92,7 @@
                   inherit inputs self host;
                 };
                 sharedModules = [
+                  inputs.nix-flatpak.homeManagerModules.nix-flatpak
                   inputs.umbriel.homeModules.default
                   inputs.noctalia.homeModules.default
                 ];
@@ -113,6 +112,7 @@
             inherit inputs self host;
           };
           modules = [
+            inputs.nix-flatpak.homeManagerModules.nix-flatpak
             inputs.umbriel.homeModules.default
             inputs.noctalia.homeModules.default
             ./hosts/${host}/home.nix

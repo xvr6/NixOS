@@ -10,5 +10,13 @@
   home.homeDirectory = "/home/xvr6";
   home.stateVersion = "26.05";
 
-  home.packages = with pkgs; [ ];
+  home.packages = with pkgs; [
+    nix-search-tv
+
+
+    #applications
+    plex-desktop
+    claude-code
+    materialgram
+  ];
 }

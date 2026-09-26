@@ -21,6 +21,9 @@
     # Manage firmware drivers
     fwupd.enable = true;
 
+    # Flatpak runtime; apps are declared per-user via nix-flatpak's HM module
+    flatpak.enable = true;
+
     # Userspace CPU Scheduler for Improved Latency for Gaming (Hardware Specific)
     # services.scx = {
     #   enable = true;

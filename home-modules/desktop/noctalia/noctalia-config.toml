@@ -9,7 +9,7 @@ order = [ "Right" ]
     center = [ "media", "workspaces", "audio_visualizer" ]
     contact_shadow = true
     end = [ "group:g2", "group:g1" ]
-    margin_ends = 64
+    margin_ends = 16
     position = "right"
     radius = 28
     scale = 1.2500000111758709
@@ -230,7 +230,7 @@ widget_order = [
         show_weather = true
 
 [plugins]
-enabled = [ "dotnetrob/cat", "noctalia/umbriel-companion", "noctalia/wallhaven" ]
+enabled = [ "dotnetrob/cat", "noctalia/umbriel-companion", "noctalia/wallhaven", "knyrps/nix-search" ]
 
 [shell]
 settings_show_advanced = false
@@ -244,6 +244,9 @@ umbriel_overview_type_to_launch_enabled = true
 
     [shell.panel]
     transparency_mode = "soft"
+
+    [shell.screenshot]
+    confirm_region = true
 
 [theme]
 community_palette = "Oxocarbon"
@@ -260,16 +263,16 @@ wallpaper_scheme = "faithful"
 directory = "/home/xvr6/Pictures/Wallpapers"
 
     [wallpaper.default]
-    path = "/home/xvr6/Pictures/Wallpapers/wallhaven_39wk99.jpg"
+    path = "/home/xvr6/Pictures/Wallpapers/wallhaven-o3ey37.jpg"
 
     [wallpaper.last]
-    path = "/home/xvr6/Pictures/Wallpapers/wallhaven_39wk99.jpg"
+    path = "/home/xvr6/Pictures/Wallpapers/wallhaven-o3ey37.jpg"
 
     [wallpaper.monitors.DP-3]
-    path = "/home/xvr6/Pictures/Wallpapers/wallhaven_39wk99.jpg"
+    path = "/home/xvr6/Pictures/Wallpapers/wallhaven-o3ey37.jpg"
 
     [wallpaper.monitors.DP-4]
-    path = "/home/xvr6/Pictures/Wallpapers/wallhaven_39wk99.jpg"
+    path = "/home/xvr6/Pictures/Wallpapers/wallhaven-o3ey37.jpg"
 
     [wallpaper.monitors.eDP-1]
     path = "/home/xvr6/Pictures/Wallpapers/evening-sky.webp"
