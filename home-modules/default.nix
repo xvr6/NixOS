@@ -13,8 +13,7 @@
   home.packages = with pkgs; [
     nix-search-tv
 
-
-    #applications
+    # Applications
     plex-desktop
     claude-code
     materialgram
