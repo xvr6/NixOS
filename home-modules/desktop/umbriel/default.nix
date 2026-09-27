@@ -26,7 +26,7 @@
         shortcuts = true;
         shortcut_keys = "1234567890";
       };
-      events.lid_close = "";
+      events.lid_close = "noctalia msg session lock";
       output = {
         "eDP-1" = {
           # nixwork laptop display
