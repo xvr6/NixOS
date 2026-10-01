@@ -12,6 +12,7 @@
 
   home.packages = with pkgs; [
     nix-search-tv
+    obs-studio
 
     # Applications
     plex-desktop

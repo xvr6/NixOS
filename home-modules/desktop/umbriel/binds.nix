@@ -75,6 +75,10 @@
 
         # - Misc
         "Mod+H" = "cheatsheet-toggle";
+
+        # Funny
+
+        "Mod+Control+Alt+Shift+L" = "spawn: zen https://www.linkedin.com/";
       };
     };
   };
