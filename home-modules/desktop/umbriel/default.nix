@@ -65,6 +65,7 @@
           layout = "us";
           repeat_rate = 40;
           repeat_delay = 250;
+          numlock_toggle = true;
         };
       };
 
