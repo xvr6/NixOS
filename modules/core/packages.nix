@@ -30,8 +30,7 @@ in
       recommendedServices.enable = true;
     };
     umbriel.enable = true;
-    # Registers the Umbriel session with the display manager
-    # (greeters dont pick up home manager)
+    # Registers the Umbriel session with the display manager (greeters dont pick up home manager)
 
     fuse.userAllowOther = true;
     mtr.enable = true;
@@ -48,7 +47,6 @@ in
     zen-browser
 
     # --- Packages
-    handbrake
     #TODO: Move out this mess into files its prevelant to. I.e move all noctalia stuff to noctalia file.
     firefox
     # -- Noctalia + Addons

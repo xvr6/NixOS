@@ -9,5 +9,6 @@
     ./nemo.nix
     ./media/fluxer.nix
     ./media/pear-desktop.nix
+    ./media/handbrake
   ];
 }

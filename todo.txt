@@ -2,6 +2,9 @@
 x 2026-08-05 2026-08-05 update flake
 x 2026-08-27 2026-08-27 make ready for pc
 (B) +syncthing +obsidian syncing between devices. Also backup to my NAS (copyparty/smb/unix file sharing idr the name) if possible
-(B) image previews dont work; opening files in "default". Same for text files not opening into nvim
+x 2026-10-06 2026-10-06 image previews dont work; opening files in "default". Same for text files not opening into nvim
 x 2026-09-24 2026-09-24 Niri -> +umbriel
 2026-09-08 +umbriel super - middleckick switch active and sceondary monitor content (?)
+(A) +obsidian +syncthing for my own notes and whatnot. Auto github push if possible as private backup.
+(A) +umbriel image previewer default center float 0 transparency
+(C) Handbrake presets

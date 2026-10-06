@@ -3,9 +3,8 @@
 {
   home.packages = with pkgs; [
     # superior to `nemo`; comes with context menu dependencies setup and wired.
-    # nemo-preview adds the space-bar quick previewer (not in the default extension set).
-    (nemo-with-extensions.override { extensions = [ nemo-preview ]; })
-    loupe # image viewer; default for image/* below (mpv was the only image handler)
+    nemo-with-extensions
+    loupe # image viewer; default for image/* below
     ffmpegthumbnailer # video thumbnails in nemo
   ];
 
