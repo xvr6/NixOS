@@ -9,7 +9,6 @@
     ./hardware.nix
     ../../modules/core
     ../../modules/graphics/nvidia.nix
-    ../../modules/programs/media/discord.nix
   ];
 
   networking.hostName = "nixtop";

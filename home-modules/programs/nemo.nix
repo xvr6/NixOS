@@ -24,7 +24,7 @@
       "image/tiff" = "org.gnome.Loupe.desktop";
       "image/svg+xml" = "org.gnome.Loupe.desktop";
 
-      "x-scheme-handler/discord" = "vesktop.desktop";
+      "x-scheme-handler/discord" = "discord.desktop";
       "x-scheme-handler/claude-cli" = "claude-code-url-handler.desktop";
       "x-scheme-handler/tg" = "io.github.kukuruzka165.materialgram.desktop";
       "x-scheme-handler/tonsite" = "io.github.kukuruzka165.materialgram.desktop";

@@ -1,6 +1,7 @@
 { inputs, pkgs, ... }:
 {
   imports = [
+    ./audio.nix
     ./boot.nix
     ./fonts.nix
     ./games.nix

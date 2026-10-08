@@ -33,41 +33,5 @@
 
     blueman.enable = true; # Bluetooth Support
     tumbler.enable = true; # Image/video preview
-
-    pipewire = {
-      enable = true;
-      pulse.enable = true;
-      alsa = {
-        enable = true;
-        support32Bit = true;
-      };
-      # jack.enable = true;
-      wireplumber = {
-        enable = true;
-      };
-
-      # -- Airplay/RAOP
-      # raopOpenFirewall = true;
-      extraConfig.pipewire = {
-        #"10-airplay" = {
-        #  "context.modules" = [
-        #    {
-        #      name = "libpipewire-module-raop-discover";
-        #      args = {
-        #        # "raop.latency.ms" = 500; #If lag/dropouts occur, try increasing buffer.
-        #      };
-        #    }
-        #  ];
-        #};
-        "92-low-latency" = {
-          "context.properties" = {
-            "default.clock.rate" = 48000;
-            "default.clock.quantum" = 256;
-            "default.clock.min-quantum" = 32;
-            "default.clock.max-quantum" = 2048;
-          };
-        };
-      };
-    };
   };
 }

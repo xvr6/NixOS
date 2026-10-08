@@ -1,12 +1,6 @@
-{
-  pkgs,
-  lib,
-  ...
-}:
+{ pkgs, ... }:
 let
-  #NixOS Module
-  home = "/home/xvr6";
-
+  # Vencord (patched into the official client) reads ~/.config/Vencord/settings/settings.json
   vencordSettings = {
     notifyAboutUpdates = false;
     autoUpdate = true;
@@ -80,13 +74,14 @@ let
   };
 in
 {
-  environment.systemPackages = [ pkgs.vesktop ];
+  programs.discord = {
+    enable = true;
+    package = pkgs.discord.override { withVencord = true; };
+    settings = {
+      SKIP_HOST_UPDATE = true; # updates come from nixpkgs
+      MINIMIZE_TO_TRAY = true;
+    };
+  };
 
-  environment.etc."vesktop/settings/settings.json".text = builtins.toJSON vencordSettings;
-
-  systemd.tmpfiles.rules = [
-    "d ${home}/.config/vesktop 0755 xvr6 users -"
-    "d ${home}/.config/vesktop/settings 0755 xvr6 users -"
-    "L+ ${home}/.config/vesktop/settings/settings.json - - - - /etc/vesktop/settings/settings.json"
-  ];
+  xdg.configFile."Vencord/settings/settings.json".text = builtins.toJSON vencordSettings;
 }

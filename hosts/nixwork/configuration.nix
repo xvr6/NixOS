@@ -10,7 +10,6 @@
     inputs.nixos-hardware.nixosModules.framework-amd-ai-300-series
     ../../modules/core
     ../../modules/graphics/amd.nix
-    ../../modules/programs/media/discord.nix
   ];
 
   networking.hostName = "nixwork";
