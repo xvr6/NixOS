@@ -32,8 +32,14 @@
 
       window_rule = [
         {
+          # Default Rule for All windows unless otherwise overruled
           blur = true;
           opacity = 0.90;
+          default_floating_size = {
+            width = 0.4;
+            height = 0.6;
+          };
+
         }
         {
           match = {
@@ -85,7 +91,7 @@
           default_floating = true;
           default_floating_size = {
             width = 0.30;
-            height = 0.45;
+            height = 0.55;
           };
           default_position = {
             x = 0;
@@ -97,20 +103,32 @@
         {
           match = {
             app_id = "zen";
-            title = "Picture-in-Picture";
+            title = "^Picture-in-Picture";
           };
           default_floating = true;
+          default_floating_size = {
+            width = 0.4;
+            height = 0.4;
+          };
           default_position = {
-            x = 0;
-            y = 0;
+            x = 16;
+            y = 16;
             anchor = "bottom_right";
           };
         }
+        # Umbriel share selecter
+        {
+          match = {
+            app_id = ".SharePicker$";
+          };
+          default_floating = true;
+        }
+
         # Materialgram media viewer
         {
           match = {
             app_id = ".materialgram$";
-            title = ".Media viewer.";
+            title = "^Media.";
           };
           default_floating = true;
           default_position = {
