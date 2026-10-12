@@ -67,14 +67,23 @@
         22 # SSH (Secure Shell) - remote access
         80 # HTTP - web traffic
         443 # HTTPS - encrypted web traffic
-        59010 # Custom application port
-        59011 # Custom application port
         8080 # Alternative HTTP/web server port
+
+        # - Sunshine
+        47984
+        47989
+        47990 # webui
+        48010
       ];
       allowedUDPPorts = [
         41641 # Tailscale direct peer connections
         59010 # Custom application port
         59011 # Custom application port
+
+        # - Sunshine
+        47998
+        47999
+        48000
       ];
     };
     # not needed, using NM
