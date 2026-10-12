@@ -1,3 +1,5 @@
+# Run `umbriel windows` to see live app_ids and titles to match against.
+
 { ... }: {
   programs.umbriel = {
     settings = {
@@ -39,65 +41,49 @@
             width = 0.4;
             height = 0.6;
           };
-
+          default_position = {
+            x = 0;
+            y = 0;
+            anchor = "center";
+          };
         }
+
+        # - unfocused windows drop to 75% opacity
+        {
+          match = {
+            is_focused = false;
+          };
+          opacity = 0.75;
+        }
+
+        # Default Floating
+        {
+          default_floating = true;
+          opacity = 1;
+
+          # Nemo Properties Window, umbriel share picker, file roller, materialgram media, image viewer, zen extensions
+          match = {
+            app_id = [
+              "nemo"
+              "SharePicker$"
+              "FileRoller$"
+              "materialgram$"
+              "Loupe$"
+              "zen"
+            ];
+            title = [
+              "Properties$"
+              "^Media"
+              "^Extension"
+            ];
+          };
+        }
+
         {
           match = {
             app_id = "^kitty";
           };
           opacity = 0.75;
-        }
-
-        # Nemo Properties Window
-        {
-          match = {
-            app_id = "nemo";
-            title = ".Properties$";
-          };
-          default_floating = true;
-        }
-
-        # Image Viewer
-        {
-          match = {
-            app_id = ".Loupe$";
-          };
-          default_floating = true;
-          default_floating_size = {
-            width = 0.6;
-            height = 0.6;
-          };
-          default_position = {
-            x = 0;
-            y = 0;
-            anchor = "center";
-          };
-          opacity = 1;
-        }
-        {
-          match = {
-            app_id = ".FileRoller$";
-          };
-          default_floating = true;
-          opacity = 1;
-        }
-
-        # Any extension from Zen
-        {
-          match = {
-            app_id = "zen";
-            title = "^Extension.";
-          };
-          default_floating = true;
-          default_floating_size = {
-            width = 0.30;
-            height = 0.55;
-          };
-          default_position = {
-            x = 0;
-            y = 0;
-            anchor = "center";
-          };
         }
         # Zen Picture in Picture
         {
@@ -110,40 +96,30 @@
             width = 0.4;
             height = 0.4;
           };
+          opacity = 1;
           default_position = {
             x = 16;
             y = 16;
             anchor = "bottom_right";
           };
         }
-        # Umbriel share selecter
+
+        #Handbrake
         {
           match = {
-            app_id = ".SharePicker$";
+            app_id = "^fr\\.handbrake\\.ghb$";
+            title = "^(?!HandBrake$)"; # everything but the main window
           };
           default_floating = true;
         }
 
-        # Materialgram media viewer
+        # Steam Games; default maximized to main monitor
         {
           match = {
-            app_id = ".materialgram$";
-            title = "^Media.";
-          };
-          default_floating = true;
-          default_position = {
-            x = 0;
-            y = 0;
-          };
-        }
-
-        # Steam Games
-        {
-          # TODO: test if works
-          match = {
-            app_id = "^.steam_app.";
+            app_id = ["^steam_app" "^[Xwayland] Minecraft"];
           };
           default_floating = false;
+          default_output = "HP Inc. OMEN 27q CNC43225MX";
           default_maximize = true;
 
           opacity = 1;

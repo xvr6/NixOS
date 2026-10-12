@@ -9,7 +9,7 @@
     #   extraBackends = [ pkgs.sane-airscan ];
     #   disabledDefaultBackends = [ "escl" ];
     # };
-
+    uinput.enable = true;
     logitech.wireless.enable = true;
 
     enableRedistributableFirmware = true;

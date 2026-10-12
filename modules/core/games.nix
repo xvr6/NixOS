@@ -1,7 +1,15 @@
 { pkgs, lib, ... }:
 {
 
-  services.lact.enable = true;
+  services = {
+    lact.enable = true;
+    sunshine = {
+      enable = true;
+      autoStart = true;
+      capSysAdmin = true;
+      openFirewall = true;
+    };
+  };
 
   # Swing/AWT apps (e.g. the packwiz installer bootstrap in Prism) render blank
   # white windows under non-reparenting WMs like umbriel + xwayland-satellite.
@@ -21,6 +29,7 @@
     winetricks
 
     lact
+    moonlight-qt
 
     vulkan-tools # vulkaninfo, vkcube
     mesa-demos # glxinfo, glxgears

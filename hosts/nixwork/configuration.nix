@@ -22,6 +22,7 @@
       extraGroups = [
         "wheel" # sudo access
         "input"
+        "uinput"
         "networkmanager"
         "video"
         "audio"
