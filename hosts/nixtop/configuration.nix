@@ -44,4 +44,8 @@
   environment.systemPackages = with pkgs; [
     #   davinci-resolve
   ];
+
+  # enable sunshine autoboot, only needed for this host
+  services.sunshine.autoStart = lib.mkforce true;
+
 }
