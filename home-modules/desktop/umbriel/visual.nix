@@ -62,10 +62,11 @@
           opacity = 1;
 
           # Nemo Properties Window, umbriel share picker, file roller, materialgram media, image viewer, zen extensions
+          # must amtch both app_id and title.
           match = {
             app_id = [
               "nemo"
-              "SharePicker$"
+              "UmbrielSharePicker$"
               "FileRoller$"
               "materialgram$"
               "Loupe$"
@@ -75,6 +76,7 @@
               "Properties$"
               "^Media"
               "^Extension"
+              "^Share"
             ];
           };
         }
@@ -116,7 +118,10 @@
         # Steam Games; default maximized to main monitor
         {
           match = {
-            app_id = ["^steam_app" "^[Xwayland] Minecraft"];
+            app_id = [
+              "^steam_app"
+              "^[Xwayland] Minecraft"
+            ];
           };
           default_floating = false;
           default_output = "HP Inc. OMEN 27q CNC43225MX";
