@@ -46,6 +46,6 @@
   ];
 
   # enable sunshine autoboot, only needed for this host
-  services.sunshine.autoStart = true;
+  services.sunshine.autoStart = lib.mkForce true;
 
 }
