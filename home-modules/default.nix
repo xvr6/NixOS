@@ -17,6 +17,6 @@
     # Applications
     plex-desktop
     claude-code
-    materialgram
+    telegram-desktop
   ];
 }
