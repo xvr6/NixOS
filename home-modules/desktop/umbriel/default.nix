@@ -58,7 +58,7 @@
         cursor = {
           theme = "";
           size = 24;
-          hardware_cursor = true;
+          # hardware_cursor = true;
           follows_focus = true; # snapping to  window when focus changes.
         };
         keyboard = {

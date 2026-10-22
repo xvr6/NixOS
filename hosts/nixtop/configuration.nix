@@ -9,6 +9,7 @@
     ./hardware.nix
     ../../modules/core
     ../../modules/graphics/nvidia.nix
+    ../../modules/sunshine.nix
   ];
 
   networking.hostName = "nixtop";
@@ -42,10 +43,8 @@
 
   nix.settings.allowed-users = [ "xvr6" ];
   environment.systemPackages = with pkgs; [
+    deadlock-mod-manager
     #   davinci-resolve
   ];
-
-  # enable sunshine autoboot, only needed for this host
-  services.sunshine.autoStart = lib.mkForce true;
 
 }
