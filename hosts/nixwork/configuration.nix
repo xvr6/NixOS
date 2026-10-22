@@ -7,6 +7,7 @@
 {
   imports = [
     ./hardware.nix
+    ./framework-kmod.nix
     inputs.nixos-hardware.nixosModules.framework-amd-ai-300-series
     ../../modules/core
     ../../modules/graphics/amd.nix
