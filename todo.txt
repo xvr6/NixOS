@@ -8,4 +8,4 @@ x 2026-09-24 2026-09-24 Niri -> +umbriel
 (A) +obsidian +syncthing for my own notes and whatnot. Auto github push if possible as private backup.
 (A) +umbriel image previewer default center float 0 transparency
 (C) Handbrake presets
-(A) git config fix; no default upstream setting
+x 2026-10-22 2026-10-22 git config fix; no default upstream setting
