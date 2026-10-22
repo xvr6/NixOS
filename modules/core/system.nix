@@ -30,6 +30,14 @@
     XDG_BIN_HOME = "$HOME/.local/bin";
   };
 
+  # Default editor (nixvim) and browser (zen), both from ./packages.nix.
+  # sessionVariables also reach GUI apps via PAM, not just shells.
+  environment.sessionVariables = {
+    EDITOR = "nvim";
+    VISUAL = "nvim";
+    BROWSER = "zen";
+  };
+
   console.keyMap = "us";
   system.stateVersion = "26.05"; # Do not change!
 }

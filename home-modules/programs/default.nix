@@ -10,6 +10,7 @@
     ./cli/git.nix
     ./media/discord.nix
     ./media/nemo.nix
+    ./media/obsidian
     ./media/pear-desktop.nix
     ./media/handbrake
   ];

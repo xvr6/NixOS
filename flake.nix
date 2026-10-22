@@ -17,6 +17,10 @@
       url = "git+https://forge.xvr6.dev/xvr6/nixvim";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    sops-nix = {
+      url = "github:Mic92/sops-nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
 
     # - Noctalia Suite
     noctalia = {

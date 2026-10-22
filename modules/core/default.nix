@@ -14,6 +14,7 @@
     ./printing.nix
     ./security.nix
     ./services.nix
+    ./sops.nix
     ./ssh.nix
     # ./starship.nix
     # ./syncthing.nix

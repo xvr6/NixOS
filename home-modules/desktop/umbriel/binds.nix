@@ -27,6 +27,7 @@
         "Mod+E" = "spawn:nemo";
         "Mod+Shift+Escape" = "spawn:kitty btop";
         "Mod+B" = "spawn: zen";
+        "Mod+O" = "spawn: obsidian";
 
         #Umbriel window management
         "Mod+Q" = "window-close";

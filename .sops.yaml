@@ -1,0 +1,11 @@
+# Same SSH key twice: sops CLI uses the ssh form, sops-nix the age form (ssh-to-age).
+keys:
+  - &xvr6_ssh ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIHJuKddbB35VXhD45nRSu6mkGkeZOqup8Cnmfg2dykGP
+  - &xvr6_age age15l6ddnmm8nwm4xcuc8vautsz42rzhwluypzyf8f5fksufukq3y6sv6uphg
+
+creation_rules:
+  - path_regex: modules/core/secrets/[^/]+\.(yaml|json|env|ini)$
+    key_groups:
+      - age:
+          - *xvr6_ssh
+          - *xvr6_age
