@@ -1,5 +1,13 @@
-{ pkgs, ... }:
+{ pkgs, lib, ... }:
 
+let
+  # Per-folder view overrides (default is list). Paths are relative to $HOME.
+  # Views: "icon" (grid), "list", "compact". e.g. "Pictures/Photos" = "icon";
+  folderViews = {
+  };
+
+  viewId = v: "OAFIID:Nemo_File_Manager_${lib.toUpper (builtins.substring 0 1 v)}${builtins.substring 1 (-1) v}_View";
+in
 {
   home.packages = with pkgs; [
     # superior to `nemo`; comes with context menu dependencies setup and wired.
@@ -51,6 +59,19 @@
     exec = "kitty";
     exec-arg = "--";
   };
+
+  dconf.settings."org/nemo/preferences".default-folder-viewer = "list-view";
+
+  # Nemo stores per-folder views as gvfs metadata, so overrides must be applied with `gio set`.
+  home.activation.nemoFolderViews = lib.hm.dag.entryAfter [ "writeBoundary" ] (
+    lib.concatStrings (
+      lib.mapAttrsToList (dir: view: ''
+        if [ -d "$HOME/${dir}" ]; then
+          run ${pkgs.glib.bin}/bin/gio set "$HOME/${dir}" metadata::nemo-default-view ${viewId view} || true
+        fi
+      '') folderViews
+    )
+  );
 
   # Open in neovim action; `nixvim` installed system-wide in modules/core/packages.nix).
   xdg.dataFile."nemo/actions/open-in-nvim.nemo_action".text = ''

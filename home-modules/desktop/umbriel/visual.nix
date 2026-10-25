@@ -1,3 +1,20 @@
+# --- Umbriel regex reference (window_rule match.app_id / match.title / match.xdg_tag)
+#
+# Engine: C++ std::regex, ECMAScript flavour (like JavaScript regex), case-sensitive.
+#   - Uses regex_search, so a pattern matches ANY part of the value.
+#     Anchor with ^ and $ for an exact match:  "^kitty$"
+#   - `.` is "any single character", not a literal dot. Escape it for a literal:
+#     in Nix strings that means a double backslash: "^fr\\.handbrake\\.ghb$"
+#     ("^.foo" means "exactly one char, then foo" -- almost never what you want)
+#   - No `!` negation prefix. "!foo" is just a literal "!". To exclude, use a
+#     negative lookahead:  "^(?!HandBrake$)"  = any title except exactly "HandBrake"
+#                          "^(?!.*Settings)"  = any title not containing "Settings"
+#   - No lookbehind (?<=...), no inline flags like (?i). For case-insensitivity
+#     use a character class: "[Hh]and[Bb]rake"
+#   - A list of patterns matches if ANY of them match: app_id = [ "^mpv$" "^celluloid$" ];
+#   - Selectors within one `match` are ANDed (app_id AND title must both match).
+#   - Invalid patterns don't fail the build; umbriel logs "invalid regex in ..." at load.
+#
 # Run `umbriel windows` to see live app_ids and titles to match against.
 
 { ... }: {
@@ -36,56 +53,60 @@
         {
           # Default Rule for All windows unless otherwise overruled
           blur = true;
-          opacity = 0.90;
+          opacity = 0.85;
           default_floating_size = {
             width = 0.4;
             height = 0.6;
+          };
+
+        }
+        {
+          match = {
+            app_id = "^kitty";
+          };
+          opacity = 0.75;
+        }
+
+        # Nemo Properties Window
+        {
+          match = {
+            app_id = "nemo";
+            title = ".Properties$";
+          };
+          default_floating = true;
+        }
+
+        # Image Viewer
+        {
+          match = {
+            app_id = ".Loupe$";
+          };
+          default_floating = true;
+          opacity = 1;
+        }
+        {
+          match = {
+            app_id = ".FileRoller$";
+          };
+          default_floating = true;
+        }
+
+        # Any extension from Zen
+        {
+          match = {
+            app_id = "zen";
+            title = "^Extension.";
+          };
+          default_floating = true;
+          default_floating_size = {
+            width = 0.30;
+            height = 0.55;
           };
           default_position = {
             x = 0;
             y = 0;
             anchor = "center";
           };
-        }
-
-        # - unfocused windows drop to 75% opacity
-        {
-          match = {
-            is_focused = false;
-          };
-          opacity = 0.75;
-        }
-
-        # Default Floating
-        {
-          default_floating = true;
-          opacity = 1;
-
-          # Nemo Properties Window, umbriel share picker, file roller, materialgram media, image viewer, zen extensions
-          # must amtch both app_id and title.
-          match = {
-            app_id = [
-              "nemo"
-              "UmbrielSharePicker$"
-              "FileRoller$"
-              "materialgram$"
-              "Loupe$"
-              "zen"
-            ];
-            title = [
-              "Properties$"
-              "^Media"
-              "^Extension"
-              "^Share"
-            ];
-          };
-        }
-
-        {
-          match = {
-            app_id = "^kitty";
-          };
-          opacity = 0.75;
         }
         # Zen Picture in Picture
         {
@@ -98,11 +119,30 @@
             width = 0.4;
             height = 0.4;
           };
-          opacity = 1;
           default_position = {
             x = 16;
             y = 16;
             anchor = "bottom_right";
+          };
+        }
+        # Umbriel share selecter
+        {
+          match = {
+            app_id = ".SharePicker$";
+          };
+          default_floating = true;
+        }
+
+        # Materialgram media viewer
+        {
+          match = {
+            app_id = ".materialgram$";
+            title = "^Media.";
+          };
+          default_floating = true;
+          default_position = {
+            x = 0;
+            y = 0;
           };
         }
 
@@ -115,16 +155,13 @@
           default_floating = true;
         }
 
-        # Steam Games; default maximized to main monitor
+        # Steam Games
         {
+          # TODO: test if works
           match = {
-            app_id = [
-              "^steam_app"
-              "^[Xwayland] Minecraft"
-            ];
+            app_id = "^.steam_app.";
           };
           default_floating = false;
-          default_output = "HP Inc. OMEN 27q CNC43225MX";
           default_maximize = true;
 
           opacity = 1;
