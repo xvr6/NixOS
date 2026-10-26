@@ -1,22 +1,3 @@
-# --- Umbriel regex reference (window_rule match.app_id / match.title / match.xdg_tag)
-#
-# Engine: C++ std::regex, ECMAScript flavour (like JavaScript regex), case-sensitive.
-#   - Uses regex_search, so a pattern matches ANY part of the value.
-#     Anchor with ^ and $ for an exact match:  "^kitty$"
-#   - `.` is "any single character", not a literal dot. Escape it for a literal:
-#     in Nix strings that means a double backslash: "^fr\\.handbrake\\.ghb$"
-#     ("^.foo" means "exactly one char, then foo" -- almost never what you want)
-#   - No `!` negation prefix. "!foo" is just a literal "!". To exclude, use a
-#     negative lookahead:  "^(?!HandBrake$)"  = any title except exactly "HandBrake"
-#                          "^(?!.*Settings)"  = any title not containing "Settings"
-#   - No lookbehind (?<=...), no inline flags like (?i). For case-insensitivity
-#     use a character class: "[Hh]and[Bb]rake"
-#   - A list of patterns matches if ANY of them match: app_id = [ "^mpv$" "^celluloid$" ];
-#   - Selectors within one `match` are ANDed (app_id AND title must both match).
-#   - Invalid patterns don't fail the build; umbriel logs "invalid regex in ..." at load.
-#
-# Run `umbriel windows` to see live app_ids and titles to match against.
-
 { ... }: {
   programs.umbriel = {
     settings = {
@@ -48,6 +29,7 @@
 
       # --- Window Rules
       # Documentation: https://docs.noctalia.dev/umbriel/window-rules/
+      # Run `umbriel windows` to see live app_ids and titles to match against.
 
       window_rule = [
         {
@@ -71,7 +53,7 @@
         {
           match = {
             app_id = "nemo";
-            title = ".Properties$";
+            title = "Properties$";
           };
           default_floating = true;
         }
@@ -79,14 +61,14 @@
         # Image Viewer
         {
           match = {
-            app_id = ".Loupe$";
+            app_id = "Loupe$";
           };
           default_floating = true;
           opacity = 1;
         }
         {
           match = {
-            app_id = ".FileRoller$";
+            app_id = "FileRoller$";
           };
           default_floating = true;
         }
@@ -95,7 +77,7 @@
         {
           match = {
             app_id = "zen";
-            title = "^Extension.";
+            title = "^Extension";
           };
           default_floating = true;
           default_floating_size = {
@@ -128,7 +110,7 @@
         # Umbriel share selecter
         {
           match = {
-            app_id = ".SharePicker$";
+            app_id = "SharePicker$";
           };
           default_floating = true;
         }
@@ -136,8 +118,8 @@
         # Materialgram media viewer
         {
           match = {
-            app_id = ".materialgram$";
-            title = "^Media.";
+            app_id = "^org.telegram";
+            title = "^Media";
           };
           default_floating = true;
           default_position = {
@@ -159,7 +141,7 @@
         {
           # TODO: test if works
           match = {
-            app_id = "^.steam_app.";
+            app_id = "steam_app";
           };
           default_floating = false;
           default_maximize = true;
