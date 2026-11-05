@@ -56,8 +56,8 @@
         focus.follows_mouse = true;
         middle_click_paste = false;
         cursor = {
-          theme = "";
-          size = 24;
+          theme = config.home.pointerCursor.name;
+          size = config.home.pointerCursor.size;
           # hardware_cursor = true;
           follows_focus = true; # snapping to  window when focus changes.
         };

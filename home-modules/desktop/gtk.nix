@@ -13,6 +13,16 @@
     gtk4.extraCss = ''@import url("noctalia.css");'';
   };
 
+  # Global cursor (GTK, X11, XCURSOR_*); keep in sync with modules/core/greeter.nix
+  home.pointerCursor = {
+    enable = true;
+    name = "capitaine-cursors";
+    package = pkgs.capitaine-cursors;
+    size = 24;
+    gtk.enable = true;
+    x11.enable = true;
+  };
+
   # Lets Noctalia sync gtk-theme / color-scheme on mode changes.
   home.packages = [ pkgs.dconf ];
 }

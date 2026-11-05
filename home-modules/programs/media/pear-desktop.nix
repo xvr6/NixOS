@@ -25,6 +25,6 @@
         };
       }
     ];
-    keybinds."Mod+M" = "scratchpad-toggle:music";
+    keybinds."Mod+M" = "scratchpad-toggle music";
   };
 }

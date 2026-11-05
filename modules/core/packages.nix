@@ -66,7 +66,6 @@ in
     lm_sensors # Used For Getting Hardware Temps
     rclone # Cloning Utility
     jq # Json Formatting Utility
-    bibata-cursors
     fzf # Fuzzy Finder
     fd # Better Find
     git # Git

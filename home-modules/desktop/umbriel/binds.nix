@@ -3,31 +3,31 @@
     settings = {
       keybinds = {
         # Noctalia
-        "Mod+Space" = "spawn: noctalia msg panel-toggle launcher";
-        "Mod+L" = "spawn: noctalia msg session lock";
-        "Mod+Shift+W" = "spawn:noctalia msg panel-toggle wallpaper";
-        "Mod+Control+W" = "spawn:noctalia msg panel-toggle noctalia/wallhaven:browser";
+        "Mod+Space" = "spawn noctalia msg panel-toggle launcher";
+        "Mod+L" = "spawn noctalia msg session lock";
+        "Mod+Shift+W" = "spawn noctalia msg panel-toggle wallpaper";
+        "Mod+Control+W" = "spawn noctalia msg panel-toggle noctalia/wallhaven:browser";
 
         # - System
-        "XF86MonBrightnessUp" = "spawn: noctalia msg brightness-up 5";
-        "XF86MonBrightnessDown" = "spawn: noctalia msg brightness-down 5";
-        "XF86AudioRaiseVolume" = "spawn: noctalia msg volume-up 5";
-        "XF86AudioLowerVolume" = "spawn: noctalia msg volume-down 5";
-        "XF86AudioMute" = "spawn: noctalia msg volume-mute";
-        "XF86AudioPlay" = "spawn: noctalia msg media toggle";
-        "XF86AudioNext" = "spawn: noctalia msg media next";
-        "XF86AudioPrev" = "spawn: noctalia msg media previous";
+        "XF86MonBrightnessUp" = "spawn noctalia msg brightness-up 5";
+        "XF86MonBrightnessDown" = "spawn noctalia msg brightness-down 5";
+        "XF86AudioRaiseVolume" = "spawn noctalia msg volume-up 5";
+        "XF86AudioLowerVolume" = "spawn noctalia msg volume-down 5";
+        "XF86AudioMute" = "spawn noctalia msg volume-mute";
+        "XF86AudioPlay" = "spawn noctalia msg media toggle";
+        "XF86AudioNext" = "spawn noctalia msg media next";
+        "XF86AudioPrev" = "spawn noctalia msg media previous";
 
-        "Print" = "spawn: noctalia msg screenshot-annotate";
+        "Print" = "spawn noctalia msg screenshot-annotate";
         #show clipboard
-        "Mod+V" = "spawn: noctalia msg panel-toggle clipboard";
+        "Mod+V" = "spawn noctalia msg panel-toggle clipboard";
 
         # Programs
-        "Mod+Return" = "spawn: kitty";
-        "Mod+E" = "spawn:nemo";
-        "Mod+Shift+Escape" = "spawn:kitty btop";
-        "Mod+B" = "spawn: zen";
-        "Mod+O" = "spawn: obsidian";
+        "Mod+Return" = "spawn kitty";
+        "Mod+E" = "spawn nemo";
+        "Mod+Shift+Escape" = "spawn kitty btop";
+        "Mod+B" = "spawn zen";
+        "Mod+O" = "spawn obsidian";
 
         #Umbriel window management
         "Mod+Q" = "window-close";
@@ -78,8 +78,7 @@
         "Mod+H" = "cheatsheet-toggle";
 
         # Funny
-
-        "Mod+Control+Alt+Shift+L" = "spawn: zen https://www.linkedin.com/";
+        "Mod+Control+Alt+Shift+L" = "spawn zen https://www.linkedin.com/";
       };
     };
   };
