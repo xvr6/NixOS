@@ -8,7 +8,7 @@
     ./cli/btop
     ./cli/eza
     ./cli/git.nix
-    ./media/discord.nix
+    ./media/vesktop.nix
     ./media/nemo.nix
     ./media/obsidian
     ./media/pear-desktop.nix

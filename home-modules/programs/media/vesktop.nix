@@ -1,6 +1,6 @@
-{ pkgs, ... }:
+{ ... }:
 let
-  # Vencord (patched into the official client) reads ~/.config/Vencord/settings/settings.json
+  # Written to ~/.config/vesktop/settings/settings.json via programs.vesktop.vencord.settings
   vencordSettings = {
     notifyAboutUpdates = false;
     autoUpdate = true;
@@ -19,7 +19,7 @@ let
       ClearURLs.enabled = true;
       CopyFileContents.enabled = true;
       CrashHandler.enabled = true;
-      ExpressionCloner.enabled = true;
+      ExpressionManager.enabled = true;
       Experiments.enabled = true;
       #          FakeNitro.enabled = true;
       FavoriteGifSearch.enabled = true;
@@ -74,14 +74,14 @@ let
   };
 in
 {
-  programs.discord = {
+  programs.vesktop = {
     enable = true;
-    package = pkgs.discord.override { withVencord = true; };
     settings = {
-      SKIP_HOST_UPDATE = true; # updates come from nixpkgs
-      MINIMIZE_TO_TRAY = true;
+      discordBranch = "stable";
+      checkUpdates = false; # updates come from nixpkgs
+      tray = true;
+      minimizeToTray = true;
     };
+    vencord.settings = vencordSettings;
   };
-
-  xdg.configFile."Vencord/settings/settings.json".text = builtins.toJSON vencordSettings;
 }

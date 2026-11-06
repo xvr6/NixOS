@@ -1,5 +1,5 @@
 [accessibility]
-ui_scale = 1.25
+ui_scale = 1.2500000111758709
 
 [bar]
 order = [ "Right" ]
@@ -12,16 +12,15 @@ order = [ "Right" ]
     margin_ends = 16
     position = "right"
     radius = 28
-    scale = 1.25
+    scale = 1.2500000111758709
     start = [ "control-center", "notifications", "output_volume", "active_window" ]
     thickness = 42
 
         [[bar.Right.capsule_group]]
         accordion = false
         accordion_direction = "end"
-        border_width = 1.0
         enabled = true
-        fill = "surface_variant"
+        fill = "surface_container"
         id = "g1"
         members = [ "clock", "cat", "date" ]
         opacity = 1.0
@@ -30,11 +29,10 @@ order = [ "Right" ]
         [[bar.Right.capsule_group]]
         accordion = false
         accordion_direction = "start"
-        border_width = 1.0
         enabled = true
-        fill = "surface_variant"
+        fill = "surface_container"
         id = "g2"
-        members = [ "tray", "battery" ]
+        members = [ "tray", "status", "battery" ]
         opacity = 1.0
         padding = 6.0
 
@@ -55,14 +53,7 @@ auto_locate = true
 [lockscreen_widgets]
 enabled = false
 schema_version = 2
-widget_order = [
-    "lockscreen-login-box@WL-1",
-    "lockscreen-login-box@DP-2",
-    "lockscreen-login-box@DP-1",
-    "lockscreen-login-box@DP-4",
-    "lockscreen-login-box@DP-3",
-    "lockscreen-login-box@eDP-1"
-]
+widget_order = [ "lockscreen-login-box@WL-1", "lockscreen-login-box@eDP-1" ]
 
     [lockscreen_widgets.grid]
     cell_size = 16
@@ -81,7 +72,7 @@ widget_order = [
     type = "login_box"
 
         [lockscreen_widgets.widget."lockscreen-login-box@DP-1".settings]
-        background_color = "surface_variant"
+        background_color = "surface_container"
         background_opacity = 0.88
         background_radius = 12.0
         center_password_text = false
@@ -108,7 +99,7 @@ widget_order = [
     type = "login_box"
 
         [lockscreen_widgets.widget."lockscreen-login-box@DP-2".settings]
-        background_color = "surface_variant"
+        background_color = "surface_container"
         background_opacity = 0.88
         background_radius = 12.0
         center_password_text = false
@@ -135,7 +126,7 @@ widget_order = [
     type = "login_box"
 
         [lockscreen_widgets.widget."lockscreen-login-box@DP-3".settings]
-        background_color = "surface_variant"
+        background_color = "surface_container"
         background_opacity = 0.88
         background_radius = 12.0
         center_password_text = false
@@ -162,7 +153,7 @@ widget_order = [
     type = "login_box"
 
         [lockscreen_widgets.widget."lockscreen-login-box@DP-4".settings]
-        background_color = "surface_variant"
+        background_color = "surface_container"
         background_opacity = 0.88
         background_radius = 12.0
         center_password_text = false
@@ -181,15 +172,15 @@ widget_order = [
     box_height = 196.0
     box_width = 810.0
     cx = 640.0
-    cy = 1240.0
+    cy = 1336.0
     output = "WL-1"
-    placement_height = 1422.0
+    placement_height = 1518.0
     placement_width = 1280.0
     rotation = 0.0
     type = "login_box"
 
         [lockscreen_widgets.widget."lockscreen-login-box@WL-1".settings]
-        background_color = "surface_variant"
+        background_color = "surface_container"
         background_opacity = 0.88
         background_radius = 12.0
         center_password_text = false
@@ -216,7 +207,7 @@ widget_order = [
     type = "login_box"
 
         [lockscreen_widgets.widget."lockscreen-login-box@eDP-1".settings]
-        background_color = "surface_variant"
+        background_color = "surface_container"
         background_opacity = 0.88
         background_radius = 12.0
         center_password_text = false
@@ -230,6 +221,7 @@ widget_order = [
         show_session_buttons = true
         show_unlock_hint = true
         show_weather = true
+
 
 [plugins]
 enabled = [ "dotnetrob/cat", "noctalia/umbriel-companion", "noctalia/wallhaven", "knyrps/nix-search" ]
@@ -255,7 +247,7 @@ community_palette = "Oxocarbon"
 mode = "dark"
 shell_mode = "dark"
 source = "wallpaper"
-wallpaper_scheme = "faithful"
+wallpaper_scheme = "soft"
 
     [theme.templates]
     builtin_ids = [ "kitty", "umbriel", "gtk3", "gtk4" ]
@@ -266,10 +258,10 @@ directory = "/home/xvr6/Pictures/Wallpapers"
 transition = [ "disc", "fade", "honeycomb", "stripes", "wipe", "zoom" ]
 
     [wallpaper.default]
-    path = "/home/xvr6/Pictures/Wallpapers/wallhaven-o3ey37.jpg"
+    path = "/home/xvr6/Pictures/Wallpapers/evening-sky.webp"
 
     [wallpaper.last]
-    path = "/home/xvr6/Pictures/Wallpapers/wallhaven-o3ey37.jpg"
+    path = "/home/xvr6/Pictures/Wallpapers/evening-sky.webp"
 
     [wallpaper.monitors.DP-3]
     path = "/home/xvr6/Pictures/Wallpapers/wallhaven-o3ey37.jpg"
@@ -291,16 +283,16 @@ type = "spacer"
 show_empty_label = false
 
 [widget.audio_visualizer]
-bands = 112
+bands = 92
 capsule = true
 capsule_padding = 4
 capsule_radius = "auto"
 color_1 = "secondary"
 color_2 = "tertiary"
 mirrored = false
-scale = 0.90000000000000002
+scale = 0.90000000000000013
 show_when_idle = true
-width = 210
+width = 224
 
 [widget.battery]
 display_mode = "graphic"
@@ -317,7 +309,7 @@ walk_threshold = 25
 
     [widget.cat.actions]
     left = "panel-open control-center system"
-    right = "exec kitty btop"
+    right = "panel-open control-center system"
 
 [widget.clock]
 font_scale = 0.94999999999999996
@@ -327,7 +319,7 @@ scale = 0.94999999999999996
 custom_image_colorize = true
 
 [widget.date]
-font_scale = 0.83000000000000007
+font_scale = 0.85000000000000009
 format = "{:%a %b %d}"
 scale = 0.84999999999999998
 
@@ -335,7 +327,7 @@ scale = 0.84999999999999998
 album_art_only = true
 
     [widget.media.actions]
-    right = "exec umbriel msg  scratchpad-toggle:music"
+    right = "exec noctalia msg panel-toggle aabidk20/yt-music:panel"
 
 [widget.network]
 scale = 1.3500000000000001

@@ -1,28 +1,9 @@
-{ pkgs, ... }:
+{ ... }:
 {
   # [Claude assisted research, code written by me.]
-  # -- Audeze Maxwell game/chat mix
-  # The dongle exposes two playback PCMs (hw:X,0 = chat + mic, hw:X,1 = game) and mixes
-  # them in hardware using the headset's balance dial. By default ACP only creates a
-  # single "Analog Stereo" sink on PCM 0, so the dial does nothing useful. A custom ACP
-  # profile set creates separate Game and Chat sinks.
-  # 3329:4b18 = Audeze Maxwell XBOX Dongle
-  #
-  # PipeWire's bundled usb-gaming-headset.conf (Arctis 7, Astro A50, ...) almost works, but
-  # its stereo output path is hardcoded to the "PCM,1" mixer element. The Maxwell's chat
-  # PCM is stereo too, so both sinks drove the *game* hardware volume and the chat one
-  # ("PCM", index 0) was never touched -> volumes desynced/jumped depending on the sink.
-  # The paths below bind each sink to its own element. ACP checks
-  # /etc/alsa-card-profile/mixer/ (and ~/.config/alsa-card-profile/mixer/) before its
-  # built-in dir.
-  #   Game: hw:X,1 -> "PCM Playback Volume",1    Chat: hw:X,0 -> "PCM Playback Volume"
-  #   Mic:  hw:X,0 -> "Mic Capture Volume" (stock input path expects a "Headset" element)
-  # Sources:
-  #   https://bbs.archlinux.org/viewtopic.php?id=309552 (PCM mapping + udev ACP_PROFILE_SET)
-  #   https://discussion.fedoraproject.org/t/audeze-maxwell-headset-media-keys-doesnt-work-without-keeping-pavucontrol-open-with-the-pro-audio-profile-selected/127850 (pro-audio alternative)
-  #   Based on: ${pkgs.pipewire}/share/alsa-card-profile/mixer/profile-sets/usb-gaming-headset.conf
-  #   Upstream device list: ${pkgs.pipewire}/lib/udev/rules.d/90-pipewire-alsa.rules
-  #   Mixer elements: `amixer -c <card> contents`, /proc/asound/<card>/usbmixer
+  # Audeze Maxwell dongle (3329:4b18): separate Game (hw:X,1) and Chat (hw:X,0) sinks so the balance dial works.
+  # Based on pipewire's usb-gaming-headset.conf, but each sink gets its own mixer element (upstream uses "PCM,1" for both).
+  # Ref: https://bbs.archlinux.org/viewtopic.php?id=309552; inspect elements with `amixer -c <card> contents`.
   services.udev.extraRules = ''
     SUBSYSTEM=="sound", ACTION=="change", KERNEL=="card*", ATTRS{idVendor}=="3329", ATTRS{idProduct}=="4b18", ENV{ACP_PROFILE_SET}="audeze-maxwell.conf"
   '';
@@ -100,9 +81,7 @@
       wireplumber = {
         enable = true;
         extraConfig."51-audeze-maxwell" = {
-          # A stream pinned to a sink that happened to be the default when it linked (e.g.
-          # Discord -> Chat while Chat was selected to adjust its volume) would otherwise be
-          # dragged along to the next default (Game) and inherit its volume.
+          # Keep streams on their sink when the default changes (else Vesktop gets dragged from Chat to Game).
           "wireplumber.settings"."linking.follow-default-target" = false;
           "monitor.alsa.rules" = [
             {
@@ -122,7 +101,7 @@
                 "node.description" = "Audeze Maxwell Chat";
                 "node.nick" = "Maxwell Chat";
                 "device.form-factor" = "headset";
-                "priority.session" = 1000; # select this as Discord's output device
+                "priority.session" = 1000; # select this as Vesktop's output device
               };
             }
             {
@@ -139,12 +118,12 @@
       # Airplay/RAOP
       # raopOpenFirewall = true;
       extraConfig.pipewire = {
-        #"10-airplay" = {   #-- copy-pasted from some thread, refind to learn more.
+        #"10-airplay" = {
         #  "context.modules" = [
         #    {
         #      name = "libpipewire-module-raop-discover";
         #      args = {
-        #        # "raop.latency.ms" = 500; #If lag/dropouts occur, try increasing buffer.
+        #        # "raop.latency.ms" = 500; # raise on dropouts
         #      };
         #    }
         #  ];
