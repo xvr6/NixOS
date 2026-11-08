@@ -4,6 +4,7 @@
   imports = [
     ./kitty.nix
     ./flatpak.nix
+    ./electron-cache.nix
     ./cli/lf
     ./cli/btop
     ./cli/eza
