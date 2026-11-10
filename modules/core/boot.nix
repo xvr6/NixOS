@@ -31,7 +31,8 @@
     };
 
     tmp.cleanOnBoot = lib.mkDefault true;
-    kernelPackages = lib.mkDefault pkgs.linuxPackages_zen;
-
+    # FIXME:
+    # 7.3.4 NULL-derefs in a BH workqueue during xhci_hcd init (initrd panic); revert to zen once fixed.
+    kernelPackages = pkgs.linuxPackages_6_18;
   };
 }

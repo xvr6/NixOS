@@ -3,6 +3,7 @@
   environment.systemPackages = with pkgs; [
     networkmanagerapplet
     iproute2
+    iw
     nfs-utils
   ];
 
@@ -36,11 +37,11 @@
   networking = {
     useDHCP = false;
     nftables.enable = true;
-    wireless.enable = false; # not needed; using NM
     networkmanager = {
       enable = true;
+      logLevel = "INFO";
       wifi = {
-        backend = "iwd";
+        backend = "wpa_supplicant";
         powersave = false;
         macAddress = "stable-ssid";
       };
@@ -55,10 +56,6 @@
       "2.nixos.pool.ntp.org"
       "3.nixos.pool.ntp.org"
     ];
-    # proxy = {
-    #   default = "http://user:password@proxy:port/";
-    #   noProxy = "127.0.0.1,localhost,internal.domain";
-    # };
 
     firewall = {
       enable = true;
@@ -86,8 +83,8 @@
       DNSOverTLS = "opportunistic";
       FallbackDNS = [
         "1.1.1.1#one.one.one.one"
-        "1.0.0.1#one.one.one.one"
         "8.8.8.8#dns.google"
+        "1.0.0.1#one.one.one.one"
       ];
     };
   };

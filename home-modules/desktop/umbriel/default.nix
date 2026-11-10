@@ -53,7 +53,7 @@
       };
 
       input = {
-        focus.follows_mouse = true;
+        focus.follows_mouse = "sloppy";
         middle_click_paste = false;
         cursor = {
           theme = config.home.pointerCursor.name;
