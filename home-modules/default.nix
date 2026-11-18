@@ -15,7 +15,6 @@
     obs-studio
 
     # Applications
-    plex-desktop
     claude-code
     telegram-desktop
   ];

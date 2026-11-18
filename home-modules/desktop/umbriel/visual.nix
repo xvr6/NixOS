@@ -137,6 +137,13 @@
           default_floating = true;
         }
 
+        # Plex
+        {
+          match = {
+            app_id = "Plex";
+          };
+          opacity = 1;
+        }
         # Steam Games
         {
           # TODO: test if works

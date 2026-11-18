@@ -3,6 +3,7 @@
   # Installed via nix-flatpak
   services.flatpak.packages = [
     "app.fluxer.Fluxer"
+    "tv.plex.PlexDesktop"
     #   "app.zen_browser.zen"
 
     # Not on Flathub; bundle from GitHub releases. Bump url + sha256 to update.
